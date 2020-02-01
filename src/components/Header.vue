@@ -2,6 +2,25 @@
 <template>
   <h1>MENU PRINCIPAL</h1>
     <div class="header">
+  <div class="fluid">
+    <b-container fluid class="meuContainer">
+      <b-row>
+        <b-col sm="1" md="5" lg="5" xl="6">
+          <img src="../images/logo.svg" />
+          <span> clube de consultas</span>
+        </b-col>
+        <b-col sm="1" md="5" lg="5" xl="4">
+            <img  src="../images/localization.png" />
+            <span>Palhoça - SC</span>
+            <span>Essa não é minha localização</span>
+        </b-col>
+        <b-col sm="1" md="2" lg="2" xl="2">
+          <b-button>Cadastrar-se</b-button>
+          <span>Login</span>
+        </b-col>
+      </b-row>
+    </b-container>
+    <!-- <b-container fluid class="header">
       <div class="icon">
         <img class="icon-logo" src="../images/logo.svg" />
         <span class="text1">clube de consultas</span>
@@ -19,7 +38,7 @@
         <b-button class="btn-principal">Cadastrar-se</b-button>
         <span class="btn-login">Login</span>
       </div>
-    </div>
+    </b-container> -->
   </div>
 </template>
 
@@ -31,7 +50,6 @@
   display: flex;
   justify-content: space-around;
   height: 90px;
-  width: 100%;
 }
 
 .icon {
