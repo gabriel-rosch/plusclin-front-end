@@ -1,6 +1,6 @@
 <template>
     <b-container>
-        <main-header></main-header>
+        <main-header/>
     </b-container>
 </template>
 
