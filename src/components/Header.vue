@@ -1,137 +1,41 @@
-
 <template>
-  <h1>MENU PRINCIPAL</h1>
-    <div class="header">
-  <div class="fluid">
-    <b-container fluid class="meuContainer">
-      <b-row>
-        <b-col sm="1" md="5" lg="5" xl="6">
-          <img src="../images/logo.svg" />
-          <span> clube de consultas</span>
-        </b-col>
-        <b-col sm="1" md="5" lg="5" xl="4">
-            <img  src="../images/localization.png" />
-            <span>Palhoça - SC</span>
-            <span>Essa não é minha localização</span>
-        </b-col>
-        <b-col sm="1" md="2" lg="2" xl="2">
-          <b-button>Cadastrar-se</b-button>
-          <span>Login</span>
-        </b-col>
-      </b-row>
-    </b-container>
-    <!-- <b-container fluid class="header">
-      <div class="icon">
-        <img class="icon-logo" src="../images/logo.svg" />
-        <span class="text1">clube de consultas</span>
-      </div>
-      <div class="localization">
-        <div class="icon-localization">
-          <img class src="../images/localization.png" />
-        </div>
-        <div class="text-localization">
-          <span class="text2">Palhoça - SC</span>
-          <span class="text3">Essa não é minha localização</span>
-        </div>
-      </div>
-      <div class="login">
-        <b-button class="btn-principal">Cadastrar-se</b-button>
-        <span class="btn-login">Login</span>
-      </div>
-    </b-container> -->
-  </div>
+    <div class="component">
+        <b-container>
+            <b-row class="row">
+                <b-col class="c1">
+                    <img src="../images/logo.svg" alt="">
+                </b-col>
+                <b-col class="c2">2 of 3</b-col>
+                <b-col class="c3">3 of 3</b-col>
+            </b-row>
+        </b-container>
+    </div>
 </template>
 
 <script>
+    export default {
+        name: 'main-header',
+        components: {}
+    };
 </script>
 
-<style>
-.header {
-  display: flex;
-  justify-content: space-around;
-  height: 90px;
-}
+<style scoped>
+    .row {
+        display: flex;
+    }
 
-.icon {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  height: 100%;
-}
+    .row > * {
+        display: flex;
+    }
 
-.icon-logo {
-  width: 100%;
-  height: 100%;
-}
-.localization {
-  display: flex;
-  align-items: center;
-  height: 100%;
-  width: 20%;
-}
+    .c1, .c2, .c3 {
+        justify-content: center;
+        align-items: center;
+    }
 
-.text-localization {
-  display: flex;
-  flex-direction: column;
-  height: 45%;
-  width: 45%;
-  padding-left: 2%;
-}
-.login {
-  display: flex;
-  align-items: center;
-  display: flex;
-  height: 100%;
-}
-
-.btn-principal {
-  display: flex;
-  width: 150px;
-  height: 51px;
-  left: 1091px;
-  top: 17.6px;
-  justify-content: center;
-  background: #e5695a;
-  border-radius: 60px;
-}
-
-.btn-login {
-  display: flex;
-  width: 44px;
-  height: 23px;
-  left: 1271px;
-  top: 29.6px;
-  margin-left: 20%;
-  font-size: 18px;
-  line-height: 21px;
-
-  color: #e5695a;
-}
-
-.text1 {
-  font-family: Asap;
-  font-style: normal;
-  font-weight: normal;
-  font-size: 21px;
-  color: #99cdcd;
-}
-.text2 {
-  /* Palhoça - SC */
-  font-family: Asap;
-  font-style: normal;
-  font-weight: normal;
-  font-size: 18px;
-  color: #069999;
-}
-.text3 {
-  /* Essa não é minha localização */
-  font-family: Asap;
-  font-style: normal;
-  font-weight: normal;
-  font-size: 12px;
-  line-height: 14px;
-  text-decoration-line: underline;
-  color: #99cdcd;
-}
+    .c1 img {
+        width: 90%;
+        max-width: 250px;
+    }
 </style>
 
