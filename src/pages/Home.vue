@@ -1,7 +1,7 @@
 <template>
-  <b-container>
+  <b-container fluid>
     <main-header />
-    <b-container>
+    <b-container fluid class="box-pesquisa">
       <b-row class="row mt-6">
         <span class="span-fourth">Qual o</span>
         <span class="span-fourth" style="color: #E5695A;">&nbsp;médico&nbsp;</span>
@@ -12,11 +12,11 @@
         <b-button class="btn-primary agendar">Agendar agora</b-button>
       </b-row>
     </b-container>
+    <b-container fluid class="box-apresentation"></b-container>
   </b-container>
 </template>
 
 <script>
-
 </script>
 
 <style>
@@ -42,6 +42,10 @@
   height: 7vw;
 }
 
+.box-pesquisa {
+  padding-left: 10%;
+}
+
 .medico {
   width: 48%;
   height: 100%;
@@ -65,6 +69,13 @@
   font-size: 1.7vw;
   height: 100%;
   height: 100%;
+}
+.box-apresentation {
+  margin-left: 10%;
+  margin-top:  30%;
+  width: 100%;
+  height: 50vw;
+  background: #99cdcd;
 }
 </style>
 
