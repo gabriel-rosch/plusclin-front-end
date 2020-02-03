@@ -1,7 +1,7 @@
 <template>
   <v-app>
     <div class="div-principal">
-      <Header/>
+      <Header />
       <router-view></router-view>
     </div>
   </v-app>
@@ -21,6 +21,52 @@ export default {
   font-family: sans-serif;
   font-style: normal;
   font-weight: normal;
+}
+
+.span-primary {
+  font-style: normal;
+  font-weight: normal;
+  font-size: 1.5vw;
+  color: #e5695a;
+}
+
+.span-secondary {
+  font-style: normal;
+  font-weight: normal;
+  font-size: 1.8vw;
+  color: #069999;
+}
+.span-tertiary {
+  font-style: normal;
+  font-weight: normal;
+  font-size: 1vw;
+  text-decoration-line: underline;
+  color: #99cdcd;
+}
+
+.span-fourth {
+  font-style: normal;
+  font-weight: bold;
+  font-size: 3.6vw;
+  color: #069999;
+}
+
+.btn-primary {
+  background: rgb(229, 105, 90);
+  border-radius: 60px;
+  font-size: 1.3vw;
+  font-weight: bold;
+  color: #ffffff;
+  border-color: transparent;
+  justify-content: center;
+}
+
+.btn-primary:hover {
+  background: rgb(215, 92, 90);
+  border-color: rgba(215, 92, 90, 0.1);
+}
+.btn-primary:focus {
+  background: rgb(215, 92, 90);
 }
 
 .div-principal {
