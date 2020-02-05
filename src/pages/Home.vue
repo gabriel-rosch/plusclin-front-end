@@ -1,22 +1,59 @@
 <template>
-  <b-container fluid>
+  <b-container fluid style="padding: 0;">
     <main-header />
-    <b-container fluid class="box-pesquisa">
-      <b-row class="row mt-6">
-        <span class="span-fourth">Qual o</span>
-        <span class="span-fourth" style="color: #E5695A;">&nbsp;médico&nbsp;</span>
-        <span class="span-fourth">você precisa consultar?</span>
-      </b-row>
-      <b-row class="consulta row mt-2">
-        <input class="medico span-secondary" value="TESTE" />
-        <b-button class="btn-primary agendar">Agendar agora</b-button>
-      </b-row>
+    <b-container fluid class="box-sourch">
+      <div class="box-search">
+        <b-row class="row mt-6">
+          <span class="span-fourth">Qual o</span>
+          <span class="span-fourth" style="color: #E5695A;">&nbsp;médico&nbsp;</span>
+          <span class="span-fourth">você precisa consultar?</span>
+        </b-row>
+        <b-row class="consulta row">
+          <div class="doctor">
+            <input class="medico span-secondary" value="TESTE" />
+          </div>
+          <b-button class="btn-primary agendar">Agendar agora</b-button>
+        </b-row>
+      </div>
     </b-container>
-    <b-container fluid class="box-apresentation"></b-container>
+    <div class="box-information">
+      <div class="wallpaper">
+        <div class="espacamento" />
+        <div class="box1">
+          <div class="header-box">
+            <span class="span-fourth title-box">Consultas particulares no preço que você pode pagar</span>
+            <div class="box">
+              <img class="icon" src="../images/card.svg" alt />
+              <span
+                class="span-secondary class text-box"
+              >Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis id luctus massa. Curabitur luctus orci ac quam fermentum mattis. Nullam in tortor placerat, gravida massa vel, lacinia arcu.</span>
+            </div>
+          </div>
+        </div>
+        <div class="box2">
+          <div class="header-box">
+            <span class="span-fourth title-box">Consultas particulares no preço que você pode pagar</span>
+            <div class="box">
+              <img class="icon" src="../images/card.svg" alt />
+              <span
+                class="span-secondary class text-box"
+              >Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis id luctus massa. Curabitur luctus orci ac quam fermentum mattis. Nullam in tortor placerat, gravida massa vel, lacinia arcu.</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
   </b-container>
 </template>
 
 <script>
+export default {
+  data() {
+    return {
+      options: ["Apple"]
+    };
+  }
+};
 </script>
 
 <style>
@@ -25,28 +62,26 @@
 }
 
 .mt-6 {
-  padding-top: 15% !important;
+  padding-top: 19% !important;
 }
 
 .row {
   display: flex;
-  padding-top: 1%;
 }
 
 .row > * {
   display: flex;
 }
 
-.consulta {
-  display: flex;
-  height: 7vw;
-}
-
-.box-pesquisa {
+.box-search {
   padding-left: 10%;
 }
+.consulta {
+  display: flex;
+  height: 6vw;
+}
 
-.medico {
+.doctor {
   width: 48%;
   height: 100%;
   font-size: 24;
@@ -68,14 +103,72 @@
   justify-content: center;
   font-size: 1.7vw;
   height: 100%;
-  height: 100%;
 }
-.box-apresentation {
-  margin-left: 10%;
-  margin-top:  30%;
+
+/* PARTE INFERIOR DA TELA ABAIXO */
+
+.box-information {
+  height: 82.8vw;
   width: 100%;
-  height: 50vw;
-  background: #99cdcd;
+  padding-top: 20%;
+  margin-bottom: 25%;
+}
+
+.espacamento {
+  /* background-color: pink; */
+  width: 100%;
+  height: 5%;
+}
+
+.wallpaper {
+  z-index: 1000;
+  margin-top: 5%;
+  background-color: #99cdcd;
+  width: 92%;
+  margin-left: 8%;
+  height: 132%;
+}
+
+.box1 {
+  background-color: #ffffff;
+  width: 90%;
+  margin-left: 10%;
+  height: 45%;
+  margin-top: -6% !important;
+}
+
+.box2 {
+  background-color: #ffffff;
+  width: 88.7%;
+  margin-top: 5%;
+  margin-left: -8.7%;
+  padding-left: 10%;
+  height: 45%;
+}
+
+.header-box {
+  display: grid;
+}
+
+.title-box {
+  padding: 5% 35% 5% 10%;
+  font-size: 3vw;
+}
+
+.box {
+  display: flex;
+  padding-left: 5%;
+  padding-right: 15%;
+}
+
+.text-box {
+  font-size: 1.4vw;
+}
+
+.icon {
+  min-width: 20%;
+  margin-right: 5%;
+  max-width: 20%;
 }
 </style>
 

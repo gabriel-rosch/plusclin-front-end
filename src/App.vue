@@ -3,15 +3,17 @@
     <div class="div-principal">
       <Header />
       <router-view></router-view>
+      <Footer />
     </div>
   </v-app>
 </template>
 
 <script>
 import Header from "./components/Header";
+import Footer from "./components/Footer";
 
 export default {
-  components: { Header },
+  components: {Header, Footer},
   created() {}
 };
 </script>
@@ -33,13 +35,14 @@ export default {
 .span-secondary {
   font-style: normal;
   font-weight: normal;
-  font-size: 1.8vw;
+  font-size: 1.1vw;
   color: #069999;
 }
+
 .span-tertiary {
   font-style: normal;
   font-weight: normal;
-  font-size: 1vw;
+  font-size: 0.7vw;
   text-decoration-line: underline;
   color: #99cdcd;
 }
@@ -52,6 +55,16 @@ export default {
 }
 
 .btn-primary {
+  background: rgb(229, 105, 90);
+  border-radius: 60px;
+  font-size: 1.3vw;
+  font-weight: bold;
+  color: #ffffff;
+  border-color: transparent;
+  justify-content: center;
+}
+
+.btn-secondary {
   background: rgb(229, 105, 90);
   border-radius: 60px;
   font-size: 1.3vw;
