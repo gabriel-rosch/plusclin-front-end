@@ -14,6 +14,6 @@ export default {
 .footer{
   height: 35vw;
   background-color:#E5695A; 
-}
+  }
 </style>
 

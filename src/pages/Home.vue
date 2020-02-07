@@ -3,17 +3,17 @@
     <main-header />
     <b-container fluid class="box-sourch">
       <div class="box-search">
-        <b-row class="row mt-6">
+        <b-row-home class="row-home mt-6">
           <span class="span-fourth">Qual o</span>
           <span class="span-fourth" style="color: #E5695A;">&nbsp;médico&nbsp;</span>
           <span class="span-fourth">você precisa consultar?</span>
-        </b-row>
-        <b-row class="consulta row">
+        </b-row-home>
+        <b-row-home class="consulta row-home">
           <div class="doctor">
             <input class="medico span-secondary" value="TESTE" />
           </div>
           <b-button class="btn-primary agendar">Agendar agora</b-button>
-        </b-row>
+        </b-row-home>
       </div>
     </b-container>
     <div class="box-information">
@@ -44,8 +44,30 @@
       </div>
     </div>
     <div class="final-box">
-      <img class="button-icon" src="../images/botao-esquerdo.svg" alt />
-      <img class="button-icon" src="../images/botao-direito.svg" alt />
+      <div class="carrousel">
+        <div class="botao-esquerdo">
+          <img class="button-icon" src="../images/botao-esquerdo.svg" alt />
+        </div>
+        <div class="center-box">
+          <div class="center-img">
+            <img class="final-imagem" src="../images/velho.svg" alt />
+          </div>
+          <div class="center-text">
+            <span
+              class="span-secondary class text-box"
+            >Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis id luctus massa. Curabitur luctus orci ac quam fermentum mattis. Nullam in tortor placerat, gravida massa vel, lacinia arcu.</span>
+          </div>
+        </div>
+        <div class="botao-direito">
+          <img class="button-icon" src="../images/botao-direito.svg" alt />
+        </div>
+      </div>
+      <div class="compartilhe-box">
+        <span class="span-primary compartilhe-text">Compartilhe a sua experiência com a gente</span>
+      </div>
+    </div>
+    <div class="testecarrousel">
+      
     </div>
   </b-container>
 </template>
@@ -69,11 +91,11 @@ export default {
   padding-top: 19% !important;
 }
 
-.row {
+.row-home {
   display: flex;
 }
 
-.row > * {
+.row-home > * {
   display: flex;
 }
 
@@ -176,9 +198,66 @@ export default {
 }
 
 .final-box {
+  flex-direction: column;
   display: flex;
-  background-color: blue;
-  height: 30vw;
+  height: 40vw;
+  justify-content: center;
+}
+.carrousel {
+  display: flex;
+}
+.center-box {
+  display: flex;
+  width: 70%;
+  justify-content: center;
+}
+
+.center-img {
+  align-content: center;
+  display: grid;
+  width: 40%;
+  padding-left: 10%;
+}
+
+.center-text {
+  display: grid;
+  width: 50%;
+  padding-left: 3%;
+  margin-right: 10%;
+  align-content: center;
+}
+
+.final-imagem {
+  display: flex;
+  width: 100%;
+  /* USAR FUTURAMENTE PARA TRABALHAR COM A IMAGEM*/
+  /* border-radius: 25%; */
+}
+
+.botao-esquerdo {
+  display: flex;
+  margin-left: 15%;
+}
+
+.botao-direito {
+  display: flex;
+  margin-right: 15%;
+}
+
+.compartilhe-box {
+  display: flex;
+  padding-top: 3%;
+  justify-content: center;
+  align-content: center;
+}
+
+.compartilhe-text {
+  font-size: 1.1vw;
+  text-decoration-line: underline;
+}
+
+.button-icon{
+  width: 100%;
 }
 </style>
 
