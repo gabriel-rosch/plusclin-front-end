@@ -43,6 +43,10 @@
         </div>
       </div>
     </div>
+    <div class="final-box">
+      <img class="button-icon" src="../images/botao-esquerdo.svg" alt />
+      <img class="button-icon" src="../images/botao-direito.svg" alt />
+    </div>
   </b-container>
 </template>
 
@@ -169,6 +173,12 @@ export default {
   min-width: 20%;
   margin-right: 5%;
   max-width: 20%;
+}
+
+.final-box {
+  display: flex;
+  background-color: blue;
+  height: 30vw;
 }
 </style>
 
