@@ -10,7 +10,8 @@
         </b-row-home>
         <b-row-home class="consulta row-home">
           <div class="doctor">
-            <input class="medico span-secondary" value="TESTE" />
+            <b-form-input class="form-control" list="input-list" id="input-with-list"></b-form-input>
+            <b-form-datalist class="form-recommendation" id="input-list" :options="options"></b-form-datalist>
           </div>
           <b-button class="btn-primary agendar">Agendar agora</b-button>
         </b-row-home>
@@ -71,16 +72,14 @@
 </template>
 
 <script>
-    // import {listSpecialties} from "../api/specialties";
-    export default {
-        data() {
-            return {
-                options: ["Apple"]
-            };
-        },
-        async mounted() {
-
-        }
+// import {listSpecialties} from "../api/specialties";
+export default {
+  data() {
+    return {
+      options: ["Apple", "AIDS"]
+    };
+  },
+  async mounted() {}
 };
 </script>
 
@@ -101,6 +100,28 @@
   display: flex;
 }
 
+.form-control {
+  border-color: none;
+  width: 100%;
+  height: 100%;
+  border: none;
+  outline-color: 0;
+  font-size: 1.5vw;
+  color: #069999;
+}
+option{
+  background-color: red;
+  font-size: 1.5vw;
+  /* color: #069999; */
+}
+.form-control:focus,
+.form-control:active {
+  font-size: 1.5vw;
+  color: #069999;
+  border: none;
+  -webkit-box-shadow: none;
+}
+
 .box-search {
   padding-left: 10%;
 }
@@ -117,12 +138,6 @@
   padding-right: 5%;
   background: #ffffff;
   border-radius: 60px;
-}
-
-.medico:focus {
-  box-shadow: 0 0 0 0;
-  border: 0 none;
-  outline: 0;
 }
 
 .agendar {
