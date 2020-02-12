@@ -22,14 +22,6 @@
 <script>
 export default {
   name: "main-header",
-  methods: {
-    login() {
-      console.log("abrir cadastrar agora");
-    },
-    cadastrar() {
-           console.log("abrir login agora");
-    }
-  }
 };
 </script>
 
