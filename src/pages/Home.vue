@@ -10,7 +10,7 @@
         </b-row-home>
         <b-row-home class="consulta row-home">
           <div class="doctor">
-            <b-form-input class="form-control" list="input-list" id="input-with-list"></b-form-input>
+            <b-form-input autocomplete="off" class="form-control" list="input-list" id="input-with-list"></b-form-input>
             <b-form-datalist class="form-recommendation" id="input-list" :options="options"></b-form-datalist>
           </div>
           <b-button class="btn-primary agendar">Agendar agora</b-button>
@@ -84,6 +84,7 @@ export default {
 </script>
 
 <style>
+
 .main-page {
   background-color: aqua;
 }
@@ -100,6 +101,7 @@ export default {
   display: flex;
 }
 
+
 .form-control {
   border-color: none;
   width: 100%;
@@ -109,11 +111,7 @@ export default {
   font-size: 1.5vw;
   color: #069999;
 }
-option{
-  background-color: red;
-  font-size: 1.5vw;
-  /* color: #069999; */
-}
+
 .form-control:focus,
 .form-control:active {
   font-size: 1.5vw;

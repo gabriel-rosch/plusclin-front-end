@@ -34,6 +34,11 @@ export default {
   font-size: 1.5vw;
   color: #e5695a;
 }
+.link-primary {
+  font-style: normal;
+  font-weight: normal;
+  font-size: 1.5vw;
+}
 
 .span-secondary {
   font-style: normal;
@@ -77,13 +82,6 @@ export default {
   justify-content: center;
 }
 
-.btn-primary:hover {
-  background: rgb(215, 92, 90);
-  border-color: rgba(215, 92, 90, 0.1);
-}
-.btn-primary:focus {
-  background: rgb(215, 92, 90);
-}
 
 .div-principal {
   height: 100%;

@@ -40,6 +40,7 @@ export default {
   background-color: #e5695a;
 }
 
+
 .links {
   width: 100%;
   font-style: normal;
