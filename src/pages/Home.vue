@@ -10,10 +10,15 @@
         </b-row-home>
         <b-row-home class="consulta row-home">
           <div class="doctor">
-            <b-form-input autocomplete="off" class="form-control" list="input-list" id="input-with-list"></b-form-input>
+            <b-form-input
+              autocomplete="off"
+              class="form-control"
+              list="input-list"
+              id="input-with-list"
+            ></b-form-input>
             <b-form-datalist class="form-recommendation" id="input-list" :options="options"></b-form-datalist>
           </div>
-          <b-button class="btn-primary agendar">Agendar agora</b-button>
+          <b-button class="btn-primary agendar" @click="agendar()">Agendar agora</b-button>
         </b-row-home>
       </div>
     </b-container>
@@ -79,12 +84,16 @@ export default {
       options: ["Apple", "AIDS"]
     };
   },
+  methods: {
+    agendar() {
+      window.location.href = "/Clinic";
+    }
+  },
   async mounted() {}
 };
 </script>
 
 <style>
-
 .main-page {
   background-color: aqua;
 }
@@ -100,7 +109,6 @@ export default {
 .row-home > * {
   display: flex;
 }
-
 
 .form-control {
   border-color: none;
