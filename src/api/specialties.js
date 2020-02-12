@@ -7,5 +7,5 @@ import {get } from './config';
 // }
 
 export async function listSpecialties() {
-    //return get('./specialties');
+    return get('./specialties');
 }

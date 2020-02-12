@@ -72,15 +72,18 @@
 </template>
 
 <script>
-// import {listSpecialties} from "../api/specialties";
-export default {
-  data() {
-    return {
-      options: ["Apple", "AIDS"]
-    };
-  },
-  async mounted() {}
-};
+  import {listSpecialties} from "../api/specialties";
+  export default {
+    data() {
+      return {
+        options: ["Apple", "AIDS"]
+      };
+    },
+    async mounted() {
+      // eslint-disable-next-line no-console
+      console.log(await (await listSpecialties()).json());
+    }
+  };
 </script>
 
 <style>
@@ -103,11 +106,11 @@ export default {
 
 
 .form-control {
-  border-color: none;
+  border-color: transparent;
   width: 100%;
   height: 100%;
   border: none;
-  outline-color: 0;
+  outline: 0;
   font-size: 1.5vw;
   color: #069999;
 }
@@ -131,7 +134,7 @@ export default {
 .doctor {
   width: 48%;
   height: 100%;
-  font-size: 24;
+  font-size: 24px;
   padding-left: 5%;
   padding-right: 5%;
   background: #ffffff;

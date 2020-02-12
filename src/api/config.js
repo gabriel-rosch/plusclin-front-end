@@ -4,14 +4,9 @@ function resolveUrl (url) {
 }
 
 export function get (url) {
-    // eslint-disable-next-line no-console
-    console.log(resolveUrl(url))
     return fetch(resolveUrl(url), {
         method: 'GET',
-        mode:'no-cors',
-        headers: { 'Content-Type': 'application/json', 'Authorization': 'Bearer' }
-    }).then(function(response) {
-        response.json();
+        headers: { 'Content-Type': 'application/json' }
     })
 }
 
