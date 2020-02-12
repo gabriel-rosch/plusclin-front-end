@@ -17,9 +17,11 @@
           <span class="links">Especialidades</span>
           <span class="links">Motivo da sua consulta</span>
         </div>
-        <div class="redes-sociais">
-          <span class="descontos">Especialistas</span>
-        </div>
+      </div>
+      <div style="display: flex;" class="redes-sociais">
+        <span style="margin-left: 7%;" class="descontos">Descontos e novidades nas nossas redes</span>
+        <img style="width: 5%;" src="../images/instagram.svg" alt />
+        <img style="width: 5%; margin-left: 2%;" src="../images/facebook.svg" alt />
       </div>
     </div>
   </b-container>
@@ -34,7 +36,7 @@ export default {
 
 <style scoped>
 .footer {
-  height: 35vw;
+  height: 45vw;
   background-color: #e5695a;
 }
 
@@ -49,17 +51,12 @@ export default {
 }
 
 .descontos {
-width: 319px;
-height: 23px;
-left: 121.5px;
-bottom: 216.5px;
-
-font-style: normal;
-font-weight: normal;
-font-size: 18px;
-line-height: 21px;
-
-color: #FED1CB;
+  width: 28%;
+  font-style: normal;
+  font-weight: normal;
+  font-size: 1.3vw;
+  line-height: 7vw;
+  color: #fed1cb;
 }
 </style>
 

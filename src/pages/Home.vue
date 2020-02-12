@@ -66,19 +66,21 @@
         <span class="span-primary compartilhe-text">Compartilhe a sua experiência com a gente</span>
       </div>
     </div>
-    <div class="testecarrousel">
-      
-   </div>
+    <div class="testecarrousel"></div>
   </b-container>
 </template>
 
 <script>
-export default {
-  data() {
-    return {
-      options: ["Apple"]
-    };
-  }
+    // import {listSpecialties} from "../api/specialties";
+    export default {
+        data() {
+            return {
+                options: ["Apple"]
+            };
+        },
+        async mounted() {
+
+        }
 };
 </script>
 
@@ -256,9 +258,8 @@ export default {
   text-decoration-line: underline;
 }
 
-.button-icon{
+.button-icon {
   width: 100%;
 }
-
 </style>
 
