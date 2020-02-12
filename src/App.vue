@@ -1,7 +1,6 @@
 <template>
   <v-app>
     <div class="div-principal">
-      <Header />
       <router-view></router-view>
       <Footer />
       <!-- <Carousel /> -->
@@ -10,13 +9,10 @@
 </template>
 
 <script>
-import Header from "./components/Header";
 import Footer from "./components/Footer";
-// import Carousel from "./pages/Carousel";
-
 export default {
-  components: {Header, Footer,
-  // Carousel
+  components: {
+    Footer
   },
   created() {}
 };
