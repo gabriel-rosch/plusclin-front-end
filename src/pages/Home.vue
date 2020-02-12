@@ -68,7 +68,7 @@
     </div>
     <div class="testecarrousel">
       
-    </div>
+   </div>
   </b-container>
 </template>
 
@@ -259,5 +259,6 @@ export default {
 .button-icon{
   width: 100%;
 }
+
 </style>
 
