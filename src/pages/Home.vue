@@ -1,263 +1,272 @@
 <template>
-  <b-container fluid style="padding: 0;">
-    <main-header />
-    <b-container fluid class="box-sourch">
-      <div class="box-search">
-        <b-row-home class="row-home mt-6">
-          <span class="span-fourth">Qual o</span>
-          <span class="span-fourth" style="color: #E5695A;">&nbsp;médico&nbsp;</span>
-          <span class="span-fourth">você precisa consultar?</span>
-        </b-row-home>
-        <b-row-home class="consulta row-home">
-          <div class="doctor">
-            <input class="medico span-secondary" value="TESTE" />
-          </div>
-          <b-button class="btn-primary agendar">Agendar agora</b-button>
-        </b-row-home>
-      </div>
-    </b-container>
-    <div class="box-information">
-      <div class="wallpaper">
-        <div class="espacamento" />
-        <div class="box1">
-          <div class="header-box">
-            <span class="span-fourth title-box">Consultas particulares no preço que você pode pagar</span>
-            <div class="box">
-              <img class="icon" src="../images/card.svg" alt />
-              <span
-                class="span-secondary class text-box"
-              >Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis id luctus massa. Curabitur luctus orci ac quam fermentum mattis. Nullam in tortor placerat, gravida massa vel, lacinia arcu.</span>
+    <b-container fluid style="padding: 0;">
+        <main-header/>
+        <b-container fluid class="box-sourch">
+            <div class="box-search">
+                <b-row class="row-home mt-6">
+                    <span class="span-fourth">Qual o</span>
+                    <span class="span-fourth" style="color: #E5695A;">&nbsp;médico&nbsp;</span>
+                    <span class="span-fourth">você precisa consultar?</span>
+                </b-row>
+                <b-row class="consulta row-home">
+                    <div class="doctor">
+                        <input class="medico span-secondary" value="TESTE"/>
+                    </div>
+                    <b-button class="btn-primary agendar">Agendar agora</b-button>
+                </b-row>
             </div>
-          </div>
-        </div>
-        <div class="box2">
-          <div class="header-box">
-            <span class="span-fourth title-box">Consultas particulares no preço que você pode pagar</span>
-            <div class="box">
-              <img class="icon" src="../images/card.svg" alt />
-              <span
-                class="span-secondary class text-box"
-              >Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis id luctus massa. Curabitur luctus orci ac quam fermentum mattis. Nullam in tortor placerat, gravida massa vel, lacinia arcu.</span>
+        </b-container>
+        <div class="box-information">
+            <div class="wallpaper">
+                <div class="espacamento"/>
+                <div class="box1">
+                    <div class="header-box">
+                        <span class="span-fourth title-box">Consultas particulares no preço que você pode pagar</span>
+                        <div class="box">
+                            <img class="icon" src="../images/card.svg" alt/>
+                            <span
+                                    class="span-secondary class text-box"
+                            >Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis id luctus massa. Curabitur luctus orci ac quam fermentum mattis. Nullam in tortor placerat, gravida massa vel, lacinia arcu.</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="box2">
+                    <div class="header-box">
+                        <span class="span-fourth title-box">Consultas particulares no preço que você pode pagar</span>
+                        <div class="box">
+                            <img class="icon" src="../images/card.svg" alt/>
+                            <span
+                                    class="span-secondary class text-box"
+                            >Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis id luctus massa. Curabitur luctus orci ac quam fermentum mattis. Nullam in tortor placerat, gravida massa vel, lacinia arcu.</span>
+                        </div>
+                    </div>
+                </div>
             </div>
-          </div>
         </div>
-      </div>
-    </div>
-    <div class="final-box">
-      <div class="carrousel">
-        <div class="botao-esquerdo">
-          <img class="button-icon" src="../images/botao-esquerdo.svg" alt />
-        </div>
-        <div class="center-box">
-          <div class="center-img">
-            <img class="final-imagem" src="../images/velho.svg" alt />
-          </div>
-          <div class="center-text">
+        <div class="final-box">
+            <div class="carrousel">
+                <div class="botao-esquerdo">
+                    <img class="button-icon" src="../images/botao-esquerdo.svg" alt/>
+                </div>
+                <div class="center-box">
+                    <div class="center-img">
+                        <img class="final-imagem" src="../images/velho.svg" alt/>
+                    </div>
+                    <div class="center-text">
             <span
-              class="span-secondary class text-box"
+                    class="span-secondary class text-box"
             >Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis id luctus massa. Curabitur luctus orci ac quam fermentum mattis. Nullam in tortor placerat, gravida massa vel, lacinia arcu.</span>
-          </div>
+                    </div>
+                </div>
+                <div class="botao-direito">
+                    <img class="button-icon" src="../images/botao-direito.svg" alt/>
+                </div>
+            </div>
+            <div class="compartilhe-box">
+                <span class="span-primary compartilhe-text">Compartilhe a sua experiência com a gente</span>
+            </div>
         </div>
-        <div class="botao-direito">
-          <img class="button-icon" src="../images/botao-direito.svg" alt />
+        <div class="testecarrousel">
+
         </div>
-      </div>
-      <div class="compartilhe-box">
-        <span class="span-primary compartilhe-text">Compartilhe a sua experiência com a gente</span>
-      </div>
-    </div>
-    <div class="testecarrousel">
-      
-    </div>
-  </b-container>
+    </b-container>
 </template>
 
 <script>
-export default {
-  data() {
-    return {
-      options: ["Apple"]
+    //import {listSpecialties} from "../api/specialties";
+    import MainHeader from "../components/Header";
+
+    export default {
+        data() {
+            return {
+                options: ["Apple"]
+            };
+        },
+        components: {
+            MainHeader
+        },
+        async mounted() {
+
+        }
     };
-  }
-};
 </script>
 
 <style>
-.main-page {
-  background-color: aqua;
-}
 
-.mt-6 {
-  padding-top: 19% !important;
-}
+    .mt-6 {
+        padding-top: 19% !important;
+    }
 
-.row-home {
-  display: flex;
-}
+    .row-home {
+        display: flex;
+    }
 
-.row-home > * {
-  display: flex;
-}
+    .row-home > * {
+        display: flex;
+    }
 
-.box-search {
-  padding-left: 10%;
-}
-.consulta {
-  display: flex;
-  height: 6vw;
-}
+    .box-search {
+        padding-left: 10%;
+    }
 
-.doctor {
-  width: 48%;
-  height: 100%;
-  font-size: 24;
-  padding-left: 5%;
-  padding-right: 5%;
-  background: #ffffff;
-  border-radius: 60px;
-}
+    .consulta {
+        display: flex;
+        height: 6vw;
+    }
 
-.medico:focus {
-  box-shadow: 0 0 0 0;
-  border: 0 none;
-  outline: 0;
-}
+    .doctor {
+        width: 48%;
+        height: 100%;
+        font-size: 24;
+        padding-left: 5%;
+        padding-right: 5%;
+        background: #ffffff;
+        border-radius: 60px;
+    }
 
-.agendar {
-  margin-left: 2%;
-  width: 23%;
-  justify-content: center;
-  font-size: 1.7vw;
-  height: 100%;
-}
+    .medico:focus {
+        box-shadow: 0 0 0 0;
+        border: 0 none;
+        outline: 0;
+    }
 
-/* PARTE INFERIOR DA TELA ABAIXO */
+    .agendar {
+        margin-left: 2%;
+        width: 23%;
+        justify-content: center;
+        font-size: 1.7vw;
+        height: 100%;
+    }
 
-.box-information {
-  height: 82.8vw;
-  width: 100%;
-  padding-top: 20%;
-  margin-bottom: 25%;
-}
+    /* PARTE INFERIOR DA TELA ABAIXO */
 
-.espacamento {
-  /* background-color: pink; */
-  width: 100%;
-  height: 5%;
-}
+    .box-information {
+        height: 82.8vw;
+        width: 100%;
+        padding-top: 20%;
+        margin-bottom: 25%;
+    }
 
-.wallpaper {
-  z-index: 1000;
-  margin-top: 5%;
-  background-color: #99cdcd;
-  width: 92%;
-  margin-left: 8%;
-  height: 132%;
-}
+    .espacamento {
+        /* background-color: pink; */
+        width: 100%;
+        height: 5%;
+    }
 
-.box1 {
-  background-color: #ffffff;
-  width: 90%;
-  margin-left: 10%;
-  height: 45%;
-  margin-top: -6% !important;
-}
+    .wallpaper {
+        z-index: 1000;
+        margin-top: 5%;
+        background-color: #99cdcd;
+        width: 92%;
+        margin-left: 8%;
+        height: 132%;
+    }
 
-.box2 {
-  background-color: #ffffff;
-  width: 88.7%;
-  margin-top: 5%;
-  margin-left: -8.7%;
-  padding-left: 10%;
-  height: 45%;
-}
+    .box1 {
+        background-color: #ffffff;
+        width: 90%;
+        margin-left: 10%;
+        height: 45%;
+        margin-top: -6% !important;
+    }
 
-.header-box {
-  display: grid;
-}
+    .box2 {
+        background-color: #ffffff;
+        width: 88.7%;
+        margin-top: 5%;
+        margin-left: -8.7%;
+        padding-left: 10%;
+        height: 45%;
+    }
 
-.title-box {
-  padding: 5% 35% 5% 10%;
-  font-size: 3vw;
-}
+    .header-box {
+        display: grid;
+    }
 
-.box {
-  display: flex;
-  padding-left: 5%;
-  padding-right: 15%;
-}
+    .title-box {
+        padding: 5% 35% 5% 10%;
+        font-size: 3vw;
+    }
 
-.text-box {
-  font-size: 1.4vw;
-}
+    .box {
+        display: flex;
+        padding-left: 5%;
+        padding-right: 15%;
+    }
 
-.icon {
-  min-width: 20%;
-  margin-right: 5%;
-  max-width: 20%;
-}
+    .text-box {
+        font-size: 1.4vw;
+    }
 
-.final-box {
-  flex-direction: column;
-  display: flex;
-  height: 40vw;
-  justify-content: center;
-}
-.carrousel {
-  display: flex;
-}
-.center-box {
-  display: flex;
-  width: 70%;
-  justify-content: center;
-}
+    .icon {
+        min-width: 20%;
+        margin-right: 5%;
+        max-width: 20%;
+    }
 
-.center-img {
-  align-content: center;
-  display: grid;
-  width: 40%;
-  padding-left: 10%;
-}
+    .final-box {
+        flex-direction: column;
+        display: flex;
+        height: 40vw;
+        justify-content: center;
+    }
 
-.center-text {
-  display: grid;
-  width: 50%;
-  padding-left: 3%;
-  margin-right: 10%;
-  align-content: center;
-}
+    .carrousel {
+        display: flex;
+    }
 
-.final-imagem {
-  display: flex;
-  width: 100%;
-  /* USAR FUTURAMENTE PARA TRABALHAR COM A IMAGEM*/
-  /* border-radius: 25%; */
-}
+    .center-box {
+        display: flex;
+        width: 70%;
+        justify-content: center;
+    }
 
-.botao-esquerdo {
-  display: flex;
-  margin-left: 15%;
-}
+    .center-img {
+        align-content: center;
+        display: grid;
+        width: 40%;
+        padding-left: 10%;
+    }
 
-.botao-direito {
-  display: flex;
-  margin-right: 15%;
-}
+    .center-text {
+        display: grid;
+        width: 50%;
+        padding-left: 3%;
+        margin-right: 10%;
+        align-content: center;
+    }
 
-.compartilhe-box {
-  display: flex;
-  padding-top: 3%;
-  justify-content: center;
-  align-content: center;
-}
+    .final-imagem {
+        display: flex;
+        width: 100%;
+        /* USAR FUTURAMENTE PARA TRABALHAR COM A IMAGEM*/
+        /* border-radius: 25%; */
+    }
 
-.compartilhe-text {
-  font-size: 1.1vw;
-  text-decoration-line: underline;
-}
+    .botao-esquerdo {
+        display: flex;
+        margin-left: 15%;
+    }
 
-.button-icon{
-  width: 100%;
-}
+    .botao-direito {
+        display: flex;
+        margin-right: 15%;
+    }
+
+    .compartilhe-box {
+        display: flex;
+        padding-top: 3%;
+        justify-content: center;
+        align-content: center;
+    }
+
+    .compartilhe-text {
+        font-size: 1.1vw;
+        text-decoration-line: underline;
+    }
+
+    .button-icon {
+        width: 100%;
+    }
 </style>
 
