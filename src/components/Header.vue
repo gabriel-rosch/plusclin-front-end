@@ -2,7 +2,7 @@
   <b-container fluid>
     <b-row class="row">
       <b-col class="c1">
-        <img src="../images/logo.svg" alt />
+        <img class="image-logo" @click="paginaInicial()" src="../images/logo.svg" alt />
       </b-col>
       <b-col class="c2">
         <img src="../images/localization.svg" alt />
@@ -22,6 +22,11 @@
 <script>
 export default {
   name: "main-header",
+  methods: {
+    paginaInicial: function(){
+      window.location.href="/";
+    }
+  }
 };
 </script>
 
@@ -42,6 +47,10 @@ export default {
 .c2 img {
   margin-right: 2%;
   width: 5%;
+}
+
+.image-logo:hover{
+  cursor: pointer;
 }
 
 .localization {

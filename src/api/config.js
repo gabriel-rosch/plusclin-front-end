@@ -1,16 +1,15 @@
-
-function resolveUrl (url) {
-    return new URL(url, "http://localhost:3331").href;
+function resolveUrl(url) {
+    return new URL(url, "http://localhost:25565").href;
 }
 
-export function get (url) {
+export function get(url) {
     return fetch(resolveUrl(url), {
         method: 'GET',
         headers: { 'Content-Type': 'application/json' }
     })
 }
 
-export function post (url, data) {
+export function post(url, data) {
     return fetch(resolveUrl(url), {
 
         method: 'POST',
