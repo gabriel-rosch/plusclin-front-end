@@ -83,12 +83,16 @@ export default {
     return {
       dataListOptions: [],
       specialties: [],
-      specialtiesSelect: ""
+      specialtiesSelect: "",
+      idSpecialtiesSelect: 0,
     };
   },
   methods: {
     agendar() {
-      window.location.href = "/Clinic&Especialitis=";
+      var index = this.dataListOptions.indexOf(this.specialtiesSelect);
+      var idSpecialtiesSelect = this.specialties[index][0];
+      var link = "/Clinic?idSpecialties="+idSpecialtiesSelect;
+      window.location.href=link;
     }
   },
   async mounted() {
