@@ -11,11 +11,12 @@
           <div class="doctor">
             <b-form-input
               autocomplete="off"
+              v-model="specialtiesSelect"
               class="form-control"
               list="input-list"
               id="input-with-list"
             ></b-form-input>
-            <b-form-datalist class="form-recommendation" id="input-list" :options="options"></b-form-datalist>
+            <b-form-datalist class="form-recommendation" id="input-list" :options="dataListOptions"></b-form-datalist>
           </div>
           <b-button class="btn-primary agendar" @click="agendar()">Agendar agora</b-button>
         </b-row>
@@ -76,32 +77,34 @@
 </template>
 
 <script>
- import {listSpecialties} from "../api/specialties";
+import { listSpecialties } from "../api/specialties";
 export default {
   data() {
     return {
-      options: []
+      dataListOptions: [],
+      specialties: [],
+      specialtiesSelect: ""
     };
   },
   methods: {
     agendar() {
-      window.location.href = "/Clinic";
+      window.location.href = "/Clinic&Especialitis=";
     }
   },
   async mounted() {
     const reponse = await listSpecialties();
-    if(reponse.ok){
-      this.options = (await reponse.json()).map(x => (x.name))
-    }else{
+    if (reponse.ok) {
+      this.specialties = (await reponse.json()).map(spe => [spe.id, spe.name]);
+      this.dataListOptions = this.specialties.map(spe => (spe[1]));
+    } else {
       // eslint-disable-next-line no-console
-      console.log("ERRO GET SPECIALTIES")
+      console.log("ERRO GET SPECIALTIES");
     }
   }
 };
 </script>
 
 <style>
-
 .main-page {
   background-color: aqua;
 }
@@ -117,7 +120,6 @@ export default {
 .row-home > * {
   display: flex;
 }
-
 
 .form-control {
   border-color: transparent;
