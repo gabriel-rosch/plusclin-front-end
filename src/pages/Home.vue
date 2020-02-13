@@ -1,14 +1,13 @@
 <template>
   <b-container fluid style="padding: 0;">
-    <main-header />
     <b-container fluid class="box-sourch">
       <div class="box-search">
-        <b-row-home class="row-home mt-6">
+        <b-row class="row-home mt-6">
           <span class="span-fourth">Qual o</span>
           <span class="span-fourth" style="color: #E5695A;">&nbsp;médico&nbsp;</span>
           <span class="span-fourth">você precisa consultar?</span>
-        </b-row-home>
-        <b-row-home class="consulta row-home">
+        </b-row>
+        <b-row class="consulta row-home">
           <div class="doctor">
             <b-form-input
               autocomplete="off"
@@ -19,7 +18,7 @@
             <b-form-datalist class="form-recommendation" id="input-list" :options="options"></b-form-datalist>
           </div>
           <b-button class="btn-primary agendar" @click="agendar()">Agendar agora</b-button>
-        </b-row-home>
+        </b-row>
       </div>
     </b-container>
     <div class="box-information">
@@ -77,11 +76,11 @@
 </template>
 
 <script>
-// import {listSpecialties} from "../api/specialties";
+ import {listSpecialties} from "../api/specialties";
 export default {
   data() {
     return {
-      options: ["Apple", "AIDS"]
+      options: []
     };
   },
   methods: {
@@ -90,8 +89,13 @@ export default {
     }
   },
   async mounted() {
-    // eslint-disable-next-line no-console
-    //console.log(await (await listSpecialties()).json());
+    const reponse = await listSpecialties();
+    if(reponse.ok){
+      this.options = (await reponse.json()).map(x => (x.name))
+    }else{
+      // eslint-disable-next-line no-console
+      console.log("ERRO GET SPECIALTIES")
+    }
   }
 };
 </script>
