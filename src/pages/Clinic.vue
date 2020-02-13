@@ -1,8 +1,8 @@
 <template>
   <div style="height: 45vw;">
     <div class="central" style="width: 100%;  flex-direction: column;">
-      <span style="display:flex;" class="span-primary cardiologist">{{specialties}}</span>
-      <span style="display:flex;" class="span-secondary choose-one-clinic">Te amo</span>
+      <span style="display:flex;" class="span-primary cardiologist">{{speciaties}}</span>
+      <span style="display:flex;" class="span-secondary choose-one-clinic">{{id}}</span>
     </div>
   </div>
 </template>
@@ -11,11 +11,11 @@
 export default {
   data() {
     return {
-      specialties: "Cardiologista"
+      speciaties: "Cardiologista"
+      , id: this.$route.params.id
     };
-  },
-    specialties: "te amo",
-}
+  }
+};
 </script>
 
 <style>

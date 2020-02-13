@@ -91,8 +91,9 @@ export default {
     agendar() {
       var index = this.dataListOptions.indexOf(this.specialtiesSelect);
       var idSpecialtiesSelect = this.specialties[index][0];
-      var link = "/Clinic?idSpecialties="+idSpecialtiesSelect;
+      var link = "/Clinic/"+idSpecialtiesSelect;
       window.location.href=link;
+
     }
   },
   async mounted() {
