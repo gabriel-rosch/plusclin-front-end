@@ -1,25 +1,24 @@
 <template>
   <div style="height: 45vw;">
-    <div class="central" style="width: 100%;  flex-direction: column;">
-      <span style="display:flex;" class="span-primary cardiologist">{{specialties}}</span>
-      <span style="display:flex;" class="span-secondary choose-one-clinic">Te amo</span>
+    <div class="central w-100" style="flex-direction: column;">
+      <span class="d-flex span-primary name-specialties">{{specialties}}</span>
     </div>
   </div>
 </template>
 
 <script>
+
 export default {
   data() {
     return {
-      specialties: "Cardiologista"
+      specialties: this.$route.params.nameSpecialties
     };
-  },
-    specialties: "te amo",
+  }
 }
 </script>
 
 <style>
-.cardiologist {
+.name-specialties {
   margin-left: 5vw;
   margin-top: 17vw;
   font-size: 3vw;

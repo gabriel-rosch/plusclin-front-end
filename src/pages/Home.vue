@@ -16,9 +16,9 @@
               list="input-list"
               id="input-with-list"
             ></b-form-input>
-            <b-form-datalist class="form-recommendation" id="input-list" :options="dataListOptions"></b-form-datalist>
+            <b-form-datalist id="input-list" :options="dataListOptions"></b-form-datalist>
           </div>
-          <b-button class="btn-primary agendar" @click="agendar()">Agendar agora</b-button>
+          <b-button :to="'/especialidade/'+ specialtiesSelect" class="btn-primary agendar">Agendar agora</b-button>
         </b-row>
       </div>
     </b-container>
@@ -81,21 +81,22 @@ import { listSpecialties } from "../api/specialties";
 export default {
   data() {
     return {
-      dataListOptions: [],
       specialties: [],
       specialtiesSelect: ""
     };
   },
   methods: {
-    agendar() {
-      window.location.href = "/Clinic&Especialitis=";
+
+  },
+  computed:{
+    dataListOptions(){
+      return this.specialties.map(x => [x.name]);
     }
   },
   async mounted() {
     const reponse = await listSpecialties();
     if (reponse.ok) {
-      this.specialties = (await reponse.json()).map(spe => [spe.id, spe.name]);
-      this.dataListOptions = this.specialties.map(spe => (spe[1]));
+      this.specialties = await reponse.json();
     } else {
       // eslint-disable-next-line no-console
       console.log("ERRO GET SPECIALTIES");
@@ -160,12 +161,8 @@ export default {
 .agendar {
   margin-left: 2%;
   width: 23%;
-  justify-content: center;
   font-size: 1.7vw;
-  height: 100%;
 }
-
-/* PARTE INFERIOR DA TELA ABAIXO */
 
 .box-information {
   height: 82.8vw;
