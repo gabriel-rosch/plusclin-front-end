@@ -1,37 +1,49 @@
 <template>
-  <div style="height: 45vw;">
-    <div class="central w-100" style="flex-direction: column;">
-      <span class="d-flex span-primary name-specialties">{{specialties}}</span>
-    </div>
-  </div>
+    <b-container class="h-75">
+        <b-row class="h-75" align-v="center">
+            <b-col>
+                <span class="d-flex span-primary name-specialties">{{specialties}}</span>
+                <span class="d-flex span-primary select-clinic">Escolha uma clínica</span>
+            </b-col>
+            <b-col>
+            </b-col>
+        </b-row>
+    </b-container>
 </template>
 
 <script>
-
-export default {
-  data() {
-    return {
-      specialties: this.$route.params.nameSpecialties
-    };
-  }
-}
+    export default {
+        components:{
+        },
+        data() {
+            return {
+                specialties: null,
+                mode: 'single',
+                selectedDate: null,
+            };
+        },
+        mounted() {
+            this.specialties = this.$route.params.nameSpecialties;
+        }
+    }
 </script>
 
 <style>
-.name-specialties {
-  margin-left: 5vw;
-  margin-top: 17vw;
-  font-size: 3vw;
-  font-weight: normal;
-  text-decoration-line: underline;
-}
-.choose-one-clinic {
-  margin-left: 5vw;
-  font-size: 3vw;
-  font-weight: bold;
-}
-.central {
-  display: flex;
-}
+    .name-specialties {
+        font-size: 3vw;
+        font-weight: normal;
+        font-family: 'Asap Condensed', sans-serif;
+        text-decoration-line: underline;
+    }
+
+    .select-clinic {
+        font-family: 'Asap Condensed', sans-serif;
+        font-style: normal;
+        font-weight: normal;
+        font-size: 3vw;
+
+        color: #069999;
+    }
+
 </style>
 
