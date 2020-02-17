@@ -13,8 +13,8 @@
         </div>
       </b-col>
       <b-col class="c3">
-        <b-button class="btn-primary cadastrar" @click="cadastrar()">Cadastrar-se</b-button>
-        <b-button v-b-modal.modal-login class="btn-primary login" @click="login()">Login</b-button>
+        <b-button class="btn-primary btn-cadastrar" @click="cadastrar()">Cadastrar-se</b-button>
+        <b-button v-b-modal.modal-login class="btn-primary btn-login" @click="login()">Login</b-button>
       </b-col>
     </b-row>
   </b-container>
@@ -24,7 +24,7 @@
 import Login from "../components/Login";
 export default {
   components: {
-        Login,
+    Login
   },
   name: "main-header",
   methods: {
@@ -62,32 +62,33 @@ export default {
   display: grid;
 }
 
-.cadastrar {
+.btn-cadastrar {
   margin-right: 5%;
   height: 95%;
 }
 
-.cadastrar:hover {
+.btn-cadastrar:hover {
   border-color: rgba(229, 105, 90, 0.7) !important;
   background: rgba(205, 205, 205, 0.1);
   color: #e5695a;
   border-color: rgba(215, 92, 90, 0.1);
 }
-.cadastrar:focus {
+.btn-cadastrar:focus {
   background: rgba(205, 205, 205, 0.2);
   color: #e5695a;
   border-color: rgba(215, 92, 90, 0.1);
 }
 
-.login {
+.btn-login {
   background-color: transparent !important;
   color: rgb(229, 105, 90) !important;
+  border-color: rgba(229, 105, 90,1) !important;
   margin-right: 5%;
   width: 25%;
   height: 95%;
 }
 
-.login:hover {
+.btn-login:hover {
   background: rgba(205, 205, 205, 0.2);
   color: rgb(255, 255, 255) !important;
   background-color: rgba(229, 105, 90, 1) !important;

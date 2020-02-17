@@ -178,6 +178,12 @@ export default {
   font-size: 1.7vw;
 }
 
+.btn-agendar:hover {
+  color: rgba(229, 105, 90, 1);
+  background-color: rgba(255, 255, 255, 0.7);
+  border-color: rgba(229, 105, 90, 1);
+}
+
 .box-information {
   height: 82.8vw;
   width: 100%;

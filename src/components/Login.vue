@@ -9,16 +9,16 @@
       <img src="../images/google-orig.svg" />
       <span>Conectar com a minha Conta Google</span>
     </b-row>
+    <span class="insercao-span span-secondary">E-mail</span>
     <b-row class="insercao">
       <b-input placeholder="Digite seu email aqui" type="text"></b-input>
     </b-row>
-    <span class="insercao-span span-secondary">E-mail</span>
+    <span class="insercao-span span-secondary">Senha</span>
     <b-row class="insercao">
       <b-input placeholder="Digite sua senha aqui" type="text"></b-input>
     </b-row>
-    <span class="insercao-span span-secondary">Seha</span>
 
-    <b-button class="btn-cancelar" @click="$bvModal.hide('modal-login')">Cancelar</b-button>
+    <b-button class="btn-login" @click="$bvModal.hide('modal-login')">Login</b-button>
   </b-modal>
 </template>
 
@@ -29,13 +29,13 @@
 
 .connect {
   display: flex;
-  margin-top: 2%;
   margin-left: 6%;
   margin-right: 6%;
   width: 88%;
   height: 3vw;
   background: #069999;
   border-radius: 60px;
+  margin-bottom: 5%;
 }
 
 .connect img {
@@ -52,14 +52,14 @@
   align-items: center;
   justify-content: center;
 }
-.btn-cancelar {
+.btn-login {
   width: 100%;
   margin-right: 5%;
   height: 95%;
   margin-top: 2%;
 }
 
-.btn-cancelar:hover {
+.btn-login:hover {
   border-color: rgba(229, 105, 90, 0.7) !important;
   background: rgba(205, 205, 205, 0.1);
   color: #e5695a;
@@ -75,7 +75,7 @@
   justify-content: center;
   align-content: center;
   height: 3vw;
-  margin-top: 5%;
+  margin-bottom: 5%;
 }
 
 .insercao input {
@@ -92,8 +92,7 @@
   text-align: center;
 }
 
-.insercao-span{
- margin-left: 9%;   
+.insercao-span {
+  margin-left: 9%;
 }
-
 </style>
