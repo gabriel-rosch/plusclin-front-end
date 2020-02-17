@@ -22,6 +22,7 @@ export default {
 </script>
 
 <style>
+@import './styles/default-util.css';
 * {
   font-family: sans-serif;
   font-style: normal;
