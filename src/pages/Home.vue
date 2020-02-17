@@ -18,7 +18,13 @@
             ></b-form-input>
             <b-form-datalist id="input-list" :options="dataListOptions"></b-form-datalist>
           </div>
-          <b-button :to="'/especialidade/'+ specialtiesSelect" class="btn-primary agendar">Agendar agora</b-button>
+          <div class="agendar">
+            <b-button
+              type="submit"
+              :to="'/especialidade/'+ specialtiesSelect"
+              class="btn-primary btn-agendar"
+            >Agendar agora</b-button>
+          </div>
         </b-row>
       </div>
     </b-container>
@@ -85,11 +91,9 @@ export default {
       specialtiesSelect: ""
     };
   },
-  methods: {
-
-  },
-  computed:{
-    dataListOptions(){
+  methods: {},
+  computed: {
+    dataListOptions() {
       return this.specialties.map(x => [x.name]);
     }
   },
@@ -105,7 +109,7 @@ export default {
 };
 </script>
 
-<style>
+<style scoped>
 .main-page {
   background-color: aqua;
 }
@@ -159,8 +163,18 @@ export default {
 }
 
 .agendar {
+  display: flex;
   margin-left: 2%;
-  width: 23%;
+  width: 20%;
+}
+.agendar a {
+  display: flex;
+  width: 100%;
+  align-items: center;
+}
+
+.btn-agendar {
+  display: flex;
   font-size: 1.7vw;
 }
 
