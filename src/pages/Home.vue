@@ -182,8 +182,6 @@ export default {
   color: rgba(229, 105, 90, 1);
   background-color: rgba(255, 255, 255, 0.7);
   border-color: rgba(229, 105, 90, 1);
-  transition: all 1.6s ease;
-  animation-direction: reverse;
 }
 
 .box-information {

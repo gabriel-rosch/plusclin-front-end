@@ -13,8 +13,8 @@
         </div>
       </b-col>
       <b-col class="c3">
-        <b-button class="btn-primary btn-cadastrar" @click="cadastrar()">Cadastrar-se</b-button>
-        <b-button v-b-modal.modal-login class="btn-primary btn-login" @click="login()">Login</b-button>
+        <b-button class="rounded-pill btn-primary btn-cadastrar" @click="cadastrar()">Cadastrar-se</b-button>
+        <b-button v-b-modal.modal-login class="rounded-pill btn-primary btn-login" @click="login()">Login</b-button>
       </b-col>
     </b-row>
   </b-container>
@@ -35,7 +35,7 @@ export default {
 };
 </script>
 
-<style>
+<style scoped>
 .c1,
 .c2,
 .c3 {
