@@ -21,7 +21,7 @@
           <div class="agendar">
             <b-button
               type="submit"
-              :to="'/especialidade/'+ specialtiesSelect"
+              :to="`/especialidade/${specialtiesSelect}`"
               class="btn-primary btn-agendar"
             >Agendar agora</b-button>
           </div>
@@ -182,6 +182,8 @@ export default {
   color: rgba(229, 105, 90, 1);
   background-color: rgba(255, 255, 255, 0.7);
   border-color: rgba(229, 105, 90, 1);
+  transition: all 1.6s ease;
+  animation-direction: reverse;
 }
 
 .box-information {

@@ -4,7 +4,6 @@
       <Header />
       <router-view></router-view>
       <Footer />
-      <!-- <Carousel /> -->
     </div>
   </v-app>
 </template>

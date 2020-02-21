@@ -1,29 +1,54 @@
 <template>
-    <b-container class="h-75">
-        <b-row class="h-75" align-v="center">
-            <b-col>
-                <span class="d-flex span-primary name-specialties">{{specialties}}</span>
-                <span class="d-flex span-primary select-clinic">Escolha uma clínica</span>
-            </b-col>
-            <b-col>
-            </b-col>
-        </b-row>
+    <b-container fluid>
+        <b-container  class="w-100">
+            <b-row style="height: 30rem" align-v="center">
+                <b-col>
+                    <span v-if="specialties" class="d-flex span-primary name-specialties">{{specialties.name}}</span>
+                    <span v-else class="d-flex span-primary name-specialties">ESPECIALIDADE NÃO ENCONTRADA</span>
+                    <span v-if="specialties" class="d-flex span-primary select-clinic">Escolha uma clínica</span>
+                </b-col>
+                <b-col>
+                </b-col>
+            </b-row>
+        </b-container>
+        <b-container fluid >
+            <b-row style="height: 150rem">
+                <b-col>
+                    <b-row :key="item.id" v-for="item in array" class="h-25">
+                        <clinic-carousel :cards="[item]"/>
+                    </b-row>
+                </b-col>
+            </b-row>
+        </b-container>
     </b-container>
 </template>
 
 <script>
+    import {listSpecialtiesName} from '../api/specialties'
+    import ClinicCarousel from '../components/ClinicCarousel'
+
     export default {
-        components:{
+        components: {
+            ClinicCarousel
         },
         data() {
             return {
                 specialties: null,
                 mode: 'single',
                 selectedDate: null,
+                array: [{id: 1}, {id: 2}, {id: 3}, {id: 4}],
+                date: Object
             };
         },
-        mounted() {
-            this.specialties = this.$route.params.nameSpecialties;
+        async mounted() {
+            const response = await listSpecialtiesName(this.$route.params.nameSpecialties);
+
+            if (response.ok) {
+                this.specialties = await response.json()
+            } else {
+                this.specialties = null
+            }
+
         }
     }
 </script>
