@@ -66,7 +66,6 @@ export default {
 
 .btn-primary {
   background: rgb(229, 105, 90);
-  border-radius: 60px;
   font-size: 1.3vw;
   font-weight: bold;
   color: #ffffff;
@@ -76,7 +75,6 @@ export default {
 
 .btn-secondary {
   background: rgb(229, 105, 90);
-  border-radius: 60px;
   font-size: 1.3vw;
   font-weight: bold;
   color: #ffffff;

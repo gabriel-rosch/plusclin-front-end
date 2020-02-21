@@ -22,7 +22,7 @@
             <b-button
               type="submit"
               :to="'/especialidade/'+ specialtiesSelect"
-              class="btn-primary btn-agendar"
+              class="rounded-pill btn-primary btn-agendar"
             >Agendar agora</b-button>
           </div>
         </b-row>
@@ -180,7 +180,7 @@ export default {
 
 .btn-agendar:hover {
   color: rgba(229, 105, 90, 1);
-  background-color: rgba(255, 255, 255, 0.7);
+  background-color:  rgba(255, 255, 255, 0.6) !important;
   border-color: rgba(229, 105, 90, 1);
 }
 
