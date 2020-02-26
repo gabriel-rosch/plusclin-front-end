@@ -14,9 +14,7 @@
         <b-container fluid >
             <b-row style="height: 150rem">
                 <b-col>
-                    <b-row :key="item.id" v-for="item in array" class="h-25">
-                        <clinic-carousel :cards="[item]"/>
-                    </b-row>
+
                 </b-col>
             </b-row>
         </b-container>
@@ -25,11 +23,10 @@
 
 <script>
     import {listSpecialtiesName} from '../api/specialties'
-    import ClinicCarousel from '../components/ClinicCarousel'
-
+    import CardClinic from "../components/CardClinic";
     export default {
         components: {
-            ClinicCarousel
+            CardClinic
         },
         data() {
             return {
@@ -42,7 +39,6 @@
         },
         async mounted() {
             const response = await listSpecialtiesName(this.$route.params.nameSpecialties);
-
             if (response.ok) {
                 this.specialties = await response.json()
             } else {
