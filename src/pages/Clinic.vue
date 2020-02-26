@@ -14,7 +14,7 @@
         <b-container fluid >
             <b-row style="height: 150rem">
                 <b-col>
-
+                    <card-clinic></card-clinic>
                 </b-col>
             </b-row>
         </b-container>
