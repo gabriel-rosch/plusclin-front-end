@@ -7,12 +7,12 @@
           <span class="span-fourth" style="color: #E5695A;">&nbsp;médico&nbsp;</span>
           <span class="span-fourth">você precisa consultar?</span>
         </b-row>
-        <b-row class="consulta row-home">
-          <div class="doctor">
+        <b-row class="box-consulta row-home">
+          <div class="input-doctor">
             <b-form-input
               autocomplete="off"
               v-model="specialtiesSelect"
-              class="form-control"
+              class="rounded-pill form-control"
               list="input-list"
               id="input-with-list"
             ></b-form-input>
@@ -22,7 +22,7 @@
             <b-button
               type="submit"
               :to="`/especialidade/${specialtiesSelect}`"
-              class="btn-primary btn-agendar"
+              class="rounded-pill btn-primary btn-agendar"
             >Agendar agora</b-button>
           </div>
         </b-row>
@@ -78,7 +78,6 @@
         <span class="span-primary compartilhe-text">Compartilhe a sua experiência com a gente</span>
       </div>
     </div>
-    <div class="testecarrousel"></div>
   </b-container>
 </template>
 
@@ -147,12 +146,12 @@ export default {
 .box-search {
   padding-left: 10%;
 }
-.consulta {
+.box-consulta {
   display: flex;
   height: 6vw;
 }
 
-.doctor {
+.input-doctor {
   width: 48%;
   height: 100%;
   font-size: 24px;
@@ -175,7 +174,7 @@ export default {
 
 .btn-agendar {
   display: flex;
-  font-size: 1.7vw;
+  font-size: 1.5vw;
 }
 
 .btn-agendar:hover {

@@ -1,71 +1,122 @@
 <template>
-  <b-modal id="modal-login" hide-footer title="BootstrapVue">
-    <template v-slot:modal-title>Login</template>
-    <div class="px-5 login">
-      <div class="external">
-        <b-row>
-          <b-button class="rounded-pill w-100">
-            <div class="icon">
-              <img class="w-40" src="../images/facebook-orig.svg" alt />
-            </div>
-            <span>Conectar com meu Facebook</span>
+  <b-container class="d-flex" fluid>
+    <b-modal class="d-flex" id="modal-login" hide-footer title="BootstrapVue">
+      <b-alert
+        variant="danger"
+        :show="dismissCountDown"
+        @dismissed="dismissCountDown=0"
+        @dismiss-count-down="countDownChanged"
+        dismissible
+      >
+        <center>Login ou senha incorretos!</center>
+      </b-alert>
+      <template v-slot:modal-title>Login</template>
+      <b-container class="d-flex px-5 flex-column">
+        <b-row id="facebook" class="d-flex flex-column h-100 w-100 box-social m-0">
+          <b-button class="d-flex rounded-pill w-100 mb-3" style="height: 4rem;">
+            <b-col cols="2">
+              <img src="../images/facebook-orig.svg" />
+            </b-col>
+            <b-col cols="10" class="d-flex pl-0 align-self-center" style="font-size: 1.3rem;">
+              <span>Conectar com meu Facebook</span>
+            </b-col>
           </b-button>
         </b-row>
-        <b-row>
-          <b-button class="rounded-pill w-100">
-            <div class="icon">
-              <img class="w-40" src="../images/google-orig.svg" />
-            </div>
-            <span>Conectar com a minha Conta Google</span>
+        <b-row id="google" class="d-flex flex-column h-100 w-100 box-social m-0">
+          <b-button class="d-flex rounded-pill w-100 mb-3" style="height: 4rem;">
+            <b-col cols="2">
+              <img src="../images/google-orig.svg" />
+            </b-col>
+            <b-col cols="10" class="d-flex pl-0 align-self-center" style="font-size: 1.3rem;">
+              <span>Conectar com minha conta Google</span>
+            </b-col>
           </b-button>
         </b-row>
-      </div>
-      <span class="span-insertion span-secondary">E-mail</span>
-      <b-row class="insertion">
-        <b-input placeholder="Digite seu email aqui" type="text"></b-input>
-      </b-row>
-      <span class="span-insertion span-secondary">Senha</span>
-      <b-row class="insertion">
-        <b-input placeholder="Digite sua senha aqui" type="text"></b-input>
-      </b-row>
-      <b-row>
-        <a class="a-sign">Não tenho cadastro</a>
-        <b-button class="btn-login" @click="$bvModal.hide('modal-login')">Login</b-button>
-      </b-row>
-    </div>
-  </b-modal>
+        <b-form-group
+          class="span-secondary"
+          label-cols-lg="12"
+          label-class="pl-4"
+          label-size="mg"
+          label="E-mail"
+        >
+          <b-form-input
+            class="rounded-pill"
+            id="email"
+            placeholder="Digite seu email aqui"
+            type="text"
+            v-model="email"
+            style="height: 4rem; border: 1.2px solid #069999"
+          ></b-form-input>
+        </b-form-group>
+        <b-form-group
+          class="span-secondary"
+          label-cols-lg="12"
+          label-class="pl-4"
+          label-size="mg"
+          label="Senha"
+        >
+          <b-form-input
+            class="rounded-pill"
+            placeholder="Digite sua senha aqui"
+            type="text"
+            v-model="password"
+            style="height: 4rem; border: 1.2px solid #069999"
+          ></b-form-input>
+        </b-form-group>
+        <b-row class="m-0">
+          <b-col cols="8" class="align-self-center">
+            <a
+              href="localhost"
+              style="font-size: 1.1rem; color: #069999"
+              class="font-weight-bold float-right"
+            >Não possui uma conta</a>
+          </b-col>
+          <b-col class="px-8" cols="4">
+            <b-button @click="login" class="w-100 rounded-pill" style="font-size: 1.3rem;">Login</b-button>
+          </b-col>
+        </b-row>
+      </b-container>
+    </b-modal>
+  </b-container>
 </template>
 
-<style >
-#modal-login {
-  max-width: 100%;
-  min-width: 80;
-}
+<script>
+import { create } from "../api/session";
 
-.external button {
-  /* rounded-pill */
-  display: flex;
-  height: 3rem;
-  width: 100%;
-  font-size: 100%;
-  margin-bottom: 5%;
-  align-items: center;
-}
+export default {
+  data() {
+    return {
+      password: "",
+      email: "",
+      user: {},
+      dismissSecs: 7,
+      dismissCountDown: 0
+    };
+  },
+  methods: {
+    async login() {
+      const response = await create({
+        password: this.password,
+        email: this.email
+      });
+      if (response.ok) {
+        const dataSession = await response.json();
+        this.user = dataSession.user;
+        this.$emit("userLogin", this.user.name);
+        this.$bvModal.hide("modal-login");
+      } else {
+        this.showAlert();
+      }
+    },
+    countDownChanged(dismissCountDown) {
+      this.dismissCountDown = dismissCountDown;
+    },
+    showAlert() {
+      this.dismissCountDown = this.dismissSecs;
+    }
+  }
+};
+</script>
 
-.external button .icon {
-  display: flex;
-  width: 25%;
-  padding-right: 5%;
-  padding-right: 5%;
-}
-.external button .icon img {
-  display: flex;
-  align-items: center;
-}
-.external button span {
-  display: flex;
-  width: 70%;
-  font-size: 100%;
-  margin-right: 5%;
-}
+<style>
 </style>

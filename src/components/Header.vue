@@ -1,5 +1,5 @@
 <template>
-  <b-container fluid>
+  <b-container fluid class="p-0">
     <Login />
     <b-row class="row">
       <b-col class="c1">
@@ -13,8 +13,11 @@
         </div>
       </b-col>
       <b-col class="c3">
-        <b-button class="rounded-pill btn-primary btn-cadastrar" @click="cadastrar()">Cadastrar-se</b-button>
-        <b-button v-b-modal.modal-login class="rounded-pill btn-primary btn-login" @click="login()">Login</b-button>
+        <template @userLogin="updateLogin" v-if="!userName">
+          <b-button class="rounded-pill btn-primary btn-cadastrar" @click="cadastrar()">Cadastrar-se</b-button>
+          <b-button v-b-modal.modal-login class="rounded-pill btn-primary btn-login">Login</b-button>
+        </template>
+        <template v-else>{{userName}}</template>
       </b-col>
     </b-row>
   </b-container>
@@ -26,11 +29,19 @@ export default {
   components: {
     Login
   },
+  data() {
+    return {
+      userName: ""
+    };
+  },
   name: "main-header",
   methods: {
     paginaInicial: function() {
       window.location.href = "/";
-    }
+    },
+    updateLogin(user) {
+      this.userName = user;
+    },
   }
 };
 </script>
@@ -82,7 +93,7 @@ export default {
 .btn-login {
   background-color: transparent !important;
   color: rgb(229, 105, 90) !important;
-  border-color: rgba(229, 105, 90,1) !important;
+  border-color: rgba(229, 105, 90, 1) !important;
   margin-right: 5%;
   width: 25%;
   height: 95%;
