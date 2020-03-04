@@ -7484,19 +7484,19 @@ stylehacks@^4.0.0:
     postcss "^7.0.0"
     postcss-selector-parser "^3.0.0"
 
-stylus-loader@^3.0.1:
+stylus-loader@^3.0.2:
   version "3.0.2"
-  resolved "https://registry.npm.taobao.org/stylus-loader/download/stylus-loader-3.0.2.tgz#27a706420b05a38e038e7cacb153578d450513c6"
-  integrity sha1-J6cGQgsFo44DjnyssVNXjUUFE8Y=
+  resolved "https://registry.yarnpkg.com/stylus-loader/-/stylus-loader-3.0.2.tgz#27a706420b05a38e038e7cacb153578d450513c6"
+  integrity sha512-+VomPdZ6a0razP+zinir61yZgpw2NfljeSsdUF5kJuEzlo3khXhY19Fn6l8QQz1GRJGtMCo8nG5C04ePyV7SUA==
   dependencies:
     loader-utils "^1.0.2"
     lodash.clonedeep "^4.5.0"
     when "~3.6.x"
 
-stylus@^0.54.5:
+stylus@^0.54.7:
   version "0.54.7"
-  resolved "https://registry.npm.taobao.org/stylus/download/stylus-0.54.7.tgz?cache=0&sync_timestamp=1573223618470&other_urls=https%3A%2F%2Fregistry.npm.taobao.org%2Fstylus%2Fdownload%2Fstylus-0.54.7.tgz#c6ce4793965ee538bcebe50f31537bfc04d88cd2"
-  integrity sha1-xs5Hk5Ze5Ti86+UPMVN7/ATYjNI=
+  resolved "https://registry.yarnpkg.com/stylus/-/stylus-0.54.7.tgz#c6ce4793965ee538bcebe50f31537bfc04d88cd2"
+  integrity sha512-Yw3WMTzVwevT6ZTrLCYNHAFmanMxdylelL3hkWNgPMeTCpMwpV3nXjpOHuBXtFv7aiO2xRuQS6OoAdgkNcSNug==
   dependencies:
     css-parse "~2.0.0"
     debug "~3.1.0"
@@ -8064,6 +8064,11 @@ vue-router@^3.1.5:
   version "3.1.5"
   resolved "https://registry.yarnpkg.com/vue-router/-/vue-router-3.1.5.tgz#ff29b8a1e1306c526b52d4dc0532109f16c41231"
   integrity sha512-BszkPvhl7I9h334GjckCh7sVFyjTPMMJFJ4Bsrem/Ik+B/9gt5tgrk8k4gGLO4ZpdvciVdg7O41gW4DisQWurg==
+
+vue-session@^1.0.0:
+  version "1.0.0"
+  resolved "https://registry.yarnpkg.com/vue-session/-/vue-session-1.0.0.tgz#ca642c751f569a48f8dd66f356f1727fbe081f7c"
+  integrity sha512-Ep9lRKGgCZdcGV3In3R3zoSp5Wr+hlcIc8WJ9BG+QKzibwaFZnnvp9HBVdd+dU8d6HGLSi5sWywDmd5MkrkfoQ==
 
 vue-style-loader@^4.1.0:
   version "4.1.2"

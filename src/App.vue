@@ -11,6 +11,9 @@
 <script>
 import Footer from "./components/Footer";
 import Header from "./components/Header";
+import Vue from 'vue'
+import VueSession from 'vue-session'
+Vue.use(VueSession)
 
 export default {
   components: {

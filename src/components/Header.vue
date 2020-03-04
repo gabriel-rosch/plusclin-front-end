@@ -13,8 +13,8 @@
         </div>
       </b-col>
       <b-col class="c3">
-        <template @userLogin="updateLogin" v-if="!userName">
-          <b-button class="rounded-pill btn-primary btn-cadastrar" @click="cadastrar()">Cadastrar-se</b-button>
+        <template v-if="!userName">
+          <b-button class="rounded-pill btn-primary btn-cadastrar" @click="cadastrar()">Cadastrar-se {{userName}}</b-button>
           <b-button v-b-modal.modal-login class="rounded-pill btn-primary btn-login">Login</b-button>
         </template>
         <template v-else>{{userName}}</template>
@@ -25,6 +25,7 @@
 
 <script>
 import Login from "../components/Login";
+
 export default {
   components: {
     Login
@@ -39,9 +40,9 @@ export default {
     paginaInicial: function() {
       window.location.href = "/";
     },
-    updateLogin(user) {
-      this.userName = user;
-    },
+    atualizarLogin: function() {
+      this.userName = sessionStorage.getItem("user")  ;
+    }
   }
 };
 </script>

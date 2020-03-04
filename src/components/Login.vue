@@ -102,7 +102,10 @@ export default {
       if (response.ok) {
         const dataSession = await response.json();
         this.user = dataSession.user;
-        this.$emit("userLogin", this.user.name);
+        // this.$sess.set({ 'userLogin': this.user });
+        sessionStorage.user = this.user.name;
+        this.$root.userName = 'TESTE';
+        this.$parent.atualizarLogin();
         this.$bvModal.hide("modal-login");
       } else {
         this.showAlert();
