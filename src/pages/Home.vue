@@ -21,8 +21,9 @@
           <div class="agendar">
             <b-button
               type="submit"
-              :to="`/especialidade/${specialtiesSelect}`"
-              class="rounded-pill btn-primary btn-agendar"
+              :to="`/${specialtiesSelect}`"
+              class="btn-primary btn-agendar"
+              pill
             >Agendar agora</b-button>
           </div>
         </b-row>
@@ -78,6 +79,7 @@
         <span class="span-primary compartilhe-text">Compartilhe a sua experiência com a gente</span>
       </div>
     </div>
+    <div class="testecarrousel"></div>
   </b-container>
 </template>
 

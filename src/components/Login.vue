@@ -88,7 +88,6 @@ export default {
     return {
       password: "",
       email: "",
-      user: {},
       dismissSecs: 7,
       dismissCountDown: 0
     };
@@ -100,21 +99,20 @@ export default {
         email: this.email
       });
       if (response.ok) {
-        const dataSession = await response.json();
-        this.user = dataSession.user;
-        // this.$sess.set({ 'userLogin': this.user });
-        sessionStorage.user = this.user.name;
-        this.$root.userName = 'TESTE';
-        this.$parent.atualizarLogin();
+        const session = await response.json();
+
+        localStorage.setItem('userName', session.user.name);
+
+        this.$parent.fillSession();
         this.$bvModal.hide("modal-login");
       } else {
-        this.showAlert();
+        this.showErrorAlert();
       }
     },
     countDownChanged(dismissCountDown) {
       this.dismissCountDown = dismissCountDown;
     },
-    showAlert() {
+    showErrorAlert() {
       this.dismissCountDown = this.dismissSecs;
     }
   }

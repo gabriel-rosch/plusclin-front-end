@@ -10,6 +10,6 @@ export default new Router({
     mode: 'history',
     routes: [
         { path: '/', component: Home },
-        { path: '/especialidade/:nameSpecialties', component: Clinic },
+        { path: '/:nameSpecialties', component: Clinic },
     ]
 })

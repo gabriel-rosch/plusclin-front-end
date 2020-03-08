@@ -11,9 +11,6 @@
 <script>
 import Footer from "./components/Footer";
 import Header from "./components/Header";
-import Vue from 'vue'
-import VueSession from 'vue-session'
-Vue.use(VueSession)
 
 export default {
   components: {
@@ -31,11 +28,15 @@ export default {
   font-style: normal;
   font-weight: normal;
 }
-
+.title-clinic-doctor {
+  font-size: 3.3vw;
+  font-family: 'Asap Condensed', sans-serif;
+  text-decoration-line: underline;
+}
 .span-primary {
   font-style: normal;
   font-weight: normal;
-  font-size: 1.5vw;
+
   color: #e5695a;
 }
 .link-primary {
