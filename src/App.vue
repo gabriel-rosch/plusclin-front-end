@@ -11,9 +11,6 @@
 <script>
 import Footer from "./components/Footer";
 import Header from "./components/Header";
-import Vue from 'vue'
-import VueSession from 'vue-session'
-Vue.use(VueSession)
 
 export default {
   components: {
@@ -64,6 +61,13 @@ export default {
   font-weight: bold;
   font-size: 3.6vw;
   color: #069999;
+}
+
+.span-six {
+  font-style: normal;
+  font-weight: bold;
+  font-size: 3.6vw;
+  color: #e5695a;
 }
 
 .btn-primary {

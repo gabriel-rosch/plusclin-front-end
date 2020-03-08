@@ -1,30 +1,31 @@
 <template>
   <b-container fluid style="padding: 0;">
-    <b-container fluid class="box-sourch">
-      <div class="box-search">
-        <b-row class="row-home mt-6">
+    <b-container fluid>
+      <div style="padding-left: 10%;">
+        <b-row class="pt-6">
           <span class="span-fourth">Qual o</span>
-          <span class="span-fourth" style="color: #E5695A;">&nbsp;médico&nbsp;</span>
+          <span class="span-six px-3">médico</span>
           <span class="span-fourth">você precisa consultar?</span>
         </b-row>
-        <b-row class="box-consulta row-home">
-          <div class="input-doctor">
+        <b-row class="d-flex tm-6">
+          <b-col cols="7" class="d-flex">
             <b-form-input
               autocomplete="off"
               v-model="specialtiesSelect"
-              class="rounded-pill form-control"
+              class="d-flex rounded-pill px-5"
               list="input-list"
               id="input-with-list"
             ></b-form-input>
             <b-form-datalist id="input-list" :options="dataListOptions"></b-form-datalist>
-          </div>
-          <div class="agendar">
+          </b-col>
+          <b-col cols="2" class="d-flex px-2 ml-2">
             <b-button
+              id="btnAgendar"
               type="submit"
               :to="`/especialidade/${specialtiesSelect}`"
-              class="rounded-pill btn-primary btn-agendar"
+              class="d-flex rounded-pill align-items-center"
             >Agendar agora</b-button>
-          </div>
+          </b-col>
         </b-row>
       </div>
     </b-container>
@@ -34,10 +35,11 @@
         <div class="box1">
           <div class="header-box">
             <span class="span-fourth title-box">Consultas particulares no preço que você pode pagar</span>
-            <div class="box">
-              <img class="icon" src="../images/card.svg" alt />
+            <div class="d-flex box px-5">
+              <img class="px-5 w-25 icon" src="../images/card.svg" alt />
               <span
                 class="span-secondary class text-box"
+                style="font-size: 1.4vw;"
               >Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis id luctus massa. Curabitur luctus orci ac quam fermentum mattis. Nullam in tortor placerat, gravida massa vel, lacinia arcu.</span>
             </div>
           </div>
@@ -45,9 +47,10 @@
         <div class="box2">
           <div class="header-box">
             <span class="span-fourth title-box">Consultas particulares no preço que você pode pagar</span>
-            <div class="box">
-              <img class="icon" src="../images/card.svg" alt />
+            <div class="d-flex box px-5">
+              <img class="px-5 w-50 icon" src="../images/card.svg" alt />
               <span
+                style="font-size: 1.4vw;"
                 class="span-secondary class text-box"
               >Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis id luctus massa. Curabitur luctus orci ac quam fermentum mattis. Nullam in tortor placerat, gravida massa vel, lacinia arcu.</span>
             </div>
@@ -62,7 +65,7 @@
         </div>
         <div class="center-box">
           <div class="center-img">
-            <img class="final-imagem" src="../images/velho.svg" alt />
+            <img class="w-100" src="../images/velho.svg" alt />
           </div>
           <div class="center-text">
             <span
@@ -74,8 +77,8 @@
           <img class="button-icon" src="../images/botao-direito.svg" alt />
         </div>
       </div>
-      <div class="compartilhe-box">
-        <span class="span-primary compartilhe-text">Compartilhe a sua experiência com a gente</span>
+      <div class="shared-box">
+        <span class="span-primary shared-text">Compartilhe a sua experiência com a gente</span>
       </div>
     </div>
   </b-container>
@@ -109,20 +112,8 @@ export default {
 </script>
 
 <style scoped>
-.main-page {
-  background-color: aqua;
-}
-
-.mt-6 {
+.pt-6 {
   padding-top: 19% !important;
-}
-
-.row-home {
-  display: flex;
-}
-
-.row-home > * {
-  display: flex;
 }
 
 .form-control {
@@ -143,41 +134,7 @@ export default {
   -webkit-box-shadow: none;
 }
 
-.box-search {
-  padding-left: 10%;
-}
-.box-consulta {
-  display: flex;
-  height: 6vw;
-}
-
-.input-doctor {
-  width: 48%;
-  height: 100%;
-  font-size: 24px;
-  padding-left: 5%;
-  padding-right: 5%;
-  background: #ffffff;
-  border-radius: 60px;
-}
-
-.agendar {
-  display: flex;
-  margin-left: 2%;
-  width: 20%;
-}
-.agendar a {
-  display: flex;
-  width: 100%;
-  align-items: center;
-}
-
-.btn-agendar {
-  display: flex;
-  font-size: 1.5vw;
-}
-
-.btn-agendar:hover {
+#btnAgendar:hover {
   color: rgba(229, 105, 90, 1);
   background-color: rgba(255, 255, 255, 0.7);
   border-color: rgba(229, 105, 90, 1);
@@ -191,13 +148,11 @@ export default {
 }
 
 .espacamento {
-  /* background-color: pink; */
   width: 100%;
   height: 5%;
 }
 
 .wallpaper {
-  z-index: 1000;
   margin-top: 5%;
   background-color: #99cdcd;
   width: 92%;
@@ -231,22 +186,6 @@ export default {
   font-size: 3vw;
 }
 
-.box {
-  display: flex;
-  padding-left: 5%;
-  padding-right: 15%;
-}
-
-.text-box {
-  font-size: 1.4vw;
-}
-
-.icon {
-  min-width: 20%;
-  margin-right: 5%;
-  max-width: 20%;
-}
-
 .final-box {
   flex-direction: column;
   display: flex;
@@ -270,18 +209,11 @@ export default {
 }
 
 .center-text {
-  display: grid;
+  display: grid;                                                                                         
   width: 50%;
   padding-left: 3%;
   margin-right: 10%;
   align-content: center;
-}
-
-.final-imagem {
-  display: flex;
-  width: 100%;
-  /* USAR FUTURAMENTE PARA TRABALHAR COM A IMAGEM*/
-  /* border-radius: 25%; */
 }
 
 .botao-esquerdo {
@@ -294,20 +226,17 @@ export default {
   margin-right: 15%;
 }
 
-.compartilhe-box {
+.shared-box {
   display: flex;
   padding-top: 3%;
   justify-content: center;
   align-content: center;
 }
 
-.compartilhe-text {
+.shared-text {
   font-size: 1.1vw;
   text-decoration-line: underline;
 }
 
-.button-icon {
-  width: 100%;
-}
 </style>
 
