@@ -28,11 +28,15 @@ export default {
   font-style: normal;
   font-weight: normal;
 }
-
+.title-clinic-doctor {
+  font-size: 3.3vw;
+  font-family: 'Asap Condensed', sans-serif;
+  text-decoration-line: underline;
+}
 .span-primary {
   font-style: normal;
   font-weight: normal;
-  font-size: 1.5vw;
+
   color: #e5695a;
 }
 .link-primary {

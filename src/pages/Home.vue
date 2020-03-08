@@ -22,8 +22,14 @@
             <b-button
               id="btnAgendar"
               type="submit"
-              :to="`/especialidade/${specialtiesSelect}`"
+<<<<<<< HEAD
+              :to="`/especialidade/${specialtiesSelect}`" 
               class="d-flex rounded-pill align-items-center"
+=======
+              :to="`/${specialtiesSelect}`"
+              class="btn-primary btn-agendar"
+              pill
+>>>>>>> a2bab2c41c01648f6a47a9de789cf86a72609cd4
             >Agendar agora</b-button>
           </b-col>
         </b-row>
@@ -81,6 +87,7 @@
         <span class="span-primary shared-text">Compartilhe a sua experiência com a gente</span>
       </div>
     </div>
+    <div class="testecarrousel"></div>
   </b-container>
 </template>
 

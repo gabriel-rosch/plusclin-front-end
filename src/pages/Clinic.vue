@@ -3,7 +3,7 @@
         <b-container  class="w-100">
             <b-row style="height: 30rem" align-v="center">
                 <b-col>
-                    <span v-if="specialties" class="d-flex span-primary name-specialties">{{specialties.name}}</span>
+                    <span v-if="specialties" class="d-flex span-primary title-clinic-doctor">{{specialties.name}}</span>
                     <span v-else class="d-flex span-primary name-specialties">ESPECIALIDADE NÃO ENCONTRADA</span>
                     <span v-if="specialties" class="d-flex span-primary select-clinic">Escolha uma clínica</span>
                 </b-col>
@@ -12,9 +12,15 @@
             </b-row>
         </b-container>
         <b-container fluid >
-            <b-row style="height: 150rem">
-                <b-col>
-                    <card-clinic></card-clinic>
+            <b-row >
+                <b-col class="align-content-center justify-content-center p-5" :key="item.id" v-for="item in clinics" sm="12" md="4" mg="4">
+                    <card-clinic
+                            style="border: .2rem solid; border-radius: 10px !important;"
+                            :name="item.name"
+                            :image="item.avatar.url"
+                            :countUsers="item.Users.length"
+                            :address="item.addresses"
+                    />
                 </b-col>
             </b-row>
         </b-container>
@@ -23,6 +29,7 @@
 
 <script>
     import {listSpecialtiesName} from '../api/specialties'
+    import {listClinics} from '../api/clinic'
     import CardClinic from "../components/CardClinic";
     export default {
         components: {
@@ -33,29 +40,40 @@
                 specialties: null,
                 mode: 'single',
                 selectedDate: null,
-                array: [{id: 1}, {id: 2}, {id: 3}, {id: 4}],
-                date: Object
+                date: Object,
+                clinics: []
             };
         },
         async mounted() {
-            const response = await listSpecialtiesName(this.$route.params.nameSpecialties);
-            if (response.ok) {
-                this.specialties = await response.json()
-            } else {
-                this.specialties = null
+             await this.load();
+             await this.loadClinics();
+        },
+        methods:{
+            async load(){
+                const response = await listSpecialtiesName(this.$route.params.nameSpecialties);
+                if (response.ok) {
+                    this.specialties = await response.json()
+                } else {
+                    this.specialties = null
+                }
+            },
+            async loadClinics(){
+                const response = await listClinics(this.specialties.id);
+                if (response.ok) {
+                    this.clinics = await response.json()
+
+                } else {
+                    this.clinics = null
+                }
             }
 
-        }
+        },
+
+
     }
 </script>
 
-<style>
-    .name-specialties {
-        font-size: 3vw;
-        font-weight: normal;
-        font-family: 'Asap Condensed', sans-serif;
-        text-decoration-line: underline;
-    }
+<style scoped>
 
     .select-clinic {
         font-family: 'Asap Condensed', sans-serif;
@@ -65,6 +83,7 @@
 
         color: #069999;
     }
+
 
 </style>
 

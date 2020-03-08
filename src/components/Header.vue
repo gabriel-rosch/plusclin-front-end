@@ -3,7 +3,7 @@
     <Login />
     <b-row class="row">
       <b-col class="c1">
-        <img class="image-logo" @click="paginaInicial()" src="../images/logo.svg" alt />
+        <img class="image-logo" src="../images/logo.svg" alt />
       </b-col>
       <b-col class="c2">
         <img src="../images/localization.svg" alt />
@@ -13,11 +13,15 @@
         </div>
       </b-col>
       <b-col class="c3">
-        <template v-if="!userName">
+        <template v-if="!name">
           <b-button class="rounded-pill btn-primary btn-cadastrar" @click="cadastrar()">Cadastrar-se {{userName}}</b-button>
           <b-button v-b-modal.modal-login class="rounded-pill btn-primary btn-login">Login</b-button>
         </template>
-        <template v-else>{{userName}}</template>
+        <template v-else>
+          <span class="span-primary px-5" @click="cadastrar()">Oi, {{this.userName}}!</span>
+          <b-button class="rounded-pill btn-primary btn-login" @click="clearSession()">Sair</b-button>
+
+        </template>
       </b-col>
     </b-row>
   </b-container>
@@ -32,16 +36,27 @@ export default {
   },
   data() {
     return {
-      userName: ""
+      name: ''
     };
   },
   name: "main-header",
   methods: {
-    paginaInicial: function() {
-      window.location.href = "/";
+    fillSession() {
+      this.name = localStorage.getItem('userName');
     },
-    atualizarLogin: function() {
-      this.userName = sessionStorage.getItem("user")  ;
+
+    clearSession() {
+      localStorage.removeItem('userName');
+      this.name = '';
+      this.fillSession();
+    }
+  },
+  mounted() {
+    this.name = localStorage.getItem('userName');
+  },
+  computed:{
+    userName(){
+      return this.name;
     }
   }
 };
