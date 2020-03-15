@@ -1,6 +1,5 @@
 <template>
-  <b-container class="d-flex" fluid>
-    <b-modal class="d-flex" id="modal-login" hide-footer title="BootstrapVue">
+    <b-modal id="modal-login" hide-footer>
       <b-alert
         variant="danger"
         :show="dismissCountDown"
@@ -11,32 +10,20 @@
         <center>{{erro}}!</center>
       </b-alert>
       <template v-slot:modal-title>Login</template>
-      <b-container class="d-flex px-5 flex-column">
-        <b-row id="facebook" class="d-flex flex-column box-social m-0">
-          <b-button class="d-flex rounded-pill mb-3 tertiary-class" style="height: 4rem;">
-            <b-col cols="2">
-              <img src="../images/facebook-orig.svg" />
-            </b-col>
-            <b-col cols="10" class="d-flex pl-0 align-self-center" style="font-size: 100%;">
-              <span>Conectar com meu Facebook</span>
-            </b-col>
+      <div style="padding: 2vw;" class="d-flex flex-column">
+        <div class="d-flex" style="height: 7vw">
+          <b-button class="d-flex rounded-pill mb-3 tertiary-class">
+            <div class="d-flex">
+              <img class="d-flex justify-center social" src="../images/facebook-orig.svg" />
+              <span class="d-flex social-text">Conectar com meu Facebook</span>
+            </div>
           </b-button>
-        </b-row>
-        <b-row id="google" class="d-flex flex-column box-social m-0">
-          <b-button class="d-flex rounded-pill mb-3 tertiary-class" style="height: 4rem;">
-            <b-col cols="2">
-              <img src="../images/google-orig.svg" />
-            </b-col>
-            <b-col cols="10" class="d-flex pl-0 align-self-center" style="font-size: 100%;">
-              <span>Conectar com minha conta Google</span>
-            </b-col>
-          </b-button>
-        </b-row>
+        </div>
         <b-form-group
-          class="tertiary-class"
+          class="secondary-class"
           label-cols-lg="12"
           label-class="pl-4"
-          style=" font-size: 1.3rem;"
+          style=" font-size: 1.3vw;"
           label="E-mail"
         >
           <b-form-input
@@ -45,14 +32,14 @@
             placeholder="Digite seu email aqui"
             type="text"
             v-model="email"
-            style="height: 4rem; border: 1.2px solid #069999"
+            style="height: 9vw; border: 1.2px solid #069999"
           ></b-form-input>
         </b-form-group>
         <b-form-group
-          class="tertiary-class"
+          class="secondary-class"
           label-cols-lg="12"
           label-class="pl-4"
-          style=" font-size: 1.3rem;"
+          style=" font-size: 1.3vw;"
           label="Senha"
         >
           <b-form-input
@@ -60,28 +47,27 @@
             placeholder="Digite sua senha aqui"
             type="password"
             v-model="password"
-            style="height: 4rem; border: 1.2px solid #069999"
+            style="height: 9vw; border: 1.2px solid #069999"
           ></b-form-input>
         </b-form-group>
         <b-row class="m-0">
           <b-col cols="8" class="align-self-center">
             <a
               @click="notAccount"
-              style="font-size: 1.1rem; color: #069999"
+              style="font-size: 1.1vw; color: #069999"
               class="font-weight-bold float-right notAccount"
             >Não possui uma conta</a>
           </b-col>
           <b-col class="px-8" cols="4">
             <b-button
               @click="login"
-              class="w-100 rounded-pill tertiary-class"
-              style="font-size: 1.3rem;"
+              class="tertiary-class w-100 rounded-pill"
+              style="font-size: 1.3vw;"
             >Login</b-button>
           </b-col>
         </b-row>
-      </b-container>
+      </div>
     </b-modal>
-  </b-container>
 </template>
 
 <script>
@@ -132,4 +118,37 @@ export default {
 .notAccount:hover {
   cursor: pointer;
 }
+
+.social {
+  height: 3%;
+}
+
+.social-text {
+  font-size: 1.5vw;
+}
 </style>
+
+
+
+<!--
+         <b-row id="facebook" class="d-flex flex-column h-100 w-100 box-social m-0">
+         <b-button class="d-flex rounded-pill w-100 mb-3 tertiary-class" style="height: 4vw;">
+           <b-col cols="2">
+             <img style="width: 7vw" class="social" src="../images/facebook-orig.svg" />
+           </b-col>
+           <b-col cols="10" class="d-flex pl-0 align-self-center social-text" style="font-size: 3.5vw;">
+             <span>Conectar com meu Facebook</span>
+           </b-col>
+         </b-button>
+        </b-row>
+        <b-row id="google" class="d-flex flex-column h-100 w-100 box-social m-0">
+         <b-button class="d-flex rounded-pill w-100 mb-3 tertiary-class" style="height: 4vw;">
+           <b-col cols="2">
+             <img style="color: red;" src="../images/google-orig.svg" />
+           </b-col>
+           <b-col cols="10" class="d-flex pl-0 align-self-center" style="font-size: 1.3vw;">
+             <span>Conectar com minha conta Google</span>
+           </b-col>
+         </b-button>
+        </b-row>
+        -->

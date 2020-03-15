@@ -1,0 +1,32 @@
+span.primary-class {
+  color: #e5695a;
+}
+
+span.secondary-class {
+  color: #069999;
+  font-style: normal;
+  font-weight: normal;
+  font-size: 1.1vw;
+}
+
+span.tertiary-class {
+  font-style: normal;
+  font-weight: normal;
+  font-size: 0.7vw;
+  text-decoration-line: underline;
+  color: #99cdcd;
+}
+
+span.fourth-class {
+  font-style: normal;
+  font-weight: bold;
+  font-size: 2.8vw;
+  color: #069999;
+}
+
+span.six-class {
+  color: #e5695a;
+  font-style: normal;
+  font-weight: bold;
+  font-size: 2.8vw;
+}

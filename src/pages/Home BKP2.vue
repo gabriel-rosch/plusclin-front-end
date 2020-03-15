@@ -1,6 +1,6 @@
 <template>
   <div id="home">
-    <div style="margin-left: 11.5%;">
+    <div style="margin-left: 11.3vw;">
       <div>
         <div>
           <b-row class="m-0" style="padding-top: 21.5vw">
@@ -30,33 +30,24 @@
             </div>
           </b-row>
         </div>
-        <div class="flex-column box-information">
-          <div class="d-flex box-one">
+        <div class="box-information">
+          <b-row class="box-one">
             <div class="lateral-one" />
-            <div>
-              <MessageBlock style="padding-bottom: 4vw;" :titulo="titulo1" :message="message1" />
-            </div>
-          </div>
-          <div class="espacamento" />
-          <div class="d-flex box-two">
-            <div>
-              <MessageBlock style="padding-bottom: 4vw;" :titulo="titulo2" :message="message2" />
-            </div>
+            <MessageBlock style="width: 82.45vw" :titulo="titulo1" :message="message1" />
+            <div class="espacamento" />
+          </b-row>
+          <b-row class="box-two">
+            <MessageBlock style="width: 74.10vw;" :titulo="titulo2" :message="message2" />
             <div class="lateral-two" />
-          </div>
-          <div style="height: 10vw" class="espacamento" />
+          </b-row>
+          <div style="height: 6vw;" class="espacamento" />
         </div>
       </div>
     </div>
     <div class="d-flex final-box center align-items-center">
       <img style="height: 6vw; padding-left: 12vw;" src="../images/botao-esquerdo.svg" alt />
       <div class="d-flex center-box">
-        <img
-          class="p-0 m-0"
-          style="min-width: 13vw;max-height: 13vw;"
-          src="../images/velho.svg"
-          alt
-        />
+        <img class="p-0 m-0" style="min-width: 13vw;max-height: 13vw;" src="../images/velho.svg" alt />
         <div class="center-text">
           <span
             class="secondary-class"
@@ -145,14 +136,14 @@ export default {
 
 .box-information {
   height: 82vw;
-  padding-top: 20.9vw;
+  padding-top: 25.2vw;
   margin-bottom: 23vw;
 }
 
 .lateral-one {
   margin-top: 2vw;
-  height: 100% - 2vw;
-  width: 10%;
+  height: 25.85vw;
+  width: 5vw;
   background-color: #99cdcd;
 }
 
@@ -162,8 +153,8 @@ export default {
   background-color: #99cdcd;
 }
 .espacamento {
-  display: flex;
-  height: 5vw;
+  height: 3.5vw;
+  width: 100%;
   background-color: #99cdcd;
 }
 
