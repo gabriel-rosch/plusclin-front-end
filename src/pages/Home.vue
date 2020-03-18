@@ -4,12 +4,10 @@
       <div>
         <div>
           <b-row class="m-0" style="padding-top: 21.5vw">
-            <span class="fourth-class">Qual</span>
-            <span class="six-class">&nbsp;especialista&nbsp;</span>
-            <span class="fourth-class">você precisa consultar?</span>
+            <span class="fourth-class">De qual<span class="six-class">&nbsp;especialista&nbsp;</span> você está precisando?</span>
           </b-row>
           <b-row class="p-0 m-0">
-            <div class="d-flex" style="width: 41vw; height: 5vw">
+            <div class="d-flex" style="width: 44vw; height: 5vw">
               <b-form-input
                 autocomplete="off"
                 v-model="specialtiesSelect"
@@ -89,25 +87,46 @@ export default {
       specialties: [],
       specialtiesSelect: "",
       message1:
-        "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis id luctus massa. Curabitur luctus orci ac quam fermentum mattis. Nullam in tortor placerat, gravida massa vel, lacinia arcu.",
+        "Você pode se cadastrar de maneira individual ou trazer a sua clínica para uma parceria. Para maiores " +
+              "esclarecimentos, entre em contato conosco através do email xxxxxx@xxx.xxx ou pelo número " +
+              "(xx)xxxxx-xxxx. Afilie-se à nossa plataforma!",
       message2:
-        "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis id luctus massa. Curabitur luctus orci ac quam fermentum mattis. Nullam in tortor placerat, gravida massa vel, lacinia arcu.",
-      titulo1: "Consultas particulares no preço que você pode pagar",
-      titulo2: "Médicos credenciados e bla bla bla"
+        "Chegou a oportunidade que a sua clínica esperava para poder modernizar suas consultas. É hora de se afiliar " +
+              "à nossa plataforma! Para maiores esclarecimentos, entre em contato conosco através do email " +
+              "xxxxxx@xxx.xxx ou pelo número (xx)xxxxx-xxxx.",
+      titulo1: "Você é um especialista e deseja trabalhar conosco?",
+      titulo2: "A sua clínica deseja ampliar os atendimentos?"
     };
   },
-  methods: {},
+  methods: {
+    removeAcento(text)
+    {
+      text = text.toLowerCase();
+      text = text.replace(new RegExp('[ÁÀÂÃ]','gi'), 'a');
+      text = text.replace(new RegExp('[ÉÈÊ]','gi'), 'e');
+      text = text.replace(new RegExp('[ÍÌÎ]','gi'), 'i');
+      text = text.replace(new RegExp('[ÓÒÔÕ]','gi'), 'o');
+      text = text.replace(new RegExp('[ÚÙÛ]','gi'), 'u');
+      text = text.replace(new RegExp('[Ç]','gi'), 'c');
+      text = text.replace(new RegExp('[ ]','gi'), '');
+      return text;
+    }
+  },
   computed: {
     dataListOptions() {
-      return this.specialties.map(x => [x.name]);
+      return this.specialties.map(x =>(x.name));
     }
   },
   async mounted() {
     const reponse = await listSpecialties();
     if (reponse.ok) {
       this.specialties = await reponse.json();
-    } 
-  }
+    } else {
+      // eslint-disable-next-line no-console
+      console.log("ERRO GET SPECIALTIES");
+    }
+  },
+
 };
 </script>
 
