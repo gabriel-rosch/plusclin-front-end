@@ -24,54 +24,6 @@
                 </b-col>
             </b-row>
         </b-container>
-        
-    <div class="box-information">
-      <div class="wallpaper">
-        <div class="espacamento" />
-        <div class="box1">
-          <div class="header-box">
-            <span class="fourth-class title-box">Consultas particulares no preço que você pode pagar</span>
-            <div class="d-flex box px-5">
-              <img class="px-5 w-25 icon" src="../images/card.svg" alt />
-              <span
-                class="secondary-class"
-                style="font-size: 1.4vw;"
-              >Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis id luctus massa. Curabitur luctus orci ac quam fermentum mattis. Nullam in tortor placerat, gravida massa vel, lacinia arcu.</span>
-            </div>
-          </div>
-        </div>
-    <div class="box2">
-        <div class="header-box">
-            <span class="fourth-class title-box">Consultas particulares no preço que você pode pagar</span>
-            <div class="d-flex box px-5">
-              <img class="px-5 w-50 icon" src="../images/card.svg" alt />
-              <span style="font-size: 1.4vw;" class="secondary-class">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis id luctus massa. Curabitur luctus orci ac quam fermentum mattis. Nullam in tortor placerat, gravida massa vel, lacinia arcu.</span>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-    <div class="final-box">
-      <div class="carrousel">
-        <div class="botao-esquerdo">
-          <img class="button-icon" src="../images/botao-esquerdo.svg" alt />
-        </div>
-        <div class="center-box">
-          <div class="center-img">
-            <img class="w-100" src="../images/velho.svg" alt />
-          </div>
-          <div class="center-text">
-            <span class="secondary-class">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis id luctus massa. Curabitur luctus orci ac quam fermentum mattis. Nullam in tortor placerat, gravida massa vel, lacinia arcu.</span>
-          </div>
-        </div>
-        <div class="botao-direito">
-          <img class="button-icon" src="../images/botao-direito.svg" alt />
-        </div>
-      </div>
-      <div class="shared-box">
-        <span class="primary-class shared-text">Compartilhe a sua experiência com a gente</span>
-      </div>
-    </div>
     </b-container>
 </template>
 
