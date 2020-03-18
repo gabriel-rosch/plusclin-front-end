@@ -1,61 +1,73 @@
 <template>
-  <b-container fluid class="p-0">
+  <b-container fluid class="m-0 p-0">
     <Login />
-    <b-row class="row">
-      <b-col class="c1">
+    <Register />
+    <div class="d-flex">
+      <div class="d-flex c1">
         <img class="image-logo" src="../images/logo.svg" alt />
-      </b-col>
-      <b-col class="c2">
+      </div>
+      <div class="d-flex c2">
         <img src="../images/localization.svg" alt />
         <div class="localization">
-          <span class="span-secondary">Palhoça - SC</span>
-          <span class="span-tertiary">Essa não é minha localização</span>
+          <span class="secondary-class">Palhoça - SC</span>
+          <span class="tertiary-class">Essa não é minha localização</span>
         </div>
-      </b-col>
-      <b-col class="c3">
+      </div>
+      <div class="d-flex c3">
         <template v-if="!name">
-          <b-button class="rounded-pill btn-primary btn-cadastrar" @click="cadastrar()">Cadastrar-se {{userName}}</b-button>
-          <b-button v-b-modal.modal-login class="rounded-pill btn-primary btn-login">Login</b-button>
+          <b-button
+            class="rounded-pill primary-class cadastrar"
+            v-b-modal.modal-register
+          >Cadastrar-se {{userName}}</b-button>
+          <b-button v-b-modal.modal-login class="rounded-pill primary-class login">Login</b-button>
         </template>
         <template v-else>
-          <span class="span-primary px-5" @click="cadastrar()">Oi, {{this.userName}}!</span>
-          <b-button class="rounded-pill btn-primary btn-login" @click="clearSession()">Sair</b-button>
-
+          <div class="rounded-pill" style="width: 2.5vw; height: 2.5vw;">
+            <b-icon-person-fill style="color: e5695a; width: 2.5vw; height: 2.5vw;"></b-icon-person-fill>
+          </div>
+          <span style="font-size: 1.2vw;" class="primary-class sair">Oi, {{this.userName}}!</span>
+          <b-button
+            style="height: 50px"
+            class="rounded-pill primary-class px-4"
+            @click="clearSession()"
+          >Sair</b-button>
         </template>
-      </b-col>
-    </b-row>
+      </div>
+    </div>
   </b-container>
 </template>
 
 <script>
 import Login from "../components/Login";
+import Register from "../components/Register";
 
 export default {
   components: {
-    Login
+    Login,
+    Register
   },
   data() {
     return {
-      name: ''
+      name: ""
     };
   },
   name: "main-header",
   methods: {
     fillSession() {
-      this.name = localStorage.getItem('userName');
+      this.name = localStorage.getItem("userName");
     },
 
     clearSession() {
-      localStorage.removeItem('userName');
-      this.name = '';
+      localStorage.removeItem("userName");
+      this.name = "";
       this.fillSession();
     }
   },
   mounted() {
-    this.name = localStorage.getItem('userName');
+    this.name = localStorage.getItem("userName");
   },
-  computed:{
-    userName(){
+  computed: {
+    userName() {
       return this.name;
     }
   }
@@ -66,19 +78,32 @@ export default {
 .c1,
 .c2,
 .c3 {
-  margin-top: 1%;
   display: flex;
-  justify-content: center;
   align-items: center;
 }
 
+.c1 {
+  width: 27vw;
+  padding-left: 3vw;
+}
+
+.c2 {
+  width: 35vw;
+  padding-left: 9vw;
+}
+
+.c3 {
+  width: 15vw;
+}
+
 .c1 img {
-  width: 90%;
-  max-width: 100%;
+  min-width: 27vw;
+  max-width: 27vw;
 }
 .c2 img {
-  margin-right: 2%;
-  width: 5%;
+  margin-right: 1vw;
+  min-width: 2vw;
+  max-width: 2vw;
 }
 
 .image-logo:hover {
@@ -89,30 +114,22 @@ export default {
   display: grid;
 }
 
-.btn-cadastrar {
-  margin-right: 5%;
-  height: 95%;
+.btn.cadastrar {
+  height: 4vw;
+  min-width: 10vw;
+  max-width: 10vw;
+  font-size: 1.3vw;
+  padding: 0;
 }
 
-.btn-cadastrar:hover {
-  border-color: rgba(229, 105, 90, 0.7) !important;
-  background: rgba(205, 205, 205, 0.1);
-  color: #e5695a;
-  border-color: rgba(215, 92, 90, 0.1);
-}
-.btn-cadastrar:focus {
-  background: rgba(205, 205, 205, 0.2);
-  color: #e5695a;
-  border-color: rgba(215, 92, 90, 0.1);
-}
-
-.btn-login {
-  background-color: transparent !important;
-  color: rgb(229, 105, 90) !important;
-  border-color: rgba(229, 105, 90, 1) !important;
-  margin-right: 5%;
-  width: 25%;
-  height: 95%;
+.btn.login {
+  height: 4vw;
+  min-width: 10vw;
+  max-width: 10vw;
+  font-size: 1.3vw;
+  padding: 0;
+  margin-left: 1vw;
+  margin-right: 2vw;
 }
 
 .btn-login:hover {
@@ -120,6 +137,15 @@ export default {
   color: rgb(255, 255, 255) !important;
   background-color: rgba(229, 105, 90, 1) !important;
   border-color: rgba(215, 92, 90, 0.1);
+}
+
+.btn.sair {
+  height: 4vw;
+  width: 10vw;
+  font-size: 1.3vw;
+  padding: 0;
+  margin-right: 5vw;
+  margin-left: 1vw;
 }
 </style>
 

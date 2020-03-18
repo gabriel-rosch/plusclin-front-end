@@ -1,11 +1,11 @@
 <template>
-  <v-app>
-    <div class="div-principal">
+  <div class="div-principal">
+    <div class="pt-2">
       <Header />
-      <router-view></router-view>
-      <Footer />
     </div>
-  </v-app>
+    <router-view></router-view>
+    <Footer />
+  </div>
 </template>
 
 <script>
@@ -22,7 +22,10 @@ export default {
 </script>
 
 <style>
-@import './styles/default-util.css';
+@import "./styles/default-util.css";
+@import "./styles/buttons-util.css";
+@import "./styles/spans-util.css";
+
 * {
   font-family: sans-serif;
   font-style: normal;
@@ -30,61 +33,14 @@ export default {
 }
 .title-clinic-doctor {
   font-size: 3.3vw;
-  font-family: 'Asap Condensed', sans-serif;
+  font-family: "Asap Condensed", sans-serif;
   text-decoration-line: underline;
-}
-.span-primary {
-  font-style: normal;
-  font-weight: normal;
-
-  color: #e5695a;
 }
 .link-primary {
   font-style: normal;
   font-weight: normal;
   font-size: 1.5vw;
 }
-
-.span-secondary {
-  font-style: normal;
-  font-weight: normal;
-  font-size: 1.1vw;
-  color: #069999;
-}
-
-.span-tertiary {
-  font-style: normal;
-  font-weight: normal;
-  font-size: 0.7vw;
-  text-decoration-line: underline;
-  color: #99cdcd;
-}
-
-.span-fourth {
-  font-style: normal;
-  font-weight: bold;
-  font-size: 3.6vw;
-  color: #069999;
-}
-
-.btn-primary {
-  background: rgb(229, 105, 90);
-  font-size: 1.3vw;
-  font-weight: bold;
-  color: #ffffff;
-  border-color: transparent;
-  justify-content: center;
-}
-
-.btn-secondary {
-  background: rgb(229, 105, 90);
-  font-size: 1.3vw;
-  font-weight: bold;
-  color: #ffffff;
-  border-color: transparent;
-  justify-content: center;
-}
-
 
 .div-principal {
   height: 100%;
@@ -93,7 +49,7 @@ export default {
   background-size: 100%;
 }
 
-@keyframes slide-in {
+/** @keyframes slide-in {
   from {
     transform: translateY(-30px);
     opacity: 0;
@@ -122,4 +78,5 @@ export default {
 .slide-leave-active {
   animation: slide-out 0.3s ease;
 }
+*/
 </style>

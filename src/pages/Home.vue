@@ -1,95 +1,99 @@
 <template>
-  <b-container fluid style="padding: 0;">
-    <b-container fluid class="box-sourch">
-      <div class="box-search">
-        <b-row class="row-home mt-6">
-          <span class="span-fourth">Qual o</span>
-          <span class="span-fourth" style="color: #E5695A;">&nbsp;médico&nbsp;</span>
-          <span class="span-fourth">você precisa consultar?</span>
-        </b-row>
-        <b-row class="box-consulta row-home">
-          <div class="input-doctor">
-            <b-form-input
-              autocomplete="off"
-              v-model="specialtiesSelect"
-              class="rounded-pill form-control"
-              list="input-list"
-              id="input-with-list"
-            ></b-form-input>
-            <b-form-datalist id="input-list" :options="dataListOptions"></b-form-datalist>
-          </div>
-          <div class="agendar">
-            <b-button
-              type="submit"
-              :to="`/${this.removeAcento(specialtiesSelect.trim())}`"
-              class="btn-primary btn-agendar"
-              pill
-            >Agendar agora</b-button>
-          </div>
-        </b-row>
-      </div>
-    </b-container>
-    <div class="box-information">
-      <div class="wallpaper">
-        <div class="espacamento" />
-        <div class="box1">
-          <div class="header-box">
-            <span class="span-fourth title-box">Consultas particulares no preço que você pode pagar</span>
-            <div class="box">
-              <img class="icon" src="../images/card.svg" alt />
-              <span
-                class="span-secondary class text-box"
-              >Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis id luctus massa. Curabitur luctus orci ac quam fermentum mattis. Nullam in tortor placerat, gravida massa vel, lacinia arcu.</span>
+  <div id="home">
+    <div style="margin-left: 11.5%;">
+      <div>
+        <div>
+          <b-row class="m-0" style="padding-top: 21.5vw">
+            <span class="fourth-class">Qual</span>
+            <span class="six-class">&nbsp;especialista&nbsp;</span>
+            <span class="fourth-class">você precisa consultar?</span>
+          </b-row>
+          <b-row class="p-0 m-0">
+            <div class="d-flex" style="width: 41vw; height: 5vw">
+              <b-form-input
+                autocomplete="off"
+                v-model="specialtiesSelect"
+                style="width: 100%; height: 100%; padding-left: 2vw;padding-right: 2vw;"
+                class="rounded-pill"
+                list="input-list"
+                id="input-with-list"
+              ></b-form-input>
+              <b-form-datalist id="input-list" :options="dataListOptions"></b-form-datalist>
             </div>
-          </div>
+            <div class="p0 m-0" style="height:5vw;">
+              <b-button
+                type="submit"
+                style="width: 13vw; height: 5vw !important; font-size: 1.5vw; margin-left: 1.5vw;"
+                :to="`/${this.removeAcento(specialtiesSelect.trim())}`"
+                class="d-flex rounded-pill align-items-center primary-class p-0"
+              >Agendar agora</b-button>
+            </div>
+          </b-row>
         </div>
-        <div class="box2">
-          <div class="header-box">
-            <span class="span-fourth title-box">Consultas particulares no preço que você pode pagar</span>
-            <div class="box">
-              <img class="icon" src="../images/card.svg" alt />
-              <span
-                class="span-secondary class text-box"
-              >Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis id luctus massa. Curabitur luctus orci ac quam fermentum mattis. Nullam in tortor placerat, gravida massa vel, lacinia arcu.</span>
+        <div class="flex-column box-information">
+          <div class="d-flex box-one">
+            <div class="lateral-one" />
+            <div>
+              <MessageBlock style="padding-bottom: 4vw;" :titulo="titulo1" :message="message1" />
             </div>
           </div>
+          <div class="espacamento" />
+          <div class="d-flex box-two">
+            <div>
+              <MessageBlock style="padding-bottom: 4vw;" :titulo="titulo2" :message="message2" />
+            </div>
+            <div class="lateral-two" />
+          </div>
+          <div style="height: 10vw" class="espacamento" />
         </div>
       </div>
     </div>
-    <div class="final-box">
-      <div class="carrousel">
-        <div class="botao-esquerdo">
-          <img class="button-icon" src="../images/botao-esquerdo.svg" alt />
-        </div>
-        <div class="center-box">
-          <div class="center-img">
-            <img class="final-imagem" src="../images/velho.svg" alt />
-          </div>
-          <div class="center-text">
+    <div class="d-flex final-box center align-items-center">
+      <img style="height: 6vw; padding-left: 12vw;" src="../images/botao-esquerdo.svg" alt />
+      <div class="d-flex center-box">
+        <img
+          class="p-0 m-0"
+          style="min-width: 13vw;max-height: 13vw;"
+          src="../images/velho.svg"
+          alt
+        />
+        <div class="center-text">
+          <span
+            class="secondary-class"
+          >Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis id luctus massa. Curabitur luctus orci ac quam fermentum mattis. Nullam in tortor placerat, gravida massa vel, lacinia arcu.</span>
+          <div>
             <span
-              class="span-secondary class text-box"
-            >Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis id luctus massa. Curabitur luctus orci ac quam fermentum mattis. Nullam in tortor placerat, gravida massa vel, lacinia arcu.</span>
+              class="fourth-class text-box"
+              style="font-size: 1.2vw"
+            >João Carlos, 72 anos - Florianópolis - SC</span>
           </div>
         </div>
-        <div class="botao-direito">
-          <img class="button-icon" src="../images/botao-direito.svg" alt />
-        </div>
       </div>
-      <div class="compartilhe-box">
-        <span class="span-primary compartilhe-text">Compartilhe a sua experiência com a gente</span>
-      </div>
+      <img style="height: 6vw; padding-right: 12vw;" src="../images/botao-direito.svg" alt />
     </div>
-    <div class="testecarrousel"></div>
-  </b-container>
+    <div class="shared-box">
+      <span class="primary-class shared-text">Compartilhe a sua experiência com a gente</span>
+    </div>
+  </div>
 </template>
 
 <script>
 import { listSpecialties } from "../api/specialties";
+import MessageBlock from "../components/MessageBlock";
 export default {
+  components: {
+    MessageBlock
+  },
   data() {
     return {
       specialties: [],
-      specialtiesSelect: ""
+      specialtiesSelect: "",
+      message1:
+        "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis id luctus massa. Curabitur luctus orci ac quam fermentum mattis. Nullam in tortor placerat, gravida massa vel, lacinia arcu.",
+      message2:
+        "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis id luctus massa. Curabitur luctus orci ac quam fermentum mattis. Nullam in tortor placerat, gravida massa vel, lacinia arcu.",
+      titulo1: "Consultas particulares no preço que você pode pagar",
+      titulo2: "Médicos credenciados e bla bla bla"
     };
   },
   methods: {
@@ -124,23 +128,8 @@ export default {
 };
 </script>
 
+
 <style scoped>
-.main-page {
-  background-color: aqua;
-}
-
-.mt-6 {
-  padding-top: 19% !important;
-}
-
-.row-home {
-  display: flex;
-}
-
-.row-home > * {
-  display: flex;
-}
-
 .form-control {
   border-color: transparent;
   width: 100%;
@@ -159,171 +148,67 @@ export default {
   -webkit-box-shadow: none;
 }
 
-.box-search {
-  padding-left: 10%;
-}
-.box-consulta {
-  display: flex;
-  height: 6vw;
+.box-one {
+  margin-right: 0vw;
+  margin-left: 0vw;
 }
 
-.input-doctor {
-  width: 48%;
-  height: 100%;
-  font-size: 24px;
-  padding-left: 5%;
-  padding-right: 5%;
-  background: #ffffff;
-  border-radius: 60px;
-}
-
-.agendar {
-  display: flex;
-  margin-left: 2%;
-  width: 20%;
-}
-.agendar a {
-  display: flex;
-  width: 100%;
-  align-items: center;
-}
-
-.btn-agendar {
-  display: flex;
-  font-size: 1.5vw;
-}
-
-.btn-agendar:hover {
-  color: rgba(229, 105, 90, 1);
-  background-color: rgba(255, 255, 255, 0.7);
-  border-color: rgba(229, 105, 90, 1);
+.box-two {
+  margin-right: 0vw;
+  margin-left: 0vw;
 }
 
 .box-information {
-  height: 82.8vw;
-  width: 100%;
-  padding-top: 20%;
-  margin-bottom: 25%;
+  height: 82vw;
+  padding-top: 20.9vw;
+  margin-bottom: 23vw;
 }
 
-.espacamento {
-  /* background-color: pink; */
-  width: 100%;
-  height: 5%;
-}
-
-.wallpaper {
-  z-index: 1000;
-  margin-top: 5%;
+.lateral-one {
+  margin-top: 2vw;
+  height: 100% - 2vw;
+  width: 10%;
   background-color: #99cdcd;
-  width: 92%;
-  margin-left: 8%;
-  height: 132%;
 }
 
-.box1 {
-  background-color: #ffffff;
-  width: 90%;
-  margin-left: 10%;
-  height: 45%;
-  margin-top: -6% !important;
+.lateral-two {
+  height: 29.75vw;
+  width: 13.3vw;
+  background-color: #99cdcd;
 }
-
-.box2 {
-  background-color: #ffffff;
-  width: 88.7%;
-  margin-top: 5%;
-  margin-left: -8.7%;
-  padding-left: 10%;
-  height: 45%;
-}
-
-.header-box {
-  display: grid;
-}
-
-.title-box {
-  padding: 5% 35% 5% 10%;
-  font-size: 3vw;
-}
-
-.box {
+.espacamento {
   display: flex;
-  padding-left: 5%;
-  padding-right: 15%;
+  height: 5vw;
+  background-color: #99cdcd;
 }
 
-.text-box {
-  font-size: 1.4vw;
-}
-
-.icon {
-  min-width: 20%;
-  margin-right: 5%;
-  max-width: 20%;
-}
-
-.final-box {
-  flex-direction: column;
-  display: flex;
-  height: 40vw;
-  justify-content: center;
-}
-.carrousel {
-  display: flex;
-}
 .center-box {
-  display: flex;
-  width: 70%;
+  width: 30vw;
+  margin-left: 0vw;
+  margin-right: 0vw;
+  padding-left: 0vw;
+  height: 100%;
   justify-content: center;
-}
-
-.center-img {
-  align-content: center;
-  display: grid;
-  width: 40%;
-  padding-left: 10%;
 }
 
 .center-text {
   display: grid;
-  width: 50%;
-  padding-left: 3%;
-  margin-right: 10%;
+  width: 95%;
+  margin-left: 5%;
+  font-size: 1.7vw;
   align-content: center;
 }
 
-.final-imagem {
+.shared-box {
   display: flex;
-  width: 100%;
-  /* USAR FUTURAMENTE PARA TRABALHAR COM A IMAGEM*/
-  /* border-radius: 25%; */
-}
-
-.botao-esquerdo {
-  display: flex;
-  margin-left: 15%;
-}
-
-.botao-direito {
-  display: flex;
-  margin-right: 15%;
-}
-
-.compartilhe-box {
-  display: flex;
-  padding-top: 3%;
+  padding-top: 3vw;
+  height: 10vw;
   justify-content: center;
   align-content: center;
 }
 
-.compartilhe-text {
+.shared-text {
   font-size: 1.1vw;
   text-decoration-line: underline;
 }
-
-.button-icon {
-  width: 100%;
-}
 </style>
-
