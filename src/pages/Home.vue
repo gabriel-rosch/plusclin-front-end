@@ -21,7 +21,7 @@
           <div class="agendar">
             <b-button
               type="submit"
-              :to="`/${specialtiesSelect}`"
+              :to="`/${this.removeAcento(specialtiesSelect.trim())}`"
               class="btn-primary btn-agendar"
               pill
             >Agendar agora</b-button>
@@ -92,10 +92,23 @@ export default {
       specialtiesSelect: ""
     };
   },
-  methods: {},
+  methods: {
+    removeAcento(text)
+    {
+      text = text.toLowerCase();
+      text = text.replace(new RegExp('[ÁÀÂÃ]','gi'), 'a');
+      text = text.replace(new RegExp('[ÉÈÊ]','gi'), 'e');
+      text = text.replace(new RegExp('[ÍÌÎ]','gi'), 'i');
+      text = text.replace(new RegExp('[ÓÒÔÕ]','gi'), 'o');
+      text = text.replace(new RegExp('[ÚÙÛ]','gi'), 'u');
+      text = text.replace(new RegExp('[Ç]','gi'), 'c');
+      text = text.replace(new RegExp('[ ]','gi'), '');
+      return text;
+    }
+  },
   computed: {
     dataListOptions() {
-      return this.specialties.map(x => [x.name]);
+      return this.specialties.map(x =>(x.name));
     }
   },
   async mounted() {
@@ -106,7 +119,8 @@ export default {
       // eslint-disable-next-line no-console
       console.log("ERRO GET SPECIALTIES");
     }
-  }
+  },
+
 };
 </script>
 

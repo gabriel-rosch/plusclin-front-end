@@ -4,7 +4,7 @@
             <b-row style="height: 30rem" align-v="center">
                 <b-col>
                     <span v-if="specialties" class="d-flex span-primary title-clinic-doctor">{{specialties.name}}</span>
-                    <span v-else class="d-flex span-primary name-specialties">ESPECIALIDADE NÃO ENCONTRADA</span>
+                    <span v-else class="d-flex span-primary name-specialties title-clinic-doctor">ESPECIALIDADE NÃO ENCONTRADA</span>
                     <span v-if="specialties" class="d-flex span-primary select-clinic">Escolha uma clínica</span>
                 </b-col>
                 <b-col>
@@ -61,15 +61,11 @@
                 const response = await listClinics(this.specialties.id);
                 if (response.ok) {
                     this.clinics = await response.json()
-
                 } else {
                     this.clinics = null
                 }
             }
-
         },
-
-
     }
 </script>
 
