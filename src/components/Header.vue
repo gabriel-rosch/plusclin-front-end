@@ -22,13 +22,15 @@
           <b-button v-b-modal.modal-login class="rounded-pill primary-class login">Login</b-button>
         </template>
         <template v-else>
-          <div class="rounded-pill" style="width: 2.5vw; height: 2.5vw;">
-            <b-icon-person-fill style="color: e5695a; width: 2.5vw; height: 2.5vw;"></b-icon-person-fill>
+          <div class="userLogin">
+            <div class="rounded-pill p-0 m-0" style="min-width: 2.5vw; min-height: 2.5vw;">
+              <b-icon-person-fill style="color: e5695a; width: 2.5vw; height: 2.5vw;"></b-icon-person-fill>
+            </div>
+            <span style="font-size: 1.2vw;" class="primary-class sair">Oi, {{this.userName}}!</span>
           </div>
-          <span style="font-size: 1.2vw;" class="primary-class sair">Oi, {{this.userName}}!</span>
           <b-button
-            style="height: 50px"
-            class="rounded-pill primary-class px-4"
+            style="height: 3vw;  margin-right: 2vw;"
+            class="rounded-pill bold tertiary-class cadastrar"
             @click="clearSession()"
           >Sair</b-button>
         </template>
@@ -61,6 +63,7 @@ export default {
       localStorage.removeItem("userName");
       this.name = "";
       this.fillSession();
+      window.location.href = "../";
     }
   },
   mounted() {
@@ -88,14 +91,21 @@ export default {
 }
 
 .c2 {
-  width: 35vw;
+  width: 15vw;
   padding-left: 9vw;
 }
 
 .c3 {
-  width: 15vw;
+  justify-content: flex-end;
+  width: 35vw;
 }
 
+.userLogin {
+  display: flex;
+  padding-right: 5%;
+  align-items: center;
+  justify-content: flex-end;
+}
 .c1 img {
   min-width: 27vw;
   max-width: 27vw;

@@ -1,7 +1,7 @@
 <template>
   <b-container class="footer" fluid>
     <div class="d-flex flex-column">
-      <b-button class="tertiary-class becomeClinic rounded-pill">Torne-se uma clínica PlusClin</b-button>
+      <b-button class="tertiary-class becomeClinic rounded-pill border-primary" style="border: 2px solid white">Torne-se uma clínica PlusClin</b-button>
       <div>
         <img class="logo d-flex justift-start" src="../images/pluscin.svg" alt />
       </div>

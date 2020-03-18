@@ -108,6 +108,9 @@ export default {
         localStorage.setItem("userName", session.user.name);
         this.$parent.fillSession();
         this.$bvModal.hide("modal-login");
+        if (!session.user.provider) {
+          window.location.href = "/MinhaAgenda";
+        }
       } else {
         const session = await response.json();
         this.erro = session.error;

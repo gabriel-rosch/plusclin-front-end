@@ -25,8 +25,8 @@
                 type="submit"
                 style="width: 13vw; height: 5vw !important; font-size: 1.5vw; margin-left: 1.5vw;"
                 :to="`/especialidade/${specialtiesSelect}`"
-                class="d-flex rounded-pill align-items-center primary-class p-0"
-              >Agendar agora</b-button>
+                class="d-flex rounded-pill bold align-items-center fourth-class p-0"
+              >Agendar agora</b-button> 
             </div>
           </b-row>
         </div>
@@ -106,9 +106,7 @@ export default {
     const reponse = await listSpecialties();
     if (reponse.ok) {
       this.specialties = await reponse.json();
-    } else {
-      console.log("ERRO GET SPECIALTIES");
-    }
+    } 
   }
 };
 </script>
