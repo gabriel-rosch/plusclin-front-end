@@ -11,7 +11,7 @@ export default new Router({
     mode: 'history',
     routes: [
         { path: '/', component: Home },
-        { path: '/Especialidade/:nameSpecialties', component: Clinic },
-        { path: '/MinhaAgenda', component: Medic },
+        { path: '/especialidade/:nameSpecialties', component: Clinic },
+        { path: '/minhaagenda', component: Medic },
     ]
 })
