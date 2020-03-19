@@ -1,5 +1,5 @@
 function resolveUrl(url) {
-    return new URL(url, "http://localhost:25565").href;
+    return new URL(url, "http://localhost:3333").href;
 }
 
 export function get(url) {
