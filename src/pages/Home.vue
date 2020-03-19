@@ -4,7 +4,7 @@
       <div>
         <div>
           <b-row class="m-0" style="padding-top: 21.5vw">
-            <span class="fourth-class">De qual<span class="six-class">&nbsp;especialista&nbsp;</span> você está precisando?</span>
+            <span class="fourth-class">De qual<span class="six-class">&nbsp;especialista&nbsp;</span>você está precisando?</span>
           </b-row>
           <b-row class="p-0 m-0">
             <div class="d-flex" style="width: 44vw; height: 5vw">
