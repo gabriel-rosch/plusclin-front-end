@@ -3,7 +3,7 @@ import Router from 'vue-router'
 
 import Home from './pages/Home'
 import Clinic from './pages/Clinic'
-import Medic from './pages/Medic'
+import Schedule from './pages/Schedule'
 
 Vue.use(Router)
 
@@ -12,6 +12,6 @@ export default new Router({
     routes: [
         { path: '/', component: Home },
         { path: '/especialidade/:nameSpecialties', component: Clinic },
-        { path: '/minhaAgenda', component: Medic },
+        { path: '/minhaAgenda', component: Schedule },
     ]
 })

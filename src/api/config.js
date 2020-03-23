@@ -1,10 +1,15 @@
 function resolveUrl(url) {
-    return new URL(url, "http://localhost:3333").href;
+    return new URL(url, "http://localhost:25565").href;
 }
 
 export function get(url) {
     return fetch(resolveUrl(url), {
-        method: 'GET'
+        method: 'GET',
+        headers: {
+            'Accept': 'application/json',
+            'Content-Type': 'application/json',
+            'Authorization': 'Bearer ' + localStorage.getItem("token"),
+        }
     })
 }
 
@@ -16,4 +21,7 @@ export function post(url, data) {
         },
         body: JSON.stringify(data)
     });
+
+
+
 }
