@@ -106,10 +106,12 @@ export default {
       if (response.ok) {
         const session = await response.json();
         localStorage.setItem("userName", session.user.name);
+        localStorage.setItem("provider", session.user.provider);
+        localStorage.setItem("token", session.token);
         this.$parent.fillSession();
         this.$bvModal.hide("modal-login");
-        if (!session.user.provider) {
-          window.location.href = "/MinhaAgenda";
+        if (session.user.provider) {
+           window.location.href = "/MinhaAgenda";
         }
       } else {
         const session = await response.json();

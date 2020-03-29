@@ -32,7 +32,7 @@
           <div class="d-flex box-one">
             <div class="lateral-one" />
             <div>
-              <MessageBlock style="padding-bottom: 4vw;" :titulo="titulo1" :message="message1" />
+                <MessageBlock style="padding-bottom: 4vw;" :titulo="titulo1" :message="message1" />
             </div>
           </div>
           <div class="espacamento"/>

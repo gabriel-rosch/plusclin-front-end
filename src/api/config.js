@@ -4,7 +4,12 @@ function resolveUrl(url) {
 
 export function get(url) {
     return fetch(resolveUrl(url), {
-        method: 'GET'
+        method: 'GET',
+        headers: {
+            'Accept': 'application/json',
+            'Content-Type': 'application/json',
+            'Authorization': 'Bearer ' + localStorage.getItem("token"),
+        }
     })
 }
 
@@ -16,4 +21,7 @@ export function post(url, data) {
         },
         body: JSON.stringify(data)
     });
+
+
+
 }

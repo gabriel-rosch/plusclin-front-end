@@ -7749,11 +7749,6 @@ tty-browserify@0.0.0:
   resolved "https://registry.yarnpkg.com/tty-browserify/-/tty-browserify-0.0.0.tgz#a157ba402da24e9bf957f9aa69d524eed42901a6"
   integrity sha1-oVe6QC2iTpv5V/mqadUk7tQpAaY=
 
-tuex@^0.3.22:
-  version "0.3.22"
-  resolved "https://registry.npm.taobao.org/tuex/download/tuex-0.3.22.tgz#0858ad82d3d6d269e8df3ac72ae9457c1cdd6e45"
-  integrity sha1-CFitgtPW0mno3zrHKulFfBzdbkU=
-
 tunnel-agent@^0.6.0:
   version "0.6.0"
   resolved "https://registry.yarnpkg.com/tunnel-agent/-/tunnel-agent-0.6.0.tgz#27a5dea06b36b04a0a9966774b290868f0fc40fd"
