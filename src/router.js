@@ -4,6 +4,7 @@ import Router from 'vue-router'
 import Home from './pages/Home'
 import Clinic from './pages/Clinic'
 import Medic from './pages/Medic'
+import Doctor from "./pages/Doctor";
 
 Vue.use(Router)
 
@@ -11,7 +12,21 @@ export default new Router({
     mode: 'history',
     routes: [
         { path: '/', component: Home },
+
+
+
+
+
         { path: '/especialidade/:nameSpecialties', component: Clinic },
+        { path: '/especialidade/:nameSpecialties/:clinicId', component: Doctor },
+
+
+
+
+
+
+
+
         { path: '/minhaAgenda', component: Medic },
     ]
 })

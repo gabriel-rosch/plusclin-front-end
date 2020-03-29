@@ -4,7 +4,7 @@
       <div>
         <div>
           <b-row class="m-0" style="padding-top: 21.5vw">
-            <span class="fourth-class">De qual<span class="six-class">&nbsp;especialista&nbsp;</span>você está precisando?</span>
+            <span class="fourth-class">De qual<span class="six-class">&nbsp;especioalidade&nbsp;</span>você está precisando?</span>
           </b-row>
           <b-row class="p-0 m-0">
             <div class="d-flex" style="width: 44vw; height: 5vw">
@@ -15,7 +15,7 @@
                 class="rounded-pill"
                 list="input-list"
                 id="input-with-list"
-              ></b-form-input>
+              />
               <b-form-datalist id="input-list" :options="dataListOptions"></b-form-datalist>
             </div>
             <div class="p0 m-0" style="height:5vw;">
@@ -35,7 +35,7 @@
               <MessageBlock style="padding-bottom: 4vw;" :titulo="titulo1" :message="message1" />
             </div>
           </div>
-          <div class="espacamento" />
+          <div class="espacamento"/>
           <div class="d-flex box-two">
             <div>
               <MessageBlock style="padding-bottom: 4vw;" :titulo="titulo2" :message="message2" />
@@ -197,7 +197,7 @@ export default {
   display: grid;
   width: 95%;
   margin-left: 5%;
-  font-size: 1.7vw;
+  font-size: 1.4vw;
   align-content: center;
 }
 

@@ -24,7 +24,7 @@
         <template v-else>
           <div class="userLogin">
             <div class="rounded-pill p-0 m-0" style="min-width: 2.5vw; min-height: 2.5vw;">
-              <b-icon-person-fill style="color: e5695a; width: 2.5vw; height: 2.5vw;"></b-icon-person-fill>
+              <b-icon-person-fill style="color: #e5695a; width: 2.5vw; height: 2.5vw;"></b-icon-person-fill>
             </div>
             <span style="font-size: 1.2vw;" class="primary-class sair">Oi, {{this.userName}}!</span>
           </div>
