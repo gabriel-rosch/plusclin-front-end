@@ -44,8 +44,7 @@
 </template>
 
 <script>
-    import {listSchedulerForData} from "../api/scheduler";
-    import {listSchedulerForData} from "../api/scheduler";
+    // import {listSchedulerForData} from "../api/scheduler";
     export default {
         props: {
             dados: {
@@ -86,9 +85,9 @@
                 var timetable = hour + ":" + minutes;
                 return timetable;
             }
-            , cancelar(id){
-
-            }
+            // , cancelar(id){
+            //
+            // }
         }
     };
 </script>

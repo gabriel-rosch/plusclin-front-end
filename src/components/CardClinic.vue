@@ -1,39 +1,35 @@
 <template>
     <b-card img-alt="Image" img-top>
-        <b-card-img alt="imagem clinic"  class="place justify-content-center mb-4" :src="image"/>
-        <b-card-title style="color: rgb(229, 105, 90);" >{{name}}</b-card-title>
+        <b-card-img alt="imagem clinic"  class="place justify-content-center mb-4" :src="clinic.avatar.url"/>
+        <b-card-title style="color: rgb(229, 105, 90);" >{{clinic.name}}</b-card-title>
         <b-card-text>
             <b-card-text  class="font-size-card">
-                Cidade: {{address.city}}
+                Cidade: {{clinic.addresses.city}}
                 <br>
-                Rua:    {{address.street}}
+                Rua:    {{clinic.addresses.street}}
                 <br>
-                Numero: {{address.number}}
+                Numero: {{clinic.addresses.number}}
             </b-card-text>
-            <b-button @click="onSelect"  class="rounded-pill primary-class filter">Selecionar</b-button>
+            <b-button @click="onSelect()"  class="rounded-pill primary-class filter">Selecionar</b-button>
         </b-card-text>
         <template v-slot:footer>
-            <small v-if="countUsers == 1" class="text-muted">{{countUsers}} especialista disponível</small>
-            <small v-else class="text-muted">{{countUsers}} especialistas disponíveis</small>
+            <small v-if="clinic.Users.length == 1" class="text-muted">{{clinic.Users.length}} especialista disponível</small>
+            <small v-else class="text-muted">{{clinic.Users.length}} especialistas disponíveis</small>
         </template>
     </b-card>
 </template>
 
 <script>
     export default {
-        name: "CardClinic",
+        name: "card-clinic",
         props:{
             id: Number,
-            name: {type: String, required: true},
-            key: String,
-            image: String,
-            countUsers: Number,
-            address: Object
-
+            clinic:Object
         },
         methods: {
             onSelect(){
-                this.$router.push({path:`/${this.key}/${this.id}`})
+                this.$store.users = this.clinic.Users;
+                this.$router.push({path:`/especialidade/${this.$store.searchSpeciltie.key}/${this.clinic.id}`})
             }
         }
     }

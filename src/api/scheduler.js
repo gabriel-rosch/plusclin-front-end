@@ -6,6 +6,3 @@ export async function listScheduler(page) {
 export async function listSchedulerForData(data) {
     return get(`./schedule?date=`+data);
 }
-export async function listSchedulerForData(data) {
-    return get(`./schedule?date=`+data);
-}

@@ -14,16 +14,12 @@
         </b-container>
         <b-container fluid>
             <b-row v-if="clinics.length" :class="[clinics.length ? 'containerClinic': 'containerClinicNull']">
-                <b-col class="align-content-center justify-content-center px-5" :key="item.id" v-for="item in clinics" cols="4">
+                <b-col class="align-content-center justify-content-center px-5" :key="clinic.id" v-for="clinic in clinics" cols="4">
                     <b-card-group>
                         <card-clinic
                                 style="box-shadow: 10px 10px 10px rgba(0, 20,100,0.15);"
                                 class="border"
-                                :id="item.id"
-                                :name="item.name"
-                                :image="item.avatar.url"
-                                :countUsers="item.Users.length"
-                                :address="item.addresses"
+                                :clinic="clinic"
                         />
                     </b-card-group>
                 </b-col>

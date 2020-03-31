@@ -15,9 +15,9 @@ Vue.use(IconsPlugin);
 Vue.use(Tuex);
 
 new Tuex.Store({
-    user: [],
-    searchSpeciltie: [],
-    clinicSelect: []
+    users: [],
+    searchSpeciltie: {},
+    clinicSelect: {}
 });
 new Vue({
     router,
