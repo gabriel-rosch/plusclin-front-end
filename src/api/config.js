@@ -17,11 +17,33 @@ export function post(url, data) {
     return fetch(resolveUrl(url), {
         method: 'POST',
         headers: {
-            'Content-Type': 'application/json'
+            'Accept': 'application/json',
+            'Content-Type': 'application/json',
+            'Authorization': 'Bearer ' + localStorage.getItem("token"),
+        },
+        body: JSON.stringify(data)
+    })
+}
+
+export function put(url, data) {
+    return fetch(resolveUrl(url), {
+        method: 'PUT',
+        headers: {
+            'Accept': 'application/json',
+            'Content-Type': 'application/json',
+            'Authorization': 'Bearer ' + localStorage.getItem("token"),
         },
         body: JSON.stringify(data)
     });
+}
 
-
-
+export function delet(url) {
+    return fetch(resolveUrl(url), {
+        method: 'DELETE',
+        headers: {
+            'Accept': 'application/json',
+            'Content-Type': 'application/json',
+            'Authorization': 'Bearer ' + localStorage.getItem("token"),
+        }
+    })
 }

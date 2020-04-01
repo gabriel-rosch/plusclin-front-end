@@ -31,7 +31,6 @@
             return {
                 dataSelect: new Date()
                 , appointments: []
-                , pagina: 1
             };
         },
         methods: {

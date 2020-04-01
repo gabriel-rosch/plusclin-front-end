@@ -35,7 +35,7 @@
                     <strong> {{formatHour(this.dados.date)}}</strong>
                 </b-alert>
 
-                <b-button @click="cancelar" size="sm" variant="danger" class="mx-1">Cancelar</b-button>
+                <b-button @click="cancelar(dados.id)" size="sm" variant="danger" class="mx-1">Cancelar</b-button>
                 <b-button @click="onClose" size="sm" variant="success" class="mx-1">Confirmar</b-button>
                 <b-button @click="onClose" size="sm" variant="primary" style="margin-left: 72px;">Ok</b-button>
             </div>
@@ -44,8 +44,8 @@
 </template>
 
 <script>
-    import {listSchedulerForData} from "../api/scheduler";
-    import {listSchedulerForData} from "../api/scheduler";
+    import {removeScheduler} from "../api/scheduler";
+
     export default {
         props: {
             dados: {
@@ -65,7 +65,7 @@
             formatDate(date) {
                 date = new Date(date);
                 var day = date.getDate();
-                var mounth = date.getMonth();
+                var mounth = date.getMonth() + 1;
                 if (mounth <= 9) {
                     mounth = ("0" + mounth);
                 }
@@ -86,8 +86,10 @@
                 var timetable = hour + ":" + minutes;
                 return timetable;
             }
-            , cancelar(id){
-
+            , async cancelar(id) {
+                await removeScheduler(id);
+                this.onClose();
+                await this.$parent.SearchScheduling();
             }
         }
     };

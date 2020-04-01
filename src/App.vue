@@ -17,7 +17,9 @@ export default {
     Footer,
     Header
   },
-  created() {}
+  created() {},
+  methods: {
+  }
 };
 </script>
 
