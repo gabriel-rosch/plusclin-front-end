@@ -1,46 +1,74 @@
 <template>
-    <b-card class="text-center card"
-            body-class="body">
-        <b-card-header>
-            <img :src="image" alt="imagem da clinica" class="rounded-circle" style="opacity:1;border: .07rem solid #e5695a; height: 15rem; width: 20rem">
-        </b-card-header>
-        <b-card-footer>
-            <b-card-title class="p-3" style="font-size: 1.8vw">
-                <strong>{{name}}</strong>
-            </b-card-title>
-            <b-card-text class="py-3" style="font-size: 1.4vw">
-                <tamplate  v-if="countUsers > 1">
-                    {{countUsers}} especialistas disponíveis
-                </tamplate>
-                <tamplate v-else>
-                    {{countUsers}} especialista disponível
-                </tamplate>
+    <b-card img-alt="Image" img-top>
+        <b-card-img alt="imagem clinic"  class="place justify-content-center mb-4" :src="clinic.avatar.url"/>
+        <b-card-title style="color: rgb(229, 105, 90);" >{{clinic.name}}</b-card-title>
+        <b-card-text>
+            <b-card-text  class="font-size-card">
+                Cidade: {{clinic.addresses.city}}
                 <br>
-                {{address.city}} - {{address.street}}
+                Rua:    {{clinic.addresses.street}}
                 <br>
-                numero: {{address.number}}
+                Numero: {{clinic.addresses.number}}
             </b-card-text>
-        </b-card-footer>
-
+            <b-button @click="onSelect()"  class="rounded-pill primary-class filter">Selecionar</b-button>
+        </b-card-text>
+        <template v-slot:footer>
+            <small v-if="clinic.Users.length == 1" class="text-muted">{{clinic.Users.length}} especialista disponível</small>
+            <small v-else class="text-muted">{{clinic.Users.length}} especialistas disponíveis</small>
+        </template>
     </b-card>
 </template>
 
 <script>
     export default {
-        name: "CardClinic",
+        name: "card-clinic",
         props:{
-            name: {type: String, required: true},
-            image: String,
-            countUsers: Number,
-            address: Object
-
+            id: Number,
+            clinic:Object
         },
         methods: {
+            onSelect(){
+                this.$store.users = this.clinic.Users;
+                this.$router.push({path:`/especialidade/${this.$store.searchSpeciltie.key}/${this.clinic.id}`})
+            }
         }
     }
 </script>
 
 <style scoped>
+    /*sm*/
+    @media (max-width: 767px) {
+        .font-size-card-main{
+            font-size: 5vw;
+        }
+        .font-size-card{
+            font-size: 4vw;
+        }
+    }
+
+
+
+    @media (min-width: 767px) {
+        .font-size-card-main{
+            font-size: 1.8vw;
+        }
+        .font-size-card{
+        }
+
+    }
+    .btn.filter {
+        height: 4vw;
+        min-width: 10vw;
+        max-width: 10vw;
+        font-size: 1.3vw;
+    }
+    .place{
+        width: 100%;
+        height: 10vw;
+
+        background-position: center;
+        background-size: cover;
+    }
      .card-header{
          background-color: #fff;
      }
@@ -48,17 +76,10 @@
          background-color: #fff;
      }
 
-     .body{
-
-     }
      .card{
-        font-family: 'Asap Condensed', sans-serif;
-        font-style: normal;
-        font-weight: normal;
         font-size: 1vw;
         cursor: pointer;
         color: #069999;
-         opacity: 0.95;
     }
     strong{
         color: #E5695A;

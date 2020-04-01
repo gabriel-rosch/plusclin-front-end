@@ -1,43 +1,98 @@
 <template>
-    <b-container fluid>
-        <span>{{specialtie.name}}</span>
-        <span>{{clinic}}</span>
-    </b-container>
+    <div>
+        <b-container  >
+            <b-row class="height-main-col" align-v="center">
+                <b-col>
+                    <span class="title-primary d-flex span-primary">SELECIONE SEU HORÁRIO</span>
+                    <span v-if="this.$store.searchSpeciltie" class="d-flex title-secundary">E tenha um ótioma consulta!</span>
+                </b-col>
+            </b-row>
+        </b-container>
+        <b-container fluid>
+            <b-row class="container-doctors">
+                <b-col  :key="user.id" v-for="user in this.$store.users">
+                    medico 1
+                </b-col>
+            </b-row>
+        </b-container>
+    </div>
 </template>
 
 <script>
-
-    import {listSpecialtiesName} from "../api/specialties";
-
     export default {
-        components: {
-        },
         data() {
-            return {
-                specialties: [],
-                clinic: []
-            };
+            return{
+                doctors: []
+            }
         },
-        async mounted() {
-            await this.load();
+        mounted() {
+            this.load()
         },
+
         methods:{
             async load(){
-                const response = await listSpecialtiesName(this.$route.params.nameSpecialties);
-                if (response.ok) {
-                    this.specialties = await response.json()
-                } else {
-                    this.specialties = null
+                if(this.$store.searchSpeciltie && this.$route.params.clinicId) {
+                    // eslint-disable-next-line
+                    console.log(this.$store.users)
                 }
-                this.clinic = [{'clinc': this.$route.params.nameClinic}]
             },
+
         },
     }
 </script>
 
 <style scoped>
+    /*sm*/
+    @media (max-width: 767px)
+    {
+        .date-piker{
+            width: 83%;
+        }
+        .height-main-col{
+            height: 47vw;
+        }
+        .title-primary{
+            color: rgb(229, 105, 90);
+            font-size: 5vw;
+            text-decoration: underline;
+        }
+        .title-secundary{
+            font-size: 4vw;
+            color: #069999;
+        }
+    }
+    @media (min-width: 767px) {
+        .date-piker{
+            width: 90%;
+        }
+        .height-main-col{
+            height: 27vw;
+        }
+        .date-piker{
+            width: 55%
+        }
+        .title-primary{
+            color: rgb(229, 105, 90);
+            font-size: 2.8vw;
+            text-decoration: underline;
+        }
+        .title-secundary{
+            font-size: 2.3vw;
+            color: #069999;
+        }
+    }
+    .btn.filter {
+        height: 4vw;
+        min-width: 10vw;
+        max-width: 10vw;
+        font-size: 1.3vw;
+    }
+    .btn.filter:hover{
+        background-color: white;
+    }
 
-
-
+    .container-doctors{
+        margin-bottom: 13vw;
+    }
 </style>
 

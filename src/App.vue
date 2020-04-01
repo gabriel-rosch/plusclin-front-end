@@ -30,19 +30,10 @@ export default {
 @import "./styles/border-util.css";
 
 * {
-  font-family: sans-serif;
-  font-style: normal;
-  font-weight: normal;
-}
-.title-clinic-doctor {
-  font-size: 3.3vw;
   font-family: "Asap Condensed", sans-serif;
-  text-decoration-line: underline;
-}
-.link-primary {
   font-style: normal;
   font-weight: normal;
-  font-size: 1.5vw;
+
 }
 
 .div-principal {

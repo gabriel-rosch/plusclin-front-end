@@ -44,8 +44,12 @@
 </template>
 
 <script>
+<<<<<<< HEAD
     import {removeScheduler} from "../api/scheduler";
 
+=======
+    // import {listSchedulerForData} from "../api/scheduler";
+>>>>>>> 15589aab91eb819b4046a7f6918ba1664c347f4a
     export default {
         props: {
             dados: {
@@ -86,11 +90,17 @@
                 var timetable = hour + ":" + minutes;
                 return timetable;
             }
+<<<<<<< HEAD
             , async cancelar(id) {
                 await removeScheduler(id);
                 this.onClose();
                 await this.$parent.SearchScheduling();
             }
+=======
+            // , cancelar(id){
+            //
+            // }
+>>>>>>> 15589aab91eb819b4046a7f6918ba1664c347f4a
         }
     };
 </script>
