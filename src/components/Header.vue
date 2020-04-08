@@ -1,18 +1,16 @@
 <template>
-<<<<<<< HEAD
     <b-container fluid class="m-0 p-0">
-        <Login/>
-        <Register/>
-        <Localization/>
+        <Login />
+        <Register />
         <div class="d-flex">
             <div class="d-flex c1">
-                <img class="image-logo" src="../images/logo.svg" @click="paginaInicial()" alt/>
+                <img class="image-logo" src="../images/logo.svg" alt />
             </div>
             <div class="d-flex c2">
-                <img src="../images/localization.svg" alt/>
+                <img src="../images/localization.svg" alt />
                 <div class="localization">
                     <span class="secondary-class">Palhoça - SC</span>
-                    <span v-b-modal.modal-localization class="tertiary-class">Essa não é minha localização</span>
+                    <span class="tertiary-class">Essa não é minha localização</span>
                 </div>
             </div>
             <div class="d-flex c3">
@@ -20,15 +18,13 @@
                     <b-button
                             class="rounded-pill primary-class cadastrar"
                             v-b-modal.modal-register
-                    >Cadastrar-se {{userName}}
-                    </b-button>
+                    >Cadastrar-se {{userName}}</b-button>
                     <b-button v-b-modal.modal-login class="rounded-pill primary-class login">Login</b-button>
                 </template>
                 <template v-else>
                     <div class="userLogin">
                         <div class="rounded-pill p-0 m-0" style="min-width: 2.5vw; min-height: 2.5vw;">
-                            <b-icon-person-fill
-                                    style="color: e5695a; width: 2.5vw; height: 2.5vw;"></b-icon-person-fill>
+                            <b-icon-person-fill style="color: #e5695a; width: 2.5vw; height: 2.5vw;"></b-icon-person-fill>
                         </div>
                         <span style="font-size: 1.2vw;" class="primary-class sair">Oi, {{this.userName}}!</span>
                     </div>
@@ -39,34 +35,6 @@
                     >Sair
                     </b-button>
                 </template>
-=======
-  <b-container fluid class="m-0 p-0">
-    <Login />
-    <Register />
-    <div class="d-flex">
-      <div class="d-flex c1">
-        <img class="image-logo" src="../images/logo.svg" alt />
-      </div>
-      <div class="d-flex c2">
-        <img src="../images/localization.svg" alt />
-        <div class="localization">
-          <span class="secondary-class">Palhoça - SC</span>
-          <span class="tertiary-class">Essa não é minha localização</span>
-        </div>
-      </div>
-      <div class="d-flex c3">
-        <template v-if="!name">
-          <b-button
-            class="rounded-pill primary-class cadastrar"
-            v-b-modal.modal-register
-          >Cadastrar-se {{userName}}</b-button>
-          <b-button v-b-modal.modal-login class="rounded-pill primary-class login">Login</b-button>
-        </template>
-        <template v-else>
-          <div class="userLogin">
-            <div class="rounded-pill p-0 m-0" style="min-width: 2.5vw; min-height: 2.5vw;">
-              <b-icon-person-fill style="color: #e5695a; width: 2.5vw; height: 2.5vw;"></b-icon-person-fill>
->>>>>>> 15589aab91eb819b4046a7f6918ba1664c347f4a
             </div>
         </div>
     </b-container>
@@ -74,14 +42,12 @@
 
 <script>
     import Login from "../components/Login";
-    import Localization from "../components/Localization";
     import Register from "../components/Register";
 
     export default {
         components: {
             Login,
-            Register,
-            Localization
+            Register
         },
         data() {
             return {
