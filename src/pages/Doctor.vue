@@ -31,15 +31,15 @@
             }
         },
         mounted() {
+            // eslint-disable-next-line no-console
+            console.log(this.$store.users);
             this.load()
         },
 
         methods:{
             async load(){
-                if(this.$store.searchSpeciltie && this.$route.params.clinicId) {
-                    // eslint-disable-next-line
-                    console.log(this.$store.users)
-                }
+                // if(this.$store.searchSpeciltie && this.$route.params.clinicId) {
+                // }
             },
 
         },
