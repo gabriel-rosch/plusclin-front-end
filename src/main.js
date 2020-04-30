@@ -17,7 +17,8 @@ Vue.use(Tuex);
 new Tuex.Store({
     users: [],
     searchSpeciltie: {},
-    clinicSelect: {}
+    clinicSelect: {},
+    dateSelect: 0
 });
 new Vue({
     router,

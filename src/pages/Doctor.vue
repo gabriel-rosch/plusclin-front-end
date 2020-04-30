@@ -8,12 +8,8 @@
                 </b-col>
             </b-row>
         </b-container>
-        <b-container fluid>
-            <b-row class="container-doctors">
-                <b-col :key="user.id" v-for="user in this.$store.users">
-                    <card-doctor :user="user"/>
-                </b-col>
-            </b-row>
+        <b-container fluid class="container-doctors">
+            <card-doctor :key="user.id" v-for="user in this.$store.users" :user="user"/>
         </b-container>
     </div>
 </template>
@@ -31,8 +27,6 @@
             }
         },
         mounted() {
-            // eslint-disable-next-line no-console
-            console.log(this.$store.users);
             this.load()
         },
 
@@ -98,6 +92,8 @@
 
     .container-doctors{
         margin-bottom: 13vw;
+        padding-left: 10vw;
+        padding-right: 10vw;
     }
 </style>
 

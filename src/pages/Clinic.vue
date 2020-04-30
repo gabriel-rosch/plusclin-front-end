@@ -77,6 +77,7 @@
                 }
             },
             onFilter(){
+                this.$store.dateSelect = this.dateSelect;
                 this.loadClinics();
             }
         },

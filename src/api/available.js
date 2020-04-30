@@ -1,6 +1,5 @@
-import {get } from './config';
+import {get} from './config';
 
-export async function getAvailable(id) {
-
-    return get(`./providers/${id}/available`);
+export async function getAvailable(id, date) {
+    return get(`./providers/${id}/available?date=${date}`);
 }
