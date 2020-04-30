@@ -10,8 +10,8 @@
         </b-container>
         <b-container fluid>
             <b-row class="container-doctors">
-                <b-col  :key="user.id" v-for="user in this.$store.users">
-                    medico 1
+                <b-col :key="user.id" v-for="user in this.$store.users">
+                    <card-doctor :user="user"/>
                 </b-col>
             </b-row>
         </b-container>
@@ -19,7 +19,12 @@
 </template>
 
 <script>
+    import CardDoctor from "../components/CardDoctor";
     export default {
+        components: {CardDoctor},
+        comments:{
+            CardDoctor
+        },
         data() {
             return{
                 doctors: []

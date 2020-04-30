@@ -6,5 +6,5 @@ export async function listSpecialties() {
 }
 
 export async function listSpecialtiesName(payload) {
-    return get(`./specialtiesName?name=${payload}`);
+    return get(`./specialtiesName?key=${payload}`);
 }

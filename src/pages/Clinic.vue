@@ -61,9 +61,9 @@
 
         methods:{
             async load(){
-                 const response = await listSpecialtiesName(this.$route.params.nameSpecialties);
+                const response = await listSpecialtiesName(this.$route.params.nameSpecialties);
                 if (response.ok) {
-                    this.$store.searchSpeciltie = await response.json()
+                    this.$store.searchSpeciltie = await response.json();
                 } else {
                     this.$store.searchSpeciltie = null
                 }
