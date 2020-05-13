@@ -1,16 +1,17 @@
 <template>
     <b-container fluid class="m-0 p-0">
-        <Login />
-        <Register />
-        <div class="d-flex">
+        <Login/>
+        <Register/>
+        <Localization :props-city="this.city"/>
+        <div class="d-flex c">
             <div class="d-flex c1">
-                <img class="image-logo" src="../images/logo.svg" alt />
+                <img @click="paginaInicial" class="image-logo" src="../images/logo.svg" alt/>
             </div>
             <div class="d-flex c2">
-                <img src="../images/localization.svg" alt />
+                <img class="localization-image" src="../images/localization.svg" alt/>
                 <div class="localization">
-                    <span class="secondary-class">Palhoça - SC</span>
-                    <span class="tertiary-class">Essa não é minha localização</span>
+                    <span class="secondary-class">{{this.citySelected.name}} - SC</span>
+                    <span v-if="this.path == '/'" v-b-modal.modal-localization class="tertiary-class">Essa não é minha localização</span>
                 </div>
             </div>
             <div class="d-flex c3">
@@ -18,13 +19,15 @@
                     <b-button
                             class="rounded-pill primary-class cadastrar"
                             v-b-modal.modal-register
-                    >Cadastrar-se {{userName}}</b-button>
+                    >Cadastrar-se {{userName}}
+                    </b-button>
                     <b-button v-b-modal.modal-login class="rounded-pill primary-class login">Login</b-button>
                 </template>
                 <template v-else>
                     <div class="userLogin">
                         <div class="rounded-pill p-0 m-0" style="min-width: 2.5vw; min-height: 2.5vw;">
-                            <b-icon-person-fill style="color: #e5695a; width: 2.5vw; height: 2.5vw;"></b-icon-person-fill>
+                            <b-icon-person-fill
+                                    style="color: #e5695a; width: 2.5vw; height: 2.5vw;"></b-icon-person-fill>
                         </div>
                         <span style="font-size: 1.2vw;" class="primary-class sair">Oi, {{this.userName}}!</span>
                     </div>
@@ -43,23 +46,31 @@
 <script>
     import Login from "../components/Login";
     import Register from "../components/Register";
+    import Localization from "../components/Localization";
 
     export default {
         components: {
             Login,
-            Register
+            Register,
+            Localization
         },
         data() {
             return {
                 name: ""
+                , city: {}
+                , path: ""
             };
         },
         name: "main-header",
         methods: {
             fillSession() {
                 this.name = localStorage.getItem("userName");
+                if (localStorage.getItem("city") != null) {
+                    this.city = JSON.parse(localStorage.getItem("city"));
+                } else if (this.city.name == null) {
+                    this.city = {name: "Florianópolis", id: "1"}
+                }
             },
-
             clearSession() {
                 localStorage.removeItem("userName");
                 this.name = "";
@@ -71,11 +82,15 @@
             }
         },
         mounted() {
-            this.name = localStorage.getItem("userName");
+            var pathname = window.location.pathname;
+            this.path = pathname;
         },
         computed: {
             userName() {
                 return this.name;
+            }, citySelected() {
+                this.fillSession();
+                return this.city;
             }
         }
     };
@@ -95,7 +110,7 @@
     }
 
     .c2 {
-        width: 15vw;
+        width: 16vw;
         padding-left: 9vw;
     }
 
@@ -128,6 +143,9 @@
 
     .localization {
         display: grid;
+    }
+    .localization-image {
+       width: 90%;
     }
 
     .btn.cadastrar {
