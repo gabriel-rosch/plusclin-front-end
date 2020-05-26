@@ -1,18 +1,19 @@
 <template>
     <b-container class="d-flex" fluid>
-        <b-modal class="d-flex" hide-footer id="modal-localization" title="Escolha sua Localização"
-                 v-for="(cidades) in this.cidades">
-            <div class="d-flex flex  align-items-center rounded-pill"
-                 style="border: 0.20vw solid #069999;; height: 3.5vw;">
-                <div v-if="1 == 2" style="width: 2vw;">
-                    <img src="../images/marcador.svg" style="height: 2.5vw;"/>
-                </div>
-                <div v-else style="width: 30%;" class="d-flex justify-content-end">
-                    <img src="../images/localization.svg" style="height: 2.5vw;"/>
-                </div>
-                <div class="d-flex justify-content-end" style="width: 70%">
-                    <span class="primary-class bold"
-                          style="font-size: 2vw;">{{cidades}}</span>
+        <b-modal id="modal-localization" hide-footer title="Escolha sua Localização">
+            <div style="width: 100% !important;">
+                <div class="d-flex flex  align-items-center rounded-pill"
+                     style="border: 3px solid #069999; width: 100%; height: 30%; margin-bottom: 10px; cursor:pointer;"
+                     v-on:click="alterCity(city)" v-for="(city) in this.cities" v-bind:key="city.name">
+                    <div v-if="city.name == propsCity.name" style="width: 30%" class="d-flex justify-content-end">
+                        <img src="../images/marcador.svg" style="height: 2.5rem;"/>
+                    </div>
+                    <div v-else class="d-flex justify-content-end" style="width: 30%">
+                        <img src="../images/localization.svg" style="height: 2.5rem;"/>
+                    </div>
+                    <div class="d-flex justify-content-end" style="width: 70%">
+                        <span class="secondary-class city" style="font-size: 2.5rem;">{{city.name}}</span>
+                    </div>
                 </div>
             </div>
         </b-modal>
@@ -23,11 +24,34 @@
     export default {
         data() {
             return {
-                cidades: ["Florianópolis", "Palhoça", "São José", "Biguaçu"]
+                cities: [
+                      {name: "Florianópolis", id: "1"}
+                    , {name: "Palhoça",       id: "2"}
+                    , {name: "São José",      id: "3"}
+                    , {name: "Biguaçu",       id: "4"}
+                ]
             };
+        },
+        props: {
+            propsCity: {
+                name: String,
+                id: String
+            }
         }
-    }
+        ,
+        methods: {
+            async alterCity(city) {
+                this.propsCity.id = city.id;
+                this.propsCity.name = city.name;
+                localStorage.setItem("city", JSON.stringify(city));
+                this.$bvModal.hide("modal-localization");
+            }
+        }
+    };
 </script>
 
 <style>
+    .city:hover {
+        color: #e5695a !important;
+    }
 </style>

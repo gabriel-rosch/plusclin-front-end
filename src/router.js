@@ -12,7 +12,7 @@ Vue.use(Router)
 export default new Router({
     mode: 'history',
     routes: [
-        { path: '/', component: Home },
+        { path: '*', component: Home },
         { path: '/especialidade/:nameSpecialties', component: Clinic },
         { path: '/minhaAgenda', component: Schedule},
         { path: '/especialidade/:nameSpecialties/:clinicId', component: Doctor }

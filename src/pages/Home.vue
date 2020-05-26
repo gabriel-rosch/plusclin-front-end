@@ -16,7 +16,8 @@
                                     list="input-list"
                                     id="input-with-list"
                             ></b-form-input>
-                            <b-form-datalist id="input-list" :options="dataListOptions"></b-form-datalist>
+                            <b-form-datalist :options="dataListOptions" list="input-list"
+                                             id="input-list"></b-form-datalist>
                         </div>
                         <div class="p0 m-0" style="height:5vw;">
                             <b-button
@@ -72,6 +73,7 @@
 </template>
 
 <script>
+
     import {listSpecialties} from "../api/specialties";
     import MessageBlock from "../components/MessageBlock";
 
@@ -127,7 +129,8 @@
 </script>
 
 
-<style scoped >
+<style scoped>
+
     .form-control {
         border-color: transparent;
         width: 100%;
