@@ -1,11 +1,11 @@
 <template>
     <b-container class="d-flex" fluid>
-        <b-modal id="modal-localization" hide-footer title="Escolha sua Localização">
+        <b-modal id="modal-localization" centered hide-footer title-class="title-class" title="Escolha sua Localização">
             <div style="width: 100% !important;">
                 <div class="d-flex flex  align-items-center rounded-pill"
                      style="border: 3px solid #069999; width: 100%; height: 30%; margin-bottom: 10px; cursor:pointer;"
                      v-on:click="alterCity(city)" v-for="(city) in this.cities" v-bind:key="city.name">
-                    <div v-if="city.name == propsCity.name" style="width: 30%" class="d-flex justify-content-end">
+                    <div v-if="city.name === propsCity.name" style="width: 30%" class="d-flex justify-content-end">
                         <img src="../images/marcador.svg" style="height: 2.5rem;"/>
                     </div>
                     <div v-else class="d-flex justify-content-end" style="width: 30%">
@@ -53,5 +53,8 @@
 <style>
     .city:hover {
         color: #e5695a !important;
+    }
+    .title-class{
+        color: #069999;
     }
 </style>

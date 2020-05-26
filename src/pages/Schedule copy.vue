@@ -20,13 +20,6 @@ export default {
     return {
       value: ""
     };
-  },
-  methods: {
-    teste() {
-      /* eslint-disable */
-      console.log(this.value);
-      console.log(this.context);
-    }
   }
 };
 </script>

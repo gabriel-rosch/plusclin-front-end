@@ -12,7 +12,7 @@
                                     autocomplete="off"
                                     v-model="specialtiesSelect"
                                     style="width: 100%; height: 100%; padding-left: 2vw;padding-right: 2vw;"
-                                    class="rounded-pill"
+                                    class="rounded-pill shadow"
                                     list="input-list"
                                     id="input-with-list"
                             ></b-form-input>
@@ -23,8 +23,8 @@
                             <b-button
                                     type="submit"
                                     style="width: 13vw; height: 5vw !important; font-size: 1.5vw; margin-left: 1.5vw;"
-                                    :to="`/especialidade/${this.removeAcento((specialtiesSelect.trim()))}`"
-                                    class="d-flex rounded-pill bold align-items-center fourth-class p-0"
+                                    @click="onScheduleNow"
+                                    class="d-flex rounded-pill bold align-items-center fourth-class p-0 shadow"
                             >Agendar agora
                             </b-button>
                         </div>
@@ -98,6 +98,19 @@
             };
         },
         methods: {
+            onScheduleNow() {
+                const city = JSON.parse(localStorage.getItem("city"));
+                if(city) {
+                    this.$router.push(`/especialidade/${this.removeAcento((this.specialtiesSelect.trim()))}`);
+                } else if (!this.specialtiesSelect) {
+                    this.$bvToast.toast(`Digite a especialidade que você procura`, {
+                        title: 'Aviso',
+                        autoHideDelay: 5000,
+                    })
+                } else {
+                    this.$bvModal.show("modal-localization");
+                }
+            },
             removeAcento(text) {
                 text = text.toLowerCase();
                 text = text.replace(new RegExp('[ÁÀÂÃ]', 'gi'), 'a');
@@ -119,9 +132,6 @@
             const reponse = await listSpecialties();
             if (reponse.ok) {
                 this.specialties = await reponse.json();
-            } else {
-                // eslint-disable-next-line no-console
-                console.log("ERRO GET SPECIALTIES");
             }
         },
 
@@ -167,7 +177,7 @@
 
     .lateral-one {
         margin-top: 2vw;
-        height: 100% -2vw;
+        height: 100%;
         width: 10%;
         background-color: #99cdcd;
     }

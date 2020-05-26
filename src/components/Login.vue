@@ -106,6 +106,7 @@ export default {
       if (response.ok) {
         const session = await response.json();
         localStorage.setItem("userName", session.user.name);
+        localStorage.setItem("userId", session.user.id);
         localStorage.setItem("provider", session.user.provider);
         localStorage.setItem("token", session.token);
         this.$parent.fillSession();

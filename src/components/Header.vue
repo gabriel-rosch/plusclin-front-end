@@ -11,13 +11,13 @@
                 <img class="localization-image" src="../images/localization.svg" alt/>
                 <div class="localization">
                     <span class="secondary-class">{{this.citySelected.name}} - SC</span>
-                    <span v-if="this.path == '/'" v-b-modal.modal-localization class="tertiary-class">Essa não é minha localização</span>
+                    <span v-if="showChangeLocalization" v-b-modal.modal-localization class="tertiary-class">Essa não é minha localização</span>
                 </div>
             </div>
             <div class="d-flex c3">
                 <template v-if="!name">
                     <b-button
-                            class="rounded-pill primary-class cadastrar"
+                            class="rounded-pill primary-class cadastrar shadow"
                             v-b-modal.modal-register
                     >Cadastrar-se {{userName}}
                     </b-button>
@@ -33,7 +33,7 @@
                     </div>
                     <b-button
                             style="height: 3vw;  margin-right: 2vw;"
-                            class="rounded-pill bold tertiary-class cadastrar"
+                            class="rounded-pill bold tertiary-class cadastrar shadow"
                             @click="clearSession()"
                     >Sair
                     </b-button>
@@ -72,6 +72,7 @@
                 }
             },
             clearSession() {
+                localStorage.removeItem("userId");
                 localStorage.removeItem("userName");
                 this.name = "";
                 this.fillSession();
@@ -82,10 +83,14 @@
             }
         },
         mounted() {
+            localStorage.removeItem('city');
             var pathname = window.location.pathname;
             this.path = pathname;
         },
         computed: {
+            showChangeLocalization(){
+                return this.$route.path === '/'
+            },
             userName() {
                 return this.name;
             }, citySelected() {

@@ -4,18 +4,23 @@
             <b-row class="height-main-col" align-v="center">
                 <b-col>
                     <span class="title-primary d-flex span-primary">SELECIONE SEU HORÁRIO</span>
-                    <span v-if="this.$store.searchSpeciltie" class="d-flex title-secundary">E tenha um ótioma consulta!</span>
+                    <span class="d-flex title-secundary">E tenha um ótioma consulta!</span>
                 </b-col>
             </b-row>
         </b-container>
         <b-container fluid class="container-doctors">
-            <card-doctor :key="user.id" v-for="user in this.$store.users" :user="user"/>
+            <card-doctor :key="user.id" @selectedtime="selectTime" v-for="user in this.$store.users" :user="user"/>
+            <b-modal id="modalPagamento" hide-footer>
+                <b-button class="mt-3" block @click="cloneModal">Fechar</b-button>
+                <b-button class="mt-3" block @click="saveAppointment">Confirmar</b-button>
+            </b-modal>
         </b-container>
     </div>
 </template>
 
 <script>
     import CardDoctor from "../components/CardDoctor";
+    import {postAppointments} from "../api/appointments";
     export default {
         components: {CardDoctor},
         comments:{
@@ -23,20 +28,50 @@
         },
         data() {
             return{
-                doctors: []
+                doctors: [],
+                dataAppointment: {}
             }
-        },
-        mounted() {
-            this.load()
         },
 
         methods:{
-            async load(){
-                // if(this.$store.searchSpeciltie && this.$route.params.clinicId) {
-                // }
+            async saveAppointment() {
+                const response = await postAppointments(this.dataAppointment);
+                if(response.ok){
+                    this.$bvModal.hide("modalPagamento");
+                    await this.$router.push('/');
+                    this.$bvToast.toast(`Agendamento salvo com sucesso!`, {
+                        title: 'Aviso',
+                        autoHideDelay: 5000
+                    })
+                } else {
+                    this.$bvToast.toast(`Erro ao salvar consulta, verifique sua conexão`, {
+                        title: 'Aviso',
+                        autoHideDelay: 5000
+                    })
+                }
             },
+            async cloneModal() {
+                this.dataAppointment = {};
+                this.$bvModal.hide("modalPagamento");
+            },
+            async selectTime(payload) {
+                const userId = localStorage.getItem("userId");
+                if(!userId){
+                    this.$bvToast.toast(`Faça o login para continuar`, {
+                        title: 'Aviso',
+                        autoHideDelay: 5000
+                    })
+                    return;
+                }
 
-        },
+                this.$bvModal.show("modalPagamento");
+
+                this.dataAppointment = {
+                    provider_id: payload.doctorId,
+                    date: payload.value,
+                }
+            }
+        }
     }
 </script>
 
