@@ -26,13 +26,19 @@
                 <template v-else>
                     <div class="userLogin">
                         <div class="rounded-pill p-0 m-0" style="min-width: 2.5vw; min-height: 2.5vw;">
-                            <b-icon-person-fill
-                                    style="color: #e5695a; width: 2.5vw; height: 2.5vw;"></b-icon-person-fill>
+                            <div v-if="this.img.length <= 9">
+                                <b-icon-person-fill
+                                        style="color: #e5695a; width: 2.5vw; height: 2.5vw;"></b-icon-person-fill>
+                            </div>
+                            <div v-else class="rounded-pill p-0 m-0" style="min-width: 2.5vw; min-height: 2.5vw;">
+                                <img class="rounded-pill" style="width: 2.5vw; height: 2.5vw;"
+                                     :src="this.img">
+                            </div>
                         </div>
-                        <span style="font-size: 1.2vw;" class="primary-class sair">Oi, {{this.userName}}!</span>
+                        <span style="font-size: 1.2vw; " class="primary-class">Oi, {{this.userName}}!</span>
                     </div>
                     <b-button
-                            style="height: 3vw;  margin-right: 2vw;"
+                            style="height: 3vw;  margin-right: 2vw"
                             class="rounded-pill bold tertiary-class cadastrar"
                             @click="clearSession()"
                     >Sair
@@ -57,6 +63,7 @@
         data() {
             return {
                 name: ""
+                , img: ""
                 , city: {}
                 , path: ""
             };
@@ -65,6 +72,12 @@
         methods: {
             fillSession() {
                 this.name = localStorage.getItem("userName");
+                var imagem = localStorage.getItem("icon");
+                if (imagem != null) {
+                    if (imagem.length > 20) {
+                        this.img = imagem;
+                    }
+                }
                 if (localStorage.getItem("city") != null) {
                     this.city = JSON.parse(localStorage.getItem("city"));
                 } else if (this.city.name == null) {
@@ -73,7 +86,9 @@
             },
             clearSession() {
                 localStorage.removeItem("userName");
+                localStorage.removeItem("icon")
                 this.name = "";
+                this.img = "";
                 this.fillSession();
                 window.location.href = "../";
             },
@@ -82,6 +97,12 @@
             }
         },
         mounted() {
+            var imagem = localStorage.getItem("icon");
+            if (imagem != null) {
+                if (imagem.length > 20) {
+                    this.img = imagem;
+                }
+            }
             var pathname = window.location.pathname;
             this.path = pathname;
         },
@@ -144,8 +165,9 @@
     .localization {
         display: grid;
     }
+
     .localization-image {
-       width: 90%;
+        width: 90%;
     }
 
     .btn.cadastrar {
