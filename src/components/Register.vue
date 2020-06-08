@@ -149,7 +149,7 @@
                         this.showErrorAlert();
                     }
                 }else{
-                    formthis.erro = "Por favor, confirme o Captcha!";
+                    this.erro = "Por favor, confirme o Captcha!";
                     this.showErrorAlert();
                 }
             },
