@@ -24,9 +24,11 @@ Vue.use(IconsPlugin);
 Vue.use(Tuex);
 
 new Tuex.Store({
+    userLogin:{},
     users: [],
     searchSpeciltie: {},
-    clinicSelect: {}
+    clinicSelect: {},
+    dateSelect: 0
 });
 
 

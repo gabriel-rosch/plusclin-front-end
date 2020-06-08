@@ -10,7 +10,7 @@
                 <br>
                 Numero: {{clinic.addresses.number}}
             </b-card-text>
-            <b-button @click="onSelect()"  class="rounded-pill primary-class filter">Selecionar</b-button>
+            <b-button @click="onSelect()"  class="rounded-pill primary-class filter shadow">Selecionar</b-button>
         </b-card-text>
         <template v-slot:footer>
             <small v-if="clinic.Users.length == 1" class="text-muted">{{clinic.Users.length}} especialista disponível</small>
@@ -29,7 +29,8 @@
         methods: {
             onSelect(){
                 this.$store.users = this.clinic.Users;
-                this.$router.push({path:`/especialidade/${this.$store.searchSpeciltie.key}/${this.clinic.id}`})
+                const specialtieName = localStorage.getItem('searchSpecialtie');
+                this.$router.push({path:`/especialidade/${JSON.parse(specialtieName).key}/${this.clinic.id}`})
             }
         }
     }
