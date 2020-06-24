@@ -3,13 +3,19 @@
         <b-container  >
             <b-row class="height-main-col" align-v="center">
                 <b-col>
-                    <span class="title-primary d-flex span-primary">SELECIONE SEU HORÁRIO</span>
-                    <span class="d-flex title-secundary">E tenha um ótioma consulta!</span>
+                    <span class="title-primary d-flex span-primary no-wrap">SELECIONE O HORÁRIO DA SUA CONSULTA!</span>
+                    <span class="d-flex title-secundary">- Data da consulta:
+                        <strong class="strong">{{getFormattedDate(this.$store.dateSelect)}}</strong>
+                    </span>
+                    <span class="d-flex title-secundary">- Especialidade:
+                        <strong class="strong">{{this.specialtieName}}</strong>
+                    </span>
                 </b-col>
             </b-row>
         </b-container>
         <b-container fluid class="container-doctors">
-            <card-doctor :key="user.id" @selectedtime="selectTime" v-for="user in this.$store.users" :user="user"/>
+            <card-doctor :key="user.id" @selectedtime="selectTime" v-for="user in this.$store.users" :user="user"
+                         class="mb-5 card-doctor"/>
             <b-modal id="modalPagamento" hide-footer>
                 <b-button class="mt-3" block @click="cloneModal">Fechar</b-button>
                 <b-button class="mt-3" block @click="saveAppointment">Confirmar</b-button>
@@ -29,13 +35,16 @@
         data() {
             return{
                 doctors: [],
-                dataAppointment: {}
+                hourAppointment: {},
+                specialtieName: ''
             }
         },
-
+        mounted() {
+            this.specialtieName = JSON.parse(localStorage.getItem('searchSpecialtie')).name;
+        },
         methods:{
             async saveAppointment() {
-                const response = await postAppointments(this.dataAppointment);
+                const response = await postAppointments(this.hourAppointment);
                 if(response.ok){
                     this.$bvModal.hide("modalPagamento");
                     await this.$router.push('/');
@@ -50,9 +59,16 @@
                     })
                 }
             },
+            getFormattedDate(isoDate) {
+                const todayTime = new Date(isoDate);
+                const month = todayTime.getMonth();
+                const day = todayTime.getDate();
+                const year = todayTime.getFullYear();
+                return  day + "/" + month + "/" + year;
+            },
             async cloneModal() {
-                this.dataAppointment = {};
-                this.$bvModal.hide("modalPagamento");
+                        this.hourAppointment = {};
+                        this.$bvModal.hide("modalPagamento");
             },
             async selectTime(payload) {
                 const userId = localStorage.getItem("userId");
@@ -66,7 +82,7 @@
 
                 this.$bvModal.show("modalPagamento");
 
-                this.dataAppointment = {
+                this.hourAppointment = {
                     provider_id: payload.doctorId,
                     date: payload.value,
                 }
@@ -115,6 +131,10 @@
             color: #069999;
         }
     }
+    .strong {
+        color: #e5695a;
+        font-weight: normal;
+    }
     .btn.filter {
         height: 4vw;
         min-width: 10vw;
@@ -124,7 +144,9 @@
     .btn.filter:hover{
         background-color: white;
     }
-
+    .card-doctor {
+        border-radius: 10px;
+    }
     .container-doctors{
         margin-bottom: 13vw;
         padding-left: 10vw;

@@ -19,6 +19,7 @@
         <b-popover
                 :target="dados.date"
                 triggers="click"
+                class="popover"
                 :show.sync="popoverShow"
                 placement="auto"
                 ref="popover"
@@ -34,17 +35,38 @@
                     <br/>Horário:
                     <strong> {{formatHour(this.dados.date)}}</strong>
                 </b-alert>
+                <div class="d-flex">
+                    <div class="h-100 d-flex">
+                        <b-button @click="cancelar" variant="danger" class="font-weight-bolder mr-1">Cancelar</b-button>
+                        <b-button @click="openMedicalRecord" variant="success" class="font-weight-bolder mx-1">Prontuário</b-button>
+                    </div>
+                    <b-button @click="onClose" variant="primary" class="ml-3 font-weight-bolder">Ok</b-button>
 
-                <b-button @click="cancelar(dados.id)" size="sm" variant="danger" class="mx-1">Cancelar</b-button>
-                <b-button @click="onClose" size="sm" variant="success" class="mx-1">Confirmar</b-button>
-                <b-button @click="onClose" size="sm" variant="primary" style="margin-left: 72px;">Ok</b-button>
+                </div>
             </div>
         </b-popover>
+        <div>
+            <b-modal :id="`modal-medical-record-${this.dados.id}`" size="lg" hide-footer title="Prontuário">
+                <b-form-textarea
+                        v-model="modelText"
+                        placeholder="Prontuário da consulta..."
+                        rows="10"
+                        max-rows="200"
+                ></b-form-textarea>
+                <b-button @click="saveMedicalRecord" class="d-flex primary-class mt-3 w-25 btn-save-medical-record">
+                    Salvar
+                </b-button>
+            </b-modal>
+        </div>
+        <b-toast id="success-toast" title="Aviso!" static no-auto-hide>
+            Prontuário salvo com sucesso!
+        </b-toast>
     </div>
 </template>
 
 <script>
     import {removeScheduler} from "../api/scheduler";
+    import {getMedicalRecord, postMedicalRecord} from "../api/medicalRecord";
 
     export default {
         props: {
@@ -55,12 +77,27 @@
         },
         data() {
             return {
-                popoverShow: false
+                popoverShow: false,
+                modelText: ""
             };
         },
         methods: {
             onClose() {
                 this.popoverShow = false;
+            },
+            async openMedicalRecord() {
+                this.$root.$emit('bv::hide::popover');
+                const response = await getMedicalRecord(this.dados.id);
+                const { text } = await response.json();
+                this.modelText = text;
+                this.$bvModal.show(`modal-medical-record-${this.dados.id}`);
+            },
+            async saveMedicalRecord() {
+                await postMedicalRecord({
+                    appointment_id: this.dados.id,
+                    text: this.modelText
+                });
+                this.$bvModal.hide(`modal-medical-record-${this.dados.id}`);
             },
             formatDate(date) {
                 date = new Date(date);
@@ -86,12 +123,23 @@
                 var timetable = hour + ":" + minutes;
                 return timetable;
             },
-            async cancelar(id) {
-                await removeScheduler(id);
+            async cancelar() {
+                await removeScheduler(this.dados.id);
                 this.onClose();
                 await this.$parent.SearchScheduling();
             }
         }
     };
 </script>
+<style>
+    .popover {
+        font-size: 24px;
+    }
+    .btn-save-medical-record {
+        margin-left: auto;
+    }
+    .modal-mediacl-records {
+        width: 900px;
+    }
+</style>
 
