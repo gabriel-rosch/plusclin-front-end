@@ -1,5 +1,6 @@
+<script src="main.js"></script>
 <template>
-  <div class="div-principal">
+  <div  class="div-principal">
     <div style="padding-top: 1%;">
       <Header />
     </div>
@@ -11,6 +12,7 @@
 <script>
 import Footer from "./components/Footer";
 import Header from "./components/Header";
+
 
 export default {
   components: {
