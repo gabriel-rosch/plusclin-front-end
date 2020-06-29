@@ -69,7 +69,7 @@
                 }
             },
             async loadClinics(){
-                const response = await listCklinics(this.searchSpeciltie.id, this.dateSelect.getTime());
+                const response = await listClinics(this.searchSpeciltie.id, this.dateSelect.getTime());
                 if (response.ok) {
                     this.clinics = await response.json()
                 } else {

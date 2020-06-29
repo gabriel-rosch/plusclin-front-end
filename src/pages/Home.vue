@@ -24,7 +24,7 @@
                                     type="submit"
                                     style="width: 13vw; height: 5vw !important; font-size: 1.5vw; margin-left: 1.5vw;"
                                     @click="onScheduleNow"
-                                    class="d-flex rounded-pill bold align-items-center fourth-class p-0 shadow"
+                                    class="primary-class rounded-pill bold shadow no-wrap"
                             >Agendar agora
                             </b-button>
                         </div>

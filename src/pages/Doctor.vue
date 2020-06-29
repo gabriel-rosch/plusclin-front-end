@@ -61,7 +61,7 @@
             },
             getFormattedDate(isoDate) {
                 const todayTime = new Date(isoDate);
-                const month = todayTime.getMonth();
+                const month = todayTime.getMonth() + 1;
                 const day = todayTime.getDate();
                 const year = todayTime.getFullYear();
                 return  day + "/" + month + "/" + year;
@@ -71,7 +71,7 @@
                         this.$bvModal.hide("modalPagamento");
             },
             async selectTime(payload) {
-                const userId = localStorage.getItem("userId");
+                const userId = localStorage.getItem("token");
                 if(!userId){
                     this.$bvToast.toast(`Faça o login para continuar`, {
                         title: 'Aviso',

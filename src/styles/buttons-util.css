@@ -1,27 +1,24 @@
-
 .btn.primary-class {
-    font-weight: bold;
-    justify-content: center;
     background: rgb(229, 105, 90);
-    color: #ffffff;
+    color: #fff;
     border-color: transparent;
+    outline: none;
+}
+.btn.h1 {
+
+}
+.btn.h2 {
+    font-size: 23px;
 }
 
 .btn.primary-class:hover {
     font-weight: bold;
-    justify-content: center;
     color: rgba(229, 105, 90, 1);
-    background-color: rgba(255, 255, 255, 0.7);
+    background-color: white;
     border-color: rgba(229, 105, 90, 1);
 }
-
-.btn.secondary-class {
-    font-size: 1.3vw;
-    font-weight: bold;
-    justify-content: center;
-    background: rgb(229, 105, 90);
-    color: #ffffff;
-    border-color: transparent;
+.btn:active {
+    background: rgb(229, 105, 90) !important;
 }
 
 .btn.tertiary-class {

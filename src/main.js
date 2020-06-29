@@ -7,10 +7,6 @@ import App from './App.vue'
 import router from './router'
 import { BootstrapVue, IconsPlugin } from 'bootstrap-vue'
 import Tuex from 'tuex'
-// develeoper:
-// import firebase from 'firebase'
-// product:
-// import  firebase from 'firebase/auth';
 import * as firebase from 'firebase/app';
 import 'firebase/auth'
 

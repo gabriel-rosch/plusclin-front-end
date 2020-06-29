@@ -7,7 +7,7 @@
                 <span class="secondary-class d-flex justify-content-end bold">{{formatHour(this.dados.date)}}</span>
             </div>
             <div style="height: 3vw;">
-                <span class="secondary-class d-flex justify-content-start">Doença Respiratória</span>
+                <span class="secondary-class d-flex justify-content-start">Pediatria</span>
             </div>
             <div class="d-flex justify-content-end">
                 <b-button v-bind:id="dados.date" class="d-flex primary-class p-0 m-0"
@@ -88,8 +88,10 @@
             async openMedicalRecord() {
                 this.$root.$emit('bv::hide::popover');
                 const response = await getMedicalRecord(this.dados.id);
-                const { text } = await response.json();
-                this.modelText = text;
+                if(response.ok) {
+                    const {text} = await response.json();
+                    this.modelText = text;
+                }
                 this.$bvModal.show(`modal-medical-record-${this.dados.id}`);
             },
             async saveMedicalRecord() {

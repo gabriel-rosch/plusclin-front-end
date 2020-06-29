@@ -1,7 +1,7 @@
 <template>
     <b-row class="bg-white avatar-shadow">
         <b-col class="doctor col-3 p-5">
-           <b-avatar :src="avatarUrl" class="avatar-shadow" size="11vw"/>
+           <b-avatar :src="avatarUrl" class="shadow" size="11vw"/>
         </b-col>
         <b-col class="pt-5">
             <span class="d-flex title-secundary">{{user.name}}</span>
