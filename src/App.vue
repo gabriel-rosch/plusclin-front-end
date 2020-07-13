@@ -1,5 +1,5 @@
 <template>
-  <div  class="div-principal">
+  <div class="root">
     <Header />
     <router-view></router-view>
     <Footer />
@@ -15,19 +15,13 @@
       Footer,
       Header
     },
-    created() {},
-    methods: {
-    }
+    created() {}
   };
 </script>
 <style>
+@import "./styles/gobals";
 
-@import "./styles/default-util.css";
-@import "./styles/buttons-util.css";
-@import "./styles/spans-util.css";
-@import "./styles/border-util.css";
-
-* {
+  * {
   font-family: 'Asap', sans-serif;
   font-style: normal;
   font-weight: normal;
@@ -38,12 +32,13 @@
 body {
   text-rendering: optimizeLegibility !important;
   -webkit-font-smoothing: antialiased !important;
+  min-width: 340px;
 }
 input, button {
   outline: 0;
 }
 
-.div-principal {
+.root {
   height: 100%;
   background-image: url(images/wallpaper.png);
   background-repeat: no-repeat;
