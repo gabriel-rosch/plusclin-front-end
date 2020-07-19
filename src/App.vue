@@ -19,8 +19,6 @@
   };
 </script>
 <style>
-@import "./styles/gobals";
-
   * {
   font-family: 'Asap', sans-serif;
   font-style: normal;
