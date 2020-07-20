@@ -1,86 +1,111 @@
+<style scoped lang="scss">
+    main {
+        display: grid;
+        grid-template-columns: 1fr 3fr 2fr;
+        grid-template-areas: "n i nn";
+        grid-template-rows: 80vh;
+        .search {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            grid-area: i;
+            span {
+                font-size: 2.85rem;
+            }
+            .search-row {
+                display: flex;
+                padding: 0;
+                margin: 0;
+                button {
+                    display: flex;
+                    align-items: center;
+                    margin-left: 1rem;
+                    font-size: 1.5rem;
+                }
+                input {
+                    flex: 1;
+                    height: 4rem;
+                    padding: 20px 20px;
+                    font-size: 1.5rem;
+                    color: #069999;
+                }
+                input:focus {
+                    border: solid 1px #069999;
+                }
+            }
+
+        }
+    }
+
+</style>
 <template>
-    <div id="home">
-        <div style="margin-left: 11.5%;">
-            <div>
-                <div>
-                    <b-row class="m-0" style="padding-top: 21.5vw">
-                        <span class="fourth-class">De qual<span class="six-class">&nbsp;especialista&nbsp;</span>você está precisando?</span>
-                    </b-row>
-                    <b-row class="p-0 m-0">
-                        <div class="d-flex" style="width: 44vw; height: 5vw">
-                            <b-form-input
-                                    autocomplete="off"
-                                    v-model="specialtiesSelect"
-                                    style="width: 100%; height: 100%; padding-left: 2vw;padding-right: 2vw;"
-                                    class="rounded-pill shadow"
-                                    list="input-list"
-                                    id="input-with-list"
-                            ></b-form-input>
-                            <b-form-datalist :options="dataListOptions" list="input-list"
-                                             id="input-list"></b-form-datalist>
-                        </div>
-                        <div class="p0 m-0" style="height:5vw;">
-                            <b-button
-                                    type="submit"
-                                    style="width: 13vw; height: 5vw !important; font-size: 1.5vw; margin-left: 1.5vw;"
-                                    @click="onScheduleNow"
-                                    class="primary-class rounded-pill bold shadow no-wrap"
-                            >Agendar agora
-                            </b-button>
-                        </div>
-                    </b-row>
-                </div>
-                <div class="flex-column box-information">
-                    <div class="d-flex box-one">
-                        <div class="lateral-one"/>
-                        <div>
-                            <MessageBlock style="padding-bottom: 4vw;" :titulo="titulo1" :message="message1"/>
-                        </div>
-                    </div>
-                    <div class="espacamento"/>
-                    <div class="d-flex box-two">
-                        <div>
-                            <MessageBlock style="padding-bottom: 4vw;" :titulo="titulo2" :message="message2"/>
-                        </div>
-                        <div class="lateral-two"/>
-                    </div>
-                    <div style="height: 10vw" class="espacamento"/>
-                </div>
-            </div>
+    <main>
+        <div class="search">
+            <span class="secondary no-wrap">De qual<strong class="primary">&nbsp;especialista&nbsp;</strong>você está precisando?</span>
+            <b-row class="search-row">
+                <b-form-input
+                        autocomplete="off"
+                        v-model="specialtiesSelect"
+                        class="rounded-pill shadow"
+                        list="input-list"
+                        id="input-with-list"
+                ></b-form-input>
+                <b-form-datalist :options="dataListOptions" list="input-list" id="input-list"/>
+                <button
+                        type="submit"
+                        @click="onScheduleNow"
+                        class="button-prymary shadow rounded-pill no-wrap"
+                >Agendar agora
+                </button>
+            </b-row>
         </div>
-        <div class="d-flex final-box center align-items-center">
-            <img style="height: 6vw; padding-left: 12vw;" src="../images/botao-esquerdo.svg" alt/>
-            <div class="d-flex center-box">
-                <img class="p-0 m-0" style="min-width: 13vw;max-height: 13vw;" src="../images/velho.svg" alt/>
-                <div class="center-text">
-                    <span class="secondary-class">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis id luctus massa.
-                       Curabitur luctus orci ac quam fermentum mattis. Nullam in tortor placerat, gravida massa vel, lacinia
-                       arcu.
-                    </span>
-                    <div>
-                        <span class="fourth-class text-box" style="font-size: 1.2vw">
-                            João Carlos, 72 anos - Florianópolis - SC
-                        </span>
-                    </div>
-                </div>
-            </div>
-            <img style="height: 6vw; padding-right: 12vw;" src="../images/botao-direito.svg" alt/>
-        </div>
-        <div class="shared-box">
-            <span class="primary-class shared-text">Compartilhe a sua experiência com a gente</span>
-        </div>
-    </div>
+    </main>
+<!--                <div class="flex-column box-information">-->
+<!--                    <div class="d-flex box-one">-->
+<!--                        <div class="lateral-one"/>-->
+<!--                        <div>-->
+<!--                            <MessageBlock style="padding-bottom: 4vw;" :titulo="titulo1" :message="message1"/>-->
+<!--                        </div>-->
+<!--                    </div>-->
+<!--                    <div class="espacamento"/>-->
+<!--                    <div class="d-flex box-two">-->
+<!--                        <div>-->
+<!--                            <MessageBlock style="padding-bottom: 4vw;" :titulo="titulo2" :message="message2"/>-->
+<!--                        </div>-->
+<!--                        <div class="lateral-two"/>-->
+<!--                    </div>-->
+<!--                    <div style="height: 10vw" class="espacamento"/>-->
+<!--                </div>-->
+
+<!--        <div class="d-flex final-box center align-items-center">-->
+<!--            <img style="height: 6vw; padding-left: 12vw;" src="../images/botao-esquerdo.svg" alt/>-->
+<!--            <div class="d-flex center-box">-->
+<!--                <img class="p-0 m-0" style="min-width: 13vw;max-height: 13vw;" src="../images/velho.svg" alt/>-->
+<!--                <div class="center-text">-->
+<!--                    <span class="secondary-class">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis id luctus massa.-->
+<!--                       Curabitur luctus orci ac quam fermentum mattis. Nullam in tortor placerat, gravida massa vel, lacinia-->
+<!--                       arcu.-->
+<!--                    </span>-->
+<!--                    <div>-->
+<!--                        <span class="fourth-class text-box" style="font-size: 1.2vw">-->
+<!--                            João Carlos, 72 anos - Florianópolis - SC-->
+<!--                        </span>-->
+<!--                    </div>-->
+<!--                </div>-->
+<!--            </div>-->
+<!--            <img style="height: 6vw; padding-right: 12vw;" src="../images/botao-direito.svg" alt/>-->
+<!--        </div>-->
+<!--        <div class="shared-box">-->
+<!--            <span class="primary-class shared-text">Compartilhe a sua experiência com a gente</span>-->
+<!--        </div>-->
+
 </template>
 
 <script>
 
     import {listSpecialties} from "../api/specialties";
-    import MessageBlock from "../components/MessageBlock";
 
     export default {
-        components: {
-            MessageBlock
-        },
         data() {
             return {
                 specialties: [],
@@ -137,90 +162,3 @@
 
     };
 </script>
-
-
-<style scoped>
-
-    .form-control {
-        border-color: transparent;
-        width: 100%;
-        height: 100%;
-        border: none;
-        outline: 0;
-        font-size: 1.5vw;
-        color: #069999;
-    }
-
-    .form-control:focus,
-    .form-control:active {
-        font-size: 1.5vw;
-        color: #069999;
-        border: none;
-        -webkit-box-shadow: none;
-    }
-
-    .box-one {
-        margin-right: 0vw;
-        margin-left: 0vw;
-    }
-
-    .box-two {
-        margin-right: 0vw;
-        margin-left: 0vw;
-    }
-
-    .box-information {
-        height: 82vw;
-        padding-top: 20.9vw;
-        margin-bottom: 23vw;
-    }
-
-    .lateral-one {
-        margin-top: 2vw;
-        height: 100%;
-        width: 10%;
-        background-color: #99cdcd;
-    }
-
-    .lateral-two {
-        height: 29.75vw;
-        width: 13.3vw;
-        background-color: #99cdcd;
-    }
-
-    .espacamento {
-        display: flex;
-        height: 5vw;
-        background-color: #99cdcd;
-    }
-
-    .center-box {
-        width: 30vw;
-        margin-left: 0vw;
-        margin-right: 0vw;
-        padding-left: 0vw;
-        height: 100%;
-        justify-content: center;
-    }
-
-    .center-text {
-        display: grid;
-        width: 95%;
-        margin-left: 5%;
-        font-size: 1.4vw;
-        align-content: center;
-    }
-
-    .shared-box {
-        display: flex;
-        padding-top: 3vw;
-        height: 10vw;
-        justify-content: center;
-        align-content: center;
-    }
-
-    .shared-text {
-        font-size: 1.1vw;
-        text-decoration-line: underline;
-    }
-</style>

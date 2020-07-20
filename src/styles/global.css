@@ -4,3 +4,13 @@
 .secondary {
     color: #069999 !important;
 }
+.button-prymary {
+    background-color: #E5695A;
+    color: #fff;
+    padding: 10px 20px;
+}
+.button-prymary:hover {
+    background-color: #fff;
+    border: 1px solid #E5695A;
+    color: #E5695A;
+}

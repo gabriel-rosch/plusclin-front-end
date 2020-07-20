@@ -2,7 +2,8 @@
     main {
         display: grid;
         grid-template-columns: 1fr 1fr 1fr;
-        height: 90px;
+        grid-template-areas: 'c-one c-two c-three';
+        grid-template-rows: 90px;
         width: 100%;
         .logo {
             padding: 0 10px;
@@ -20,14 +21,29 @@
                 margin-right: 7px;
             }
             a {
+                font-size: 1.3rem;
                 text-decoration: underline;
                 cursor: pointer;
             }
         }
+        .login {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            :first-child {
+                margin-right: 10px;
+            }
+        }
+        .menu-toggle {
+            display: none;
+        }
+        .icon {
+            display: none;
+        }
     }
     @media (max-width: 770px) {
         main {
-            height: 60px;
+            grid-template-rows: 60px;
             .logo {
                 img {
                     display: flex;
@@ -35,10 +51,52 @@
                 }
             }
             .localization {
-                img {
-                    width: 20px;
-                    margin-right: 3px;
+                display: none;
+            }
+            .login {
+                display: none;
+            }
+            .icon {
+                color: #E5695A;
+                font-size: 30px;
+                justify-self: center;
+                align-self: center;
+                grid-area: c-three;
+                display: block;
+                margin-left: 30px;
+            }
+            .menu-toggle.on body {
+                overflow: hidden;
+            }
+            .menu-toggle.on {
+                display: flex;
+                justify-content: center;
+                align-content: center;
+                flex-direction: column;
+
+                position: absolute;
+                top:60px;
+                left: 0;
+                background-color: #069999;
+                opacity: 98%;
+
+                width: 100vw;
+                height: 100vh;
+
+                button {
+                    text-align: center;
+                    display: block;
+                    color: #fff;
+                    font-size: 2rem;
+                    margin: 30px;
                 }
+
+                .localization-toggle {
+                    display: flex;
+                    justify-content: center;
+                    align-content: center;
+                }
+
             }
         }
     }
@@ -54,7 +112,7 @@
             </div>
             <div class="localization">
                 <img src="../images/localization.svg" alt/>
-                <a class="secondary" v-if="this.path === '/'" @click="openModalLocalization">{{this.citySelected.name}} - SC</a>
+                <a class="secondary no-wrap" v-if="this.path === '/'" @click="openModalLocalization">{{this.citySelected.name}} - SC</a>
             </div>
             <div class="login">
                 <template v-if="name">
@@ -78,18 +136,27 @@
                     </b-button>
                 </template>
                 <template v-else>
-                    <div class="login mr-5">
-                        <b-button
-                                class="rounded-pill primary-class h2 "
-                                v-b-modal.modal-register>
+                    <div class="login">
+                        <button class="shadow rounded-pill no-wrap button-prymary" v-b-modal.modal-register>
                             Cadastrar-se {{userName}}
-                        </b-button>
-                        <b-button class="rounded-pill primary-class h2 ml-3" v-b-modal.modal-login>
+                        </button>
+                        <button class="shadow rounded-pill no-wrap button-prymary" v-b-modal.modal-login>
                             Login
-                        </b-button>
+                        </button>
                     </div>
                 </template>
             </div>
+            <div :class="[{'on': showToggle},'menu-toggle']">
+                <div class="localization-toggle">
+                    <button class="no-wrap" v-if="this.path === '/'" @click="openModalLocalization">{{this.citySelected.name}} - SC</button>
+                </div>
+                <template v-if="!name">
+                    <button @click="showToggle = false" v-b-modal.modal-register>Login</button>
+                    <button @click="showToggle = false" v-b-modal.modal-login>Cadastrar-se</button>
+                </template>
+            </div>
+
+            <b-icon @click="onToggle()" class="icon" icon="justify"/>
         </main>
 
     </header>
@@ -108,16 +175,21 @@
         },
         data() {
             return {
-                name: ""
-                , img: ""
-                , city: {}
-                , path: ""
+                name: "",
+                img: "",
+                city: {},
+                path: "",
+                showToggle: false
             };
         },
         name: "main-header",
         methods: {
+            onToggle() {
+                this.showToggle = !this.showToggle;
+            },
             openModalLocalization(){
                 this.$bvModal.show('modal-localization');
+                this.showToggle = false;
             },
             fillSession() {
                 this.name = localStorage.getItem("userName");
