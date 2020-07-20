@@ -19,6 +19,7 @@
   };
 </script>
 <style>
+  @import "styles/global.css";
   * {
   font-family: 'Asap', sans-serif;
   font-style: normal;
@@ -30,7 +31,7 @@
 body {
   text-rendering: optimizeLegibility !important;
   -webkit-font-smoothing: antialiased !important;
-  min-width: 340px;
+  min-width: 434px;
 }
 input, button {
   outline: 0;

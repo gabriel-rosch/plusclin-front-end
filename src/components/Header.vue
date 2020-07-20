@@ -1,124 +1,98 @@
-<style scoped>
-    .login {
-        padding: 10px;
-    }
-    .localization > img {
-        width: 30px;
-        margin-right: 10px;
-    }
-    .localization {
-        display: flex;
-    }
-    @media (min-width: 990px) {
-        .nav-bar {
-            height: 110px;
-        }
-        .logo img{
-            cursor: pointer;
-            flex-grow: 0;
-            flex-shrink: 0;
-            width: 250px;
-            margin-left: 20px;
-        }
-        .login button {
-            padding: 10px 15px;
-
-        }
-    }
-    /*Mobile*/
-    @media (max-width: 990px) {
-        .nav-bar {
-            height: 60px;
-        }
-        .logo img{
-            cursor: pointer;
-            flex-grow: 0;
-            flex-shrink: 0;
-            width: 130px;
+<style lang="scss" scoped>
+    main {
+        display: grid;
+        grid-template-columns: 1fr 1fr 1fr;
+        height: 90px;
+        width: 100%;
+        .logo {
+            padding: 0 10px;
+            display: flex;
+            width: 100%;
+            height: 100%;
+            justify-content: center;
+            align-items: center;
         }
         .localization {
-            align-items: center;
-            margin-left: 10px;
-        }
-        .localization > img {
-            visibility: hidden;
-            order: 3;
-        }
-        .login button {
-            font-size: 15px;
-            margin-left:0 !important;
-            width: 115px;
-            white-space: nowrap;
-            height: 33px;
-        }
-        .login {
-            width: 300px;
             display: flex;
-            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            img {
+                margin-right: 7px;
+            }
+            a {
+                text-decoration: underline;
+                cursor: pointer;
+            }
+        }
+    }
+    @media (max-width: 770px) {
+        main {
+            height: 60px;
+            .logo {
+                img {
+                    display: flex;
+                    width: 130px;
+                }
+            }
+            .localization {
+                img {
+                    width: 20px;
+                    margin-right: 3px;
+                }
+            }
         }
     }
 </style>
 <template>
-    <div>
+    <header>
         <Login/>
         <Localization :props-city="this.city"/>
         <Register/>
-        <b-navbar class="nav-bar" toggleable="lg" >
-            <b-navbar-brand class="logo" href="/">
+        <main>
+            <div class="logo">
                 <img src="../images/logo1.svg" alt/>
-            </b-navbar-brand>
-
-            <!--botão mobile-->
-            <b-navbar-toggle target="nav-text-collapse"></b-navbar-toggle>
-
-            <b-collapse id="nav-text-collapse" is-nav>
-                <b-navbar-nav class="mx-auto localization-order">
-                    <div class="localization">
-                        <img src="../images/localization.svg" alt/>
-                        <a v-if="this.path === '/'" class="secondary-class" @click="openModalLocalization">{{this.citySelected.name}} - SC</a>
-                    </div>
-                </b-navbar-nav>
-
-                <!-- Right aligned nav items -->
-                <b-navbar-nav class="login-order">
-                    <template v-if="name">
-                        <div class="login">
-                            <div class="rounded-pill" style="min-width: 2.5vw; min-height: 2.5vw;">
-                                <div v-if="this.img.length <= 9">
-                                    <b-icon-person-fill
-                                            style="color: #e5695a; width: 2.5vw; height: 2.5vw;"></b-icon-person-fill>
-                                </div>
-                                <div v-else class="rounded-pill p-0 m-0" style="min-width: 2.5vw; min-height: 2.5vw;">
-                                    <img class="rounded-pill" style="width: 2.5vw; height: 2.5vw;"
-                                         :src="this.img">
-                                </div>
+            </div>
+            <div class="localization">
+                <img src="../images/localization.svg" alt/>
+                <a class="secondary" v-if="this.path === '/'" @click="openModalLocalization">{{this.citySelected.name}} - SC</a>
+            </div>
+            <div class="login">
+                <template v-if="name">
+                    <div>
+                        <div class="rounded-pill" style="min-width: 2.5vw; min-height: 2.5vw;">
+                            <div v-if="this.img.length <= 9">
+                                <b-icon-person-fill
+                                        style="color: #e5695a; width: 2.5vw; height: 2.5vw;"></b-icon-person-fill>
                             </div>
-                            <span style="font-size: 1.2vw; " class="primary-class">Oi, {{this.userName}}!</span>
+                            <div v-else class="rounded-pill p-0 m-0" style="min-width: 2.5vw; min-height: 2.5vw;">
+                                <img class="rounded-pill" style="width: 2.5vw; height: 2.5vw;"
+                                     :src="this.img">
+                            </div>
                         </div>
+                        <span class="primary-class">Oi, {{this.userName}}!</span>
+                    </div>
+                    <b-button
+                            class="rounded-pill bold tertiary-class"
+                            @click="clearSession()"
+                    >Sair
+                    </b-button>
+                </template>
+                <template v-else>
+                    <div class="login mr-5">
                         <b-button
-                                style="height: 3vw;  margin-right: 2vw"
-                                class="rounded-pill bold tertiary-class"
-                                @click="clearSession()"
-                        >Sair
+                                class="rounded-pill primary-class h2 "
+                                v-b-modal.modal-register>
+                            Cadastrar-se {{userName}}
                         </b-button>
-                    </template>
-                    <template v-else>
-                        <div class="login mr-5">
-                            <b-button
-                                    class="rounded-pill primary-class h2 "
-                                    v-b-modal.modal-register>
-                                Cadastrar-se {{userName}}
-                            </b-button>
-                            <b-button class="rounded-pill primary-class h2 ml-3" v-b-modal.modal-login>
-                                Login
-                            </b-button>
-                        </div>
-                    </template>
+                        <b-button class="rounded-pill primary-class h2 ml-3" v-b-modal.modal-login>
+                            Login
+                        </b-button>
+                    </div>
+                </template>
+            </div>
+        </main>
 
-                </b-navbar-nav>
-            </b-collapse>
-        </b-navbar>
-    </div>
+    </header>
 </template>
 
 <script>

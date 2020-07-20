@@ -1,5 +1,5 @@
 {
-    "name": "PlusClin",
+    "name": "plus-clin",
     "version": "0.1.0",
     "private": true,
     "scripts": {
@@ -27,6 +27,8 @@
         "babel-eslint": "^10.0.1",
         "eslint": "^5.8.0",
         "eslint-plugin-vue": "^5.0.0",
+        "node-sass": "^4.14.1",
+        "sass-loader": "^9.0.2",
         "stylus": "^0.54.5",
         "stylus-loader": "^3.0.1",
         "vue-cli-plugin-vuetify": "^0.4.6",
