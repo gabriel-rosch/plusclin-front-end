@@ -1,5 +1,5 @@
 function resolveUrl(url) {
-    return new URL(url, "http://localhost:3333").href;
+    return new URL(url, "https://plusclin-backend.herokuapp.com").href;
 }
 
 export function get(url) {
