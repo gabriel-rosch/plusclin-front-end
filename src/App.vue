@@ -31,7 +31,7 @@
 body {
   text-rendering: optimizeLegibility !important;
   -webkit-font-smoothing: antialiased !important;
-  min-width: 320px;
+  min-width: 463px;
 }
 input, button {
   outline: 0;
@@ -43,7 +43,7 @@ input, button {
   background-repeat: no-repeat;
   background-size: 100%;
 }
-@media (max-width: 700px) {
+@media (max-width: 800px) {
   html {
     font-size: 50%;
   }

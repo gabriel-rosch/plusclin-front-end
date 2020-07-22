@@ -1,14 +1,15 @@
 <style scoped lang="scss">
     main {
         display: grid;
-        grid-template-columns: 1fr 3fr 2fr;
+        grid-template-columns: 1fr 4fr 2fr;
         grid-template-areas: "n i nn";
-        grid-template-rows: 80vh;
+        grid-template-rows: 40vw;
         .search {
             display: flex;
             flex-direction: column;
             justify-content: center;
             grid-area: i;
+            padding: 0 1.5rem;
             span {
                 font-size: 2.85rem;
             }
@@ -33,7 +34,6 @@
                     border: solid 1px #069999;
                 }
             }
-
         }
     }
 

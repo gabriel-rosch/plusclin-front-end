@@ -30,6 +30,7 @@
             display: flex;
             justify-content: center;
             align-items: center;
+
             :first-child {
                 margin-right: 10px;
             }
