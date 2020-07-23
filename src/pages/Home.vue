@@ -57,7 +57,6 @@
                         class="button-prymary shadow rounded-pill no-wrap"
                 >Agendar agora
                 </button>
-                teste5
             </b-row>
         </div>
     </main>
