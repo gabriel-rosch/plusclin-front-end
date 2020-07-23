@@ -9,7 +9,7 @@
         "serve": "vue-cli-service serve",
         "start": "yarn serve",
     	"build": "vue-cli-service build",
-	    "heroku-postbuild": "yarn serve",
+	    "heroku-postbuild": "yarn run build",
         "lint": "vue-cli-service lint",
         "postinstall": "npm install"
     },
