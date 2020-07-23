@@ -11,9 +11,6 @@
         "start": "node server.js",
     	"build": "vue-cli-service build",
         "preinstall": "yarn install",
-	    "heroku-prebuild": "yarn install",
-	    "heroku-postbuild": "yarn run build",
-	    "heroku-cleanup": "yarn run start",
         "lint": "vue-cli-service lint"
     },
     "heroku-run-build-script": true,
