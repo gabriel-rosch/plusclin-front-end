@@ -7,9 +7,9 @@
     },
     "scripts": {
         "serve": "vue-cli-service serve",
-        "start": "yarn serve",
+        "start": "node server.js",
     	"build": "vue-cli-service build",
-	    "heroku-postbuild": "yarn run serve",
+	    "heroku-postbuild": "yarn run start",
         "lint": "vue-cli-service lint"
     },
     "heroku-run-build-script": true,
