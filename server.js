@@ -9,5 +9,5 @@ res.sendFile(__dirname + "/dist/index.html");
 
 app.listen(port);
 
-console.log("Teste");
+console.log("Servidor Iniciou com Sucesso!");
 
