@@ -59,7 +59,6 @@
                 </button>
             </b-row>
         </div>
-        teste2
     </main>
 <!--                <div class="flex-column box-information">-->
 <!--                    <div class="d-flex box-one">-->
