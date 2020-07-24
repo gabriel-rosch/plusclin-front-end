@@ -5,6 +5,7 @@
         grid-template-areas: 'c-one c-two c-three';
         grid-template-rows: 90px;
         width: 100%;
+
         .logo {
             padding: 0 10px;
             display: flex;
@@ -13,19 +14,23 @@
             justify-content: center;
             align-items: center;
         }
+
         .localization {
             display: flex;
             justify-content: center;
             align-items: center;
+
             img {
                 margin-right: 7px;
             }
+
             a {
                 font-size: 1.3rem;
                 text-decoration: underline;
                 cursor: pointer;
             }
         }
+
         .login {
             display: flex;
             justify-content: center;
@@ -35,9 +40,11 @@
                 margin-right: 10px;
             }
         }
+
         .menu-toggle {
             display: none;
         }
+
         .icon {
             display: none;
         }
@@ -45,18 +52,22 @@
     @media (max-width: 770px) {
         main {
             grid-template-rows: 60px;
+
             .logo {
                 img {
                     display: flex;
                     width: 130px;
                 }
             }
+
             .localization {
                 display: none;
             }
+
             .login {
                 display: none;
             }
+
             .icon {
                 color: #E5695A;
                 font-size: 30px;
@@ -66,9 +77,11 @@
                 display: block;
                 margin-left: 30px;
             }
+
             .menu-toggle.on body {
                 overflow: hidden;
             }
+
             .menu-toggle.on {
                 display: flex;
                 justify-content: center;
@@ -76,7 +89,7 @@
                 flex-direction: column;
 
                 position: absolute;
-                top:60px;
+                top: 60px;
                 left: 0;
                 background-color: #069999;
                 opacity: 98%;
@@ -113,7 +126,8 @@
             </div>
             <div class="localization">
                 <img src="../images/localization.svg" alt/>
-                <a class="secondary no-wrap" v-if="this.path === '/'" @click="openModalLocalization">{{this.citySelected.name}} - SC</a>
+                <a class="secondary no-wrap" v-if="this.path === '/'" @click="openModalLocalization">{{this.citySelected.name}}
+                    - SC</a>
             </div>
             <div class="login">
                 <template v-if="name">
@@ -149,7 +163,9 @@
             </div>
             <div :class="[{'on': showToggle},'menu-toggle']">
                 <div class="localization-toggle">
-                    <button class="no-wrap" v-if="this.path === '/'" @click="openModalLocalization">{{this.citySelected.name}} - SC</button>
+                    <button class="no-wrap" v-if="this.path === '/'" @click="openModalLocalization">
+                        {{this.citySelected.name}} - SC
+                    </button>
                 </div>
                 <template v-if="!name">
                     <button @click="showToggle = false" v-b-modal.modal-register>Login</button>
@@ -188,7 +204,7 @@
             onToggle() {
                 this.showToggle = !this.showToggle;
             },
-            openModalLocalization(){
+            openModalLocalization() {
                 this.$bvModal.show('modal-localization');
                 this.showToggle = false;
             },

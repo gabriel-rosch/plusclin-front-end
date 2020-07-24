@@ -9,6 +9,7 @@ import { BootstrapVue, IconsPlugin } from 'bootstrap-vue'
 import Tuex from 'tuex'
 import * as firebase from 'firebase/app';
 import 'firebase/auth'
+import {verifyMobile} from "./scripts/Device";
 
 
 Vue.config.productionTip = false
@@ -26,6 +27,7 @@ new Tuex.Store({
     clinicSelect: {},
     dateSelect: 0
 });
+
 
 
 // eslint-disable-next-line no-unused-vars

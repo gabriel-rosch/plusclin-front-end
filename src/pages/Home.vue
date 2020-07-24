@@ -1,28 +1,53 @@
 <style scoped lang="scss">
+    .mobile {
+        grid-template-columns: 1fr 30fr 10fr;
+        grid-template-rows: 20rem;
+
+        .search {
+            padding: 0 0rem;
+
+            span {
+                font-size: 1.85rem;
+            }
+        }
+
+    }
+
+    .web {
+        grid-template-columns: 1fr 4fr 2fr;
+        grid-template-rows: 40vw;
+
+        .search {
+            padding: 0 1.5rem;
+
+            span {
+                font-size: 2.85rem;
+            }
+        }
+    }
+
     main {
         display: grid;
-        grid-template-columns: 1fr 4fr 2fr;
         grid-template-areas: "n i nn";
-        grid-template-rows: 40vw;
+
         .search {
             display: flex;
             flex-direction: column;
             justify-content: center;
             grid-area: i;
-            padding: 0 1.5rem;
-            span {
-                font-size: 2.85rem;
-            }
+
             .search-row {
                 display: flex;
                 padding: 0;
                 margin: 0;
+
                 button {
                     display: flex;
                     align-items: center;
                     margin-left: 1rem;
                     font-size: 1.5rem;
                 }
+
                 input {
                     flex: 1;
                     height: 4rem;
@@ -30,16 +55,17 @@
                     font-size: 1.5rem;
                     color: #069999;
                 }
+
                 input:focus {
                     border: solid 1px #069999;
                 }
             }
         }
     }
-
 </style>
+
 <template>
-    <main>
+    <main id="Home">
         <div class="search">
             <span class="secondary no-wrap">De qual<strong class="primary">&nbsp;especialista&nbsp;</strong>você está precisando?</span>
             <b-row class="search-row">
@@ -60,55 +86,62 @@
             </b-row>
         </div>
     </main>
-<!--                <div class="flex-column box-information">-->
-<!--                    <div class="d-flex box-one">-->
-<!--                        <div class="lateral-one"/>-->
-<!--                        <div>-->
-<!--                            <MessageBlock style="padding-bottom: 4vw;" :titulo="titulo1" :message="message1"/>-->
-<!--                        </div>-->
-<!--                    </div>-->
-<!--                    <div class="espacamento"/>-->
-<!--                    <div class="d-flex box-two">-->
-<!--                        <div>-->
-<!--                            <MessageBlock style="padding-bottom: 4vw;" :titulo="titulo2" :message="message2"/>-->
-<!--                        </div>-->
-<!--                        <div class="lateral-two"/>-->
-<!--                    </div>-->
-<!--                    <div style="height: 10vw" class="espacamento"/>-->
-<!--                </div>-->
+    <!--                <div class="flex-column box-information">-->
+    <!--                    <div class="d-flex box-one">-->
+    <!--                        <div class="lateral-one"/>-->
+    <!--                        <div>-->
+    <!--                            <MessageBlock style="padding-bottom: 4vw;" :titulo="titulo1" :message="message1"/>-->
+    <!--                        </div>-->
+    <!--                    </div>-->
+    <!--                    <div class="espacamento"/>-->
+    <!--                    <div class="d-flex box-two">-->
+    <!--                        <div>-->
+    <!--                            <MessageBlock style="padding-bottom: 4vw;" :titulo="titulo2" :message="message2"/>-->
+    <!--                        </div>-->
+    <!--                        <div class="lateral-two"/>-->
+    <!--                    </div>-->
+    <!--                    <div style="height: 10vw" class="espacamento"/>-->
+    <!--                </div>-->
 
-<!--        <div class="d-flex final-box center align-items-center">-->
-<!--            <img style="height: 6vw; padding-left: 12vw;" src="../images/botao-esquerdo.svg" alt/>-->
-<!--            <div class="d-flex center-box">-->
-<!--                <img class="p-0 m-0" style="min-width: 13vw;max-height: 13vw;" src="../images/velho.svg" alt/>-->
-<!--                <div class="center-text">-->
-<!--                    <span class="secondary-class">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis id luctus massa.-->
-<!--                       Curabitur luctus orci ac quam fermentum mattis. Nullam in tortor placerat, gravida massa vel, lacinia-->
-<!--                       arcu.-->
-<!--                    </span>-->
-<!--                    <div>-->
-<!--                        <span class="fourth-class text-box" style="font-size: 1.2vw">-->
-<!--                            João Carlos, 72 anos - Florianópolis - SC-->
-<!--                        </span>-->
-<!--                    </div>-->
-<!--                </div>-->
-<!--            </div>-->
-<!--            <img style="height: 6vw; padding-right: 12vw;" src="../images/botao-direito.svg" alt/>-->
-<!--        </div>-->
-<!--        <div class="shared-box">-->
-<!--            <span class="primary-class shared-text">Compartilhe a sua experiência com a gente</span>-->
-<!--        </div>-->
+    <!--        <div class="d-flex final-box center align-items-center">-->
+    <!--            <img style="height: 6vw; padding-left: 12vw;" src="../images/botao-esquerdo.svg" alt/>-->
+    <!--            <div class="d-flex center-box">-->
+    <!--                <img class="p-0 m-0" style="min-width: 13vw;max-height: 13vw;" src="../images/velho.svg" alt/>-->
+    <!--                <div class="center-text">-->
+    <!--                    <span class="secondary-class">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis id luctus massa.-->
+    <!--                       Curabitur luctus orci ac quam fermentum mattis. Nullam in tortor placerat, gravida massa vel, lacinia-->
+    <!--                       arcu.-->
+    <!--                    </span>-->
+    <!--                    <div>-->
+    <!--                        <span class="fourth-class text-box" style="font-size: 1.2vw">-->
+    <!--                            João Carlos, 72 anos - Florianópolis - SC-->
+    <!--                        </span>-->
+    <!--                    </div>-->
+    <!--                </div>-->
+    <!--            </div>-->
+    <!--            <img style="height: 6vw; padding-right: 12vw;" src="../images/botao-direito.svg" alt/>-->
+    <!--        </div>-->
+    <!--        <div class="shared-box">-->
+    <!--            <span class="primary-class shared-text">Compartilhe a sua experiência com a gente</span>-->
+    <!--        </div>-->
 
 </template>
 
 <script>
-
+    // eslint-disable-next-line no-undef
     import {listSpecialties} from "../api/specialties";
+    import {className} from "../scripts/Device";
+
+    window.onload = initPage;
+    function initPage() {
+        document.getElementById("Home").className = className();
+    }
 
     export default {
         data() {
             return {
                 specialties: [],
+                device: false,
                 specialtiesSelect: "",
                 message1:
                     "Você pode se cadastrar de maneira individual ou trazer a sua clínica para uma parceria. Para maiores " +
@@ -125,7 +158,7 @@
         methods: {
             onScheduleNow() {
                 const city = JSON.parse(localStorage.getItem("city"));
-                if(city) {
+                if (city) {
                     this.$router.push(`/especialidade/${this.removeAcento((this.specialtiesSelect.trim()))}`);
                 } else if (!this.specialtiesSelect) {
                     this.$bvToast.toast(`Digite a especialidade que você procura`, {
@@ -159,6 +192,5 @@
                 this.specialties = await reponse.json();
             }
         },
-
     };
 </script>
