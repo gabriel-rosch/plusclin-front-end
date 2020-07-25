@@ -1,16 +1,24 @@
 .primary {
     color: #E5695A;
 }
+
 .secondary {
     color: #069999 !important;
 }
-.button-prymary {
+
+.button-primary {
     background-color: #E5695A;
     color: #fff;
     padding: 10px 20px;
 }
-.button-prymary:hover {
+
+.button-primary:hover {
     background-color: #fff;
     border: 1px solid #E5695A;
     color: #E5695A;
+}
+
+.button-primary:focus {
+    border: none !important;
+
 }

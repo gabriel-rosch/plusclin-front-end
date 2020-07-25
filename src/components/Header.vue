@@ -154,10 +154,10 @@
                 </template>
                 <template v-else>
                     <div class="login">
-                        <button class="shadow rounded-pill no-wrap button-prymary" v-b-modal.modal-register>
+                        <button class="shadow rounded-pill no-wrap button-primary" v-b-modal.modal-register>
                             Cadastrar-se {{userName}}
                         </button>
-                        <button class="shadow rounded-pill no-wrap button-prymary" v-b-modal.modal-login>
+                        <button class="shadow rounded-pill no-wrap button-primary" v-b-modal.modal-login>
                             Login
                         </button>
                     </div>

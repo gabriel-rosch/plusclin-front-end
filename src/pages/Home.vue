@@ -22,19 +22,20 @@
                     display: flex;
                     align-items: center;
                     margin-left: 1rem;
-                    font-size: 1.5rem;
+                    font-size: 1.75rem;
+                    height: 4rem;
                 }
 
                 input {
                     flex: 1;
                     height: 4rem;
-                    padding: 20px 20px;
+                    padding: 0 2rem;
                     font-size: 1.5rem;
                     color: #069999;
                 }
 
                 input:focus {
-                    border: solid 1px #069999;
+                    border: solid 0.1rem #069999;
                 }
             }
         }
@@ -44,9 +45,9 @@
         main {
             grid-template-columns: 1fr;
             grid-template-areas: "i";
-            grid-template-rows: 60vw;
             .search {
                 grid-area: i;
+                margin: 0 2rem;
             }
         }
     }
@@ -69,8 +70,8 @@
                 <button
                         type="submit"
                         @click="onScheduleNow"
-                        class="button-prymary shadow rounded-pill no-wrap"
-                >Agendar agora
+                        class="button-primary shadow rounded-pill no-wrap"
+                >Agendar
                 </button>
             </b-row>
         </div>
@@ -117,16 +118,9 @@
 </template>
 
 <script>
-    // eslint-disable-next-line no-undef
+
     import {listSpecialties} from "../api/specialties";
-    import {className} from "../scripts/Device";
-
-    window.onload = initPage;
-
-    function initPage() {
-        document.getElementById("Home").className = className();
-    }
-
+    
     export default {
         data() {
             return {

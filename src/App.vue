@@ -42,7 +42,6 @@
     }
 
     .root {
-        height: 100%;
         background-image: url(images/wallpaper.png);
         background-repeat: no-repeat;
         background-size: 100%;
@@ -54,15 +53,27 @@
         }
     }
 
-    @media (max-width: 520px) {
+    @media (max-width: 600px) {
         html {
-            font-size: 45%;
+            font-size: 65%;
         }
     }
 
-    @media (max-width: 390px) {
+    @media (max-width: 550px) {
         html {
-            font-size: 40%;
+            font-size: 56%;
+        }
+    }
+
+    @media (max-width: 400px) {
+        html {
+            font-size: 35%;
+        }
+    }
+
+    @media (max-width: 350px) {
+        html {
+            font-size: 33%;
         }
     }
 
