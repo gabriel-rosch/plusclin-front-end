@@ -1,7 +1,7 @@
 <style scoped lang="scss">
     main {
         display: grid;
-        grid-template-areas: "n i nn";
+        grid-template-areas: "i ii iii";
         grid-template-columns: 1fr 4fr 2fr;
         grid-template-rows: 40vw;
 
@@ -10,7 +10,7 @@
             padding: 0 1.5rem;
             flex-direction: column;
             justify-content: center;
-            grid-area: i;
+            grid-area: ii;
             font-size: 2.85rem;
 
             .search-row {
@@ -40,11 +40,21 @@
         }
     }
 
-   
+    @media (max-width: 640px) {
+        main {
+            grid-template-columns: 1fr;
+            grid-template-areas: "i";
+            grid-template-rows: 60vw;
+            .search {
+                grid-area: i;
+            }
+        }
+    }
+
 </style>
 
 <template>
-    <main id="Home" class="web">
+    <main>
         <div class="search">
             <span class="secondary no-wrap">De qual<strong class="primary">&nbsp;especialista&nbsp;</strong>você está precisando?</span>
             <b-row class="search-row">
