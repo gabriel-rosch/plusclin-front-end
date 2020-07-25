@@ -31,7 +31,7 @@
 body {
   text-rendering: optimizeLegibility !important;
   -webkit-font-smoothing: antialiased !important;
-  min-width: 463px;
+  min-width: 320px;
 }
 input, button {
   outline: 0;

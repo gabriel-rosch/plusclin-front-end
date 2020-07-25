@@ -1,40 +1,17 @@
 <style scoped lang="scss">
-    .mobile {
-        grid-template-columns: 1fr 30fr 10fr;
-        grid-template-rows: 20rem;
-
-        .search {
-            padding: 0 0rem;
-
-            span {
-                font-size: 1.85rem;
-            }
-        }
-
-    }
-
-    .web {
+    main {
+        display: grid;
+        grid-template-areas: "n i nn";
         grid-template-columns: 1fr 4fr 2fr;
         grid-template-rows: 40vw;
 
         .search {
-            padding: 0 1.5rem;
-
-            span {
-                font-size: 2.85rem;
-            }
-        }
-    }
-
-    main {
-        display: grid;
-        grid-template-areas: "n i nn";
-
-        .search {
             display: flex;
+            padding: 0 1.5rem;
             flex-direction: column;
             justify-content: center;
             grid-area: i;
+            font-size: 2.85rem;
 
             .search-row {
                 display: flex;
@@ -62,10 +39,12 @@
             }
         }
     }
+
+   
 </style>
 
 <template>
-    <main id="Home">
+    <main id="Home" class="web">
         <div class="search">
             <span class="secondary no-wrap">De qual<strong class="primary">&nbsp;especialista&nbsp;</strong>você está precisando?</span>
             <b-row class="search-row">
@@ -133,6 +112,7 @@
     import {className} from "../scripts/Device";
 
     window.onload = initPage;
+
     function initPage() {
         document.getElementById("Home").className = className();
     }
