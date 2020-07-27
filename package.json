@@ -3,14 +3,12 @@
     "version": "0.1.0",
     "private": true,
     "engines": {
-        "yarn": "1.22.4",
-        "node": "12.16.3"
+        "yarn": "1.22.4"
     },
     "scripts": {
         "serve": "vue-cli-service serve",
         "start": "node server.js",
         "build": "vue-cli-service build",
-        "build2": "vue-cli-service build",
         "lint": "vue-cli-service lint"
     },
     "heroku-run-build-script": true,

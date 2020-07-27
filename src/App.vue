@@ -47,6 +47,18 @@
         background-size: 100%;
     }
 
+    @media (max-width: 1220px) {
+        html {
+            font-size: 70%;
+        }
+    }
+
+    @media (max-width: 1000px) {
+        html {
+            font-size: 55%;
+        }
+    }
+
     @media (max-width: 800px) {
         html {
             font-size: 50%;
@@ -55,13 +67,13 @@
 
     @media (max-width: 600px) {
         html {
-            font-size: 65%;
+            font-size: 45%;
         }
     }
 
     @media (max-width: 550px) {
         html {
-            font-size: 56%;
+            font-size: 40%;
         }
     }
 

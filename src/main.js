@@ -1,5 +1,4 @@
 import Vue from 'vue'
-// import Vue from 'vue/dist/vue.js';
 import './plugins/vuetify'
 import 'bootstrap/dist/css/bootstrap.css'
 import 'bootstrap-vue/dist/bootstrap-vue.css'
@@ -9,7 +8,6 @@ import { BootstrapVue, IconsPlugin } from 'bootstrap-vue'
 import Tuex from 'tuex'
 import * as firebase from 'firebase/app';
 import 'firebase/auth'
-import {verifyMobile} from "./scripts/Device";
 
 
 Vue.config.productionTip = false

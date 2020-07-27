@@ -9,7 +9,7 @@
 .button-primary {
     background-color: #E5695A;
     color: #fff;
-    padding: 10px 20px;
+    padding: .8rem 2rem;
 }
 
 .button-primary:hover {
@@ -20,5 +20,4 @@
 
 .button-primary:focus {
     border: none !important;
-
 }
