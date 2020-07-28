@@ -205,13 +205,6 @@
 <script>
     // eslint-disable-next-line no-undef
     import {listSpecialties} from "../api/specialties";
-    import {className} from "../scripts/Device";
-
-    window.onload = initPage;
-
-    function initPage() {
-        document.getElementById("Home").className = className();
-    }
 
     export default {
         data() {

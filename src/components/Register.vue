@@ -1,6 +1,80 @@
+<style scoped lang="scss">
+    main {
+        padding: 2rem;
+
+        .social {
+            .network {
+                display: grid;
+                grid-template-areas: "i ii";
+                grid-template-columns: 1fr 3fr;
+                margin: 1rem 0;
+                height: 4rem;
+                border: none;
+                border-radius: 2rem;
+                width: 100%;
+                font-size: 1.2rem;
+                background-color: #069999;
+                align-items: center;
+                text-align: center;
+
+                img {
+                    grid-area: i;
+                    margin: auto auto auto auto;
+                }
+
+                span {
+                    grid-area: ii;
+                    margin: auto auto auto 0;
+                }
+            }
+        }
+
+        .register-form {
+
+            .register-group {
+                font-size: 1.3rem;
+                margin: 1rem 0;
+            }
+
+            .register-input {
+                height: 4rem;
+                padding: 0 1.5rem;
+                border: 1.2px solid #069999;
+                border-radius: 2rem;
+            }
+        }
+
+        .register-action {
+            display: grid;
+            grid-template-areas: "i ii";
+            grid-template-columns: 3fr 1fr;
+
+            .haveAccount {
+                font-size: 1.1rem;
+                color: #069999;
+                font-weight: bolder;
+                margin: auto 2rem auto auto;
+            }
+
+            .haveAccount:hover {
+                cursor: pointer;
+            }
+
+            .action {
+                font-size: 1.3rem;
+                background-color: #E5695A;
+                height: 3.5rem;
+                border: none;
+                border-radius: 2rem;
+            }
+
+        }
+    }
+</style>
+
 <template>
-    <b-container class="d-flex" fluid>
-        <b-modal class="d-flex" id="modal-register" hide-footer title="BootstrapVue">
+    <div>
+        <b-modal id="modal-register" hide-footer>
             <b-alert
                     variant="danger"
                     :show="dismissCountDown"
@@ -8,157 +82,114 @@
                     @dismiss-count-down="countDownChanged"
                     dismissible
             >
-                <center>{{erro}}</center>
+                {{erro}}!
             </b-alert>
-            <template v-slot:modal-title>Cadastrar</template>
-            <b-container class="d-flex px-5 flex-column">
-                <b-row @click="signInWithFacebook" id="facebook" class="d-flex flex-column h-100 w-100 box-social m-0">
-                    <b-button class="d-flex rounded-pill w-100 mb-3 tertiary-class" style="height: 4rem;">
-                        <b-col cols="2">
-                            <img src="../images/facebook-orig.svg"/>
-                        </b-col>
-                        <b-col cols="10" class="d-flex pl-0 align-self-center " style="font-size: 1.3rem;">
-                            <span>Conectar com meu Facebook</span>
-                        </b-col>
+            <template v-slot:modal-title>Cadastrar-se</template>
+            <main>
+                <div class="social">
+                    <b-button class="network" @click="signInWithFacebook">
+                        <img src="../images/facebook-orig.svg"/>
+                        <span>Conectar com meu Facebook</span>
                     </b-button>
-                </b-row>
-                <b-row @click="signInWithGoogle" id="google" class="d-flex flex-column h-100 w-100 box-social m-0">
-                    <b-button class="d-flex rounded-pill w-100 mb-3 tertiary-class" style="height: 4rem;">
-                        <b-col cols="2">
-                            <img src="../images/google-orig.svg"/>
-                        </b-col>
-                        <b-col cols="10" class="d-flex pl-0 align-self-center" style="font-size: 1.3rem;">
-                            <span>Conectar com minha conta Google</span>
-                        </b-col>
+                    <b-button class="network" @click="signInWithGoogle">
+                        <img src="../images/google-orig.svg"/>
+                        <span>Conectar com minha conta Google</span>
                     </b-button>
-                </b-row>
-                <b-form-group
-                        class="span-secondary"
-                        label-cols-lg="12"
-                        label-class="pl-4"
-                        style=" font-size: 1.3rem;"
-                        label="Nome"
-                >
-                    <b-form-input
-                            class="rounded-pill px-4"
-                            id="name"
-                            placeholder="Digite seu nome aqui"
-                            type="text"
-                            v-model="name"
-                            style="height: 4rem; border: 1.2px solid #069999"
-                    ></b-form-input>
-                </b-form-group>
-                <b-form-group
-                        class="span-secondary"
-                        label-cols-lg="12"
-                        label-class="pl-4"
-                        style=" font-size: 1.3rem;"
-                        label="E-mail"
-                >
-                    <b-form-input
-                            class="rounded-pill px-4"
-                            id="email"
-                            placeholder="Digite seu email aqui"
-                            type="text"
-                            v-model="email"
-                            style="height: 4rem; border: 1.2px solid #069999"
-                    ></b-form-input>
-                </b-form-group>
-                <b-form-group
-                        class="span-secondary"
-                        label-cols-lg="12"
-                        label-class="pl-4"
-                        style=" font-size: 1.3rem;"
-                        label="Senha"
-                >
-                    <b-form-input
-                            class="rounded-pill px-4"
-                            placeholder="Digite sua senha aqui"
-                            type="password"
-                            v-model="password"
-                            style="height: 4rem; border: 1.2px solid #069999"
-                    ></b-form-input>
-                </b-form-group>
-                <div class="form d-flex  align-self-center">
-                    <div class="row">
-                        <my-captcha :callSuccess="captchaOk" color="#e5695a" mode="math" resolve="text"></my-captcha>
-                    </div>
+
                 </div>
-                <b-row class="m-0">
-                    <b-col>
-                        <b-button
-                                @click="cadastrar"
-                                class="float-right rounded-pill px-3 tertiary-class"
-                                style="font-size: 1.3rem;"
-                        >Cadastrar
-                        </b-button>
-                    </b-col>
-                </b-row>
-            </b-container>
+                <div class="register-form">
+                    <b-form-group label="Nome" class="register-group">
+                        <b-form-input
+                                class="register-input"
+                                id="name"
+                                placeholder="Digite seu nome aqui"
+                                type="text"
+                                v-model="name"
+                        ></b-form-input>
+                    </b-form-group>
+                    <b-form-group label="E-mail" class="register-group">
+                        <b-form-input
+                                class="register-input"
+                                id="email"
+                                placeholder="Digite seu email aqui"
+                                type="text"
+                                v-model="email"
+                        ></b-form-input>
+                    </b-form-group>
+                    <b-form-group label="Senha" class="register-group">
+                        <b-form-input
+                                class="register-input"
+                                placeholder="Digite sua senha aqui"
+                                type="password"
+                                v-model="password"
+                                style=""
+                        ></b-form-input>
+                    </b-form-group>
+                </div>
+                <div class="register-action">
+                    <a class="haveAccount"
+                       @click="haveAccount"
+                    >Já possuo uma conta</a>
+                    <b-button
+                            @click="cadastrar"
+                            class="action"
+                    >Cadastrar
+                    </b-button>
+                </div>
+            </main>
         </b-modal>
-    </b-container>
+    </div>
 </template>
+
 
 <script>
 
-    import myCaptcha from 'vue-captcha';
     import {register} from "../api/register";
     import {createLogin} from "../scripts/Login";
 
     export default {
-        components: {
-            'my-captcha': myCaptcha
-        },
+        components: {},
         data() {
             return {
-                btndis: true,
-                captcha: false,
                 password: "",
                 email: "",
                 name: "",
-                erro: "",
                 dismissSecs: 7,
                 dismissCountDown: 0
             };
         },
         methods: {
-            captchaOk() {
-                this.captcha = true;
-            },
-            captchaBtn() {
-                this.btndis = false
-            },
             clicked() {
                 alert('button active.!')
             },
             async cadastrar() {
-                if (this.captcha) {
-                    const response = await register({
-                        password: this.password,
-                        name: this.name,
-                        email: this.email
-                    });
-                    if (response.ok) {
-                        const session = await response.json();
-                        localStorage.setItem("userName", session.name);
-                        this.$parent.fillSession();
-                        this.$bvModal.hide("modal-register");
-                    } else {
-                        const session = await response.json();
-                        this.erro = session.error;
-                        this.showErrorAlert();
-                    }
-                }else{
-                    this.erro = "Por favor, confirme o Captcha!";
+                const response = await register({
+                    password: this.password,
+                    name: this.name,
+                    email: this.email
+                });
+                if (response.ok) {
+                    const session = await response.json();
+                    localStorage.setItem("userName", session.name);
+                    this.$parent.fillSession();
+                    this.$bvModal.hide("modal-register");
+                } else {
+                    const session = await response.json();
+                    this.erro = session.error;
                     this.showErrorAlert();
                 }
+            },
+            async haveAccount() {
+                this.$bvModal.hide("modal-register");
+                this.$bvModal.show("modal-login");
             },
             countDownChanged(dismissCountDown) {
                 this.dismissCountDown = dismissCountDown;
             },
             showErrorAlert() {
                 this.dismissCountDown = this.dismissSecs;
-            }, async signInWithGoogle() {
+            },
+            async signInWithGoogle() {
                 var LoginVUe = this;
                 // eslint-disable-next-line no-undef
                 var provider = new firebase.auth.GoogleAuthProvider();
@@ -191,7 +222,8 @@
                     });
                 }).catch(function () {
                 });
-            }, async signInWithFacebook() {
+            },
+            async signInWithFacebook() {
                 var LoginVue = this;
                 // eslint-disable-next-line no-undef
                 var provider = new firebase.auth.FacebookAuthProvider();

@@ -1,6 +1,81 @@
+<style scoped lang="scss">
+
+    main {
+        padding: 2rem;
+
+        .social {
+            .network {
+                display: grid;
+                grid-template-areas: "i ii";
+                grid-template-columns: 1fr 3fr;
+                margin: 1rem 0;
+                height: 4rem;
+                border: none;
+                border-radius: 2rem;
+                width: 100%;
+                font-size: 1.2rem;
+                background-color: #069999;
+                align-items: center;
+                text-align: center;
+
+                img {
+                    grid-area: i;
+                    margin: auto auto auto auto;
+                }
+
+                span {
+                    grid-area: ii;
+                    margin: auto auto auto 0;
+                }
+            }
+        }
+
+        .register-form {
+
+            .register-group {
+                font-size: 1.3rem;
+                margin: 1rem 0;
+            }
+
+            .register-input {
+                height: 4rem;
+                padding: 0 1.5rem;
+                border: 1.2px solid #069999;
+                border-radius: 2rem;
+            }
+        }
+
+        .register-action {
+            display: grid;
+            grid-template-areas: "i ii";
+            grid-template-columns: 3fr 1fr;
+
+            .haveAccount {
+                font-size: 1.1rem;
+                color: #069999;
+                font-weight: bolder;
+                margin: auto 2rem auto auto;
+            }
+
+            .haveAccount:hover {
+                cursor: pointer;
+            }
+
+            .action {
+                font-size: 1.3rem;
+                background-color: #E5695A;
+                height: 3.5rem;
+                border: none;
+                border-radius: 2rem;
+            }
+
+        }
+    }
+</style>
+
 <template>
-    <b-container class="d-flex" fluid>
-        <b-modal class="d-flex" id="modal-login" hide-footer title="BootstrapVue">
+    <div>
+        <b-modal class="modal-login" id="modal-login" hide-footer>
             <b-alert
                     variant="danger"
                     :show="dismissCountDown"
@@ -8,83 +83,54 @@
                     @dismiss-count-down="countDownChanged"
                     dismissible
             >
-                <center>{{erro}}!</center>
+                {{erro}}!
             </b-alert>
             <template v-slot:modal-title>Login</template>
-            <b-container class="d-flex px-3 flex-column">
-                <b-row>
-                </b-row>
-                <b-row id="facebook" @click="signInWithFacebook" class="d-flex flex-column h-100 w-100 box-social m-0">
-                    <b-button class="d-flex rounded-pill w-100 mb-3 tertiary-class" style="height: 4rem;">
-                        <b-col cols="2">
-                            <img src="../images/facebook-orig.svg"/>
-                        </b-col>
-                        <b-col cols="10" class="d-flex pl-0 align-self-center">
-                            <span style="font-size: 1.1rem;">Conectar com meu Facebook</span>
-                        </b-col>
+            <main>
+                <div class="social">
+                    <b-button class="network" @click="signInWithFacebook">
+                        <img src="../images/facebook-orig.svg"/>
+                        <span>Conectar com meu Facebook</span>
                     </b-button>
-                </b-row>
-                <b-row @click="signInWithGoogle" id="google" class="d-flex flex-column h-100 w-100 box-social m-0">
-                    <b-button class="d-flex rounded-pill w-100 mb-3 tertiary-class" style="height: 4rem;">
-                        <b-col cols="2">
-                            <img src="../images/google-orig.svg"/>
-                        </b-col>
-                        <b-col cols="10" class="d-flex pl-0 align-self-center">
-                            <span style="font-size: 1.1rem;">Conectar com minha conta Google</span>
-                        </b-col>
+                    <b-button class="network" @click="signInWithGoogle">
+                        <img src="../images/google-orig.svg"/>
+                        <span>Conectar com minha conta Google</span>
                     </b-button>
-                </b-row>
-                <b-form-group
-                        class="tertiary-class"
-                        label-cols-lg="12"
-                        label-class="pl-4"
-                        style=" font-size: 1.3rem;"
-                        label="E-mail"
-                >
-                    <b-form-input
-                            class="rounded-pill px-4"
-                            id="email"
-                            placeholder="Digite seu email aqui"
-                            type="text"
-                            v-model="email"
-                            style="height: 4rem; border: 1.2px solid #069999"
-                    ></b-form-input>
-                </b-form-group>
-                <b-form-group
-                        class="tertiary-class"
-                        label-cols-lg="12"
-                        label-class="pl-4"
-                        style=" font-size: 1.3rem;"
-                        label="Senha"
-                >
-                    <b-form-input
-                            class="rounded-pill px-4"
-                            placeholder="Digite sua senha aqui"
-                            type="password"
-                            v-model="password"
-                            style="height: 4rem; border: 1.2px solid #069999"
-                    ></b-form-input>
-                </b-form-group>
-                <b-row class="m-0">
-                    <b-col cols="8" class="align-self-center">
-                        <a
-                                @click="notAccount"
-                                style="font-size: 1.1rem; color: #069999"
-                                class="font-weight-bold float-right notAccount"
-                        >Não possui uma conta</a>
-                    </b-col>
-                    <b-col class="px-8" cols="4">
-                        <b-button
-                                @click="login"
-                                class="w-100 rounded-pill tertiary-class"
-                                style="font-size: 1.3rem;"
-                        >Login
-                        </b-button>
-                    </b-col>
-                </b-row>
-            </b-container>
+
+                </div>
+                <div class="register-form">
+                    <b-form-group label="E-mail" class="register-group">
+                        <b-form-input
+                                class="register-input"
+                                id="email"
+                                placeholder="Digite seu email aqui"
+                                type="text"
+                                v-model="email"
+                        ></b-form-input>
+                    </b-form-group>
+                    <b-form-group label="Senha" class="register-group">
+                        <b-form-input
+                                class="register-input"
+                                placeholder="Digite sua senha aqui"
+                                type="password"
+                                v-model="password"
+                                style=""
+                        ></b-form-input>
+                    </b-form-group>
+                </div>
+                <div class="register-action">
+                    <a class="haveAccount"
+                       @click="notAccount"
+                    >Não possui uma conta</a>
+                    <b-button
+                            @click="login"
+                            class="action"
+                    >Login
+                    </b-button>
+                </div>
+            </main>
         </b-modal>
-    </b-container>
+    </div>
 </template>
 
 <script>
@@ -213,9 +259,3 @@
         }
     };
 </script>
-
-<style>
-    .notAccount:hover {
-        cursor: pointer;
-    }
-</style>
