@@ -20,6 +20,7 @@
                 img {
                     grid-area: i;
                     margin: auto auto auto auto;
+                    width: 3rem;
                 }
 
                 span {
@@ -68,6 +69,38 @@
                 border-radius: 2rem;
             }
 
+        }
+    }
+
+    @media (max-width: 720px) {
+        .social {
+            .network {
+                font-size: 2rem  !important;
+            }
+        }
+    }
+
+    @media (max-width: 640px) {
+        .social {
+            .network {
+                font-size: 2rem  !important;
+            }
+        }
+    }
+
+    @media (max-width: 500px) {
+        .social {
+            .network {
+                font-size: 2.4rem !important;
+            }
+        }
+    }
+
+    @media (max-width: 32076u       px) {
+        .social {
+            .network {
+                font-size: 2rem  !important;
+            }
         }
     }
 </style>
