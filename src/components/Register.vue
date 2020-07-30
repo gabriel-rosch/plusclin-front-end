@@ -96,7 +96,7 @@
         }
     }
 
-    @media (max-width: 32076u       px) {
+    @media (max-width: 320px) {
         .social {
             .network {
                 font-size: 2rem  !important;

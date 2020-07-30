@@ -119,9 +119,6 @@
 </style>
 <template>
     <header>
-        <button class="shadow rounded-pill no-wrap button-primary" v-b-modal.modal-register>
-            Cadastrar-se {{userName}}
-        </button>
         <Login/>
         <Localization :props-city="this.city"/>
         <Register/>
