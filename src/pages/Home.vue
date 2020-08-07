@@ -39,38 +39,47 @@
             }
         }
     }
+
     section {
         padding-left: 8rem;
         position: relative;
+
         > div {
             background-color: #069999;
             height: 80rem;
             padding-left: 8rem;
         }
+
         .box1, .box2 {
             background-color: #fff;
             height: 35rem;
+
             strong {
                 padding: 0 2rem;
                 font-size: 2.85rem;
                 font-weight: normal;
             }
+
             .row1, .row2 {
                 padding-left: 5rem;
                 height: 50%;
             }
+
             .row1 {
                 align-items: center;
             }
+
             .row2 {
                 flex-direction: row;
                 flex-wrap: nowrap;
                 justify-content: center;
                 align-items: center;
+
                 img {
                     height: 10rem;
                     margin-right: 4rem;
                 }
+
                 span {
                     font-size: 1.6rem;
                     margin-right: 4rem;
@@ -79,10 +88,12 @@
                 }
             }
         }
+
         .box1 {
             position: absolute;
             margin-top: -4rem;
         }
+
         .box2 {
             position: absolute;
             margin-top: 35rem;
@@ -90,21 +101,99 @@
             margin-right: 8rem;
         }
     }
+
+
+    article {
+        display: grid;
+        flex-direction: column;
+        justify-content: center;
+
+        .message {
+            display: grid;
+            grid-template-areas: "i ii iii iiii";
+            font-size: 1.8rem;
+            grid-template-columns: 2fr 1fr 10fr 2fr;
+
+            img:first-child {
+                grid-area: i;
+                height: 7rem;
+                margin: auto auto auto auto;
+            }
+
+            .avatar {
+                grid-area: ii;
+                margin: auto auto auto auto;
+            }
+
+            .texts {
+                grid-area: iii;
+                display: grid;
+                margin: 2rem 2rem;
+
+
+                .description-text {
+                    color: #746F73;
+                    margin: auto 3rem;
+
+                }
+
+                .name-text {
+                    margin: 1rem auto auto auto;
+                }
+            }
+
+            img:last-child {
+                grid-area: iiii;
+                height: 7rem;
+                margin: auto auto auto auto;
+            }
+
+
+        }
+
+        .share-experience {
+            font-size: 2rem;
+            margin: 2rem auto;
+
+            span {
+                text-decoration-line: underline;
+            }
+
+            span:hover {
+                cursor: pointer;
+            }
+        }
+
+
+    }
+
     @media (max-width: 720px) {
+
+        article {
+            .message {
+                grid-template-columns: 2fr 1fr 10fr 2fr;
+
+                font-size: 1.4rem;
+            }
+        }
         section {
             padding-left: 4rem;
+
             > div {
                 padding-left: 4rem;
             }
+
             .box2 {
                 margin-right: 4rem;
             }
         }
     }
+
     @media (max-width: 640px) {
         main {
             grid-template-columns: 1fr;
             grid-template-areas: "i";
+
             .search {
                 grid-area: i;
                 padding: 0 3rem;
@@ -116,6 +205,7 @@
             }
         }
     }
+
     @media (max-width: 500px) {
         section {
             > div {
@@ -123,6 +213,7 @@
                     .row1 {
                         height: 45%;
                     }
+
                     .row2 {
                         height: 55%;
                     }
@@ -158,12 +249,12 @@
         </main>
         <section>
             <div>
-                <div class="box1 shadow" >
+                <div class="box1 shadow">
                     <b-row class="row1 m-0">
                         <strong class="secondary">{{titulo1}}</strong>
                     </b-row>
                     <b-row class="row2 m-0">
-                        <img src="../images/doctor.svg" alt />
+                        <img src="../images/doctor.svg" alt/>
                         <span>{{message1}}</span>
                     </b-row>
                 </div>
@@ -172,34 +263,44 @@
                         <strong class="secondary">{{titulo2}}</strong>
                     </b-row>
                     <b-row class="row2 m-0">
-                        <img src="../images/card.svg" alt />
+                        <img src="../images/card.svg" alt/>
                         <span>{{message2}}</span>
                     </b-row>
                 </div>
             </div>
         </section>
+
+        <article>
+
+            <div class="message">
+                <img src="../images/botao-esquerdo.svg" alt/>
+                <div class="avatar">
+                    <b-avatar variant="info" :src="this.velho" size="15rem"></b-avatar>
+                </div>
+                <div class="texts">
+                    <div class="description-text">
+                            <span> Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis id luctus massa.
+                               Curabitur luctus orci ac quam fermentum mattis. Nullam in tortor placerat, gravida massa vel, lacinia
+                               arcu.Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis id luctus massa.
+                               Curabitur luctus orci ac quam fermentum mattis. Nullam in tortor placerat, gravida massa vel, lacinia
+                               arcu
+                            </span>
+                    </div>
+                    <div class="name-text">
+                                <span class="secondary font-weight-bolder">
+                                    João Carlos, 72 anos - Florianópolis - SC
+                                </span>
+                    </div>
+                </div>
+                <img src="../images/botao-direito.svg" alt/>
+            </div>
+
+
+            <div class="share-experience">
+                <span class="primary">Compartilhe a sua experiência com a gente</span>
+            </div>
+        </article>
     </div>
-<!--                <div class="d-flex final-box center align-items-center">-->
-<!--                    <img style="height: 6vw; padding-left: 12vw;" src="../images/botao-esquerdo.svg" alt/>-->
-<!--                    <div class="d-flex center-box">-->
-<!--                        <img class="p-0 m-0" style="min-width: 13vw;max-height: 13vw;" src="../images/velho.svg" alt/>-->
-<!--                        <div class="center-text">-->
-<!--                            <span class="secondary-class">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis id luctus massa.-->
-<!--                               Curabitur luctus orci ac quam fermentum mattis. Nullam in tortor placerat, gravida massa vel, lacinia-->
-<!--                               arcu.-->
-<!--                            </span>-->
-<!--                            <div>-->
-<!--                                <span class="fourth-class text-box" style="font-size: 1.2vw">-->
-<!--                                    João Carlos, 72 anos - Florianópolis - SC-->
-<!--                                </span>-->
-<!--                            </div>-->
-<!--                        </div>-->
-<!--                    </div>-->
-<!--                    <img style="height: 6vw; padding-right: 12vw;" src="../images/botao-direito.svg" alt/>-->
-<!--                </div>-->
-<!--                <div class="shared-box">-->
-<!--                    <span class="primary-class shared-text">Compartilhe a sua experiência com a gente</span>-->
-<!--                </div>-->
 </template>
 
 <script>
@@ -212,6 +313,7 @@
                 specialties: [],
                 device: false,
                 specialtiesSelect: "",
+                velho: "https://lh3.googleusercontent.com/a-/AOh14GgcdD2l8TTin-oW5YPkoJ9XDEZoBFBp2Z637zte",
                 message1:
                     "Você pode se cadastrar de maneira individual ou trazer a sua clínica para uma parceria. Para maiores " +
                     "esclarecimentos, entre em contato conosco através do email xxxxxx@xxx.xxx ou pelo número " +

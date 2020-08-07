@@ -188,6 +188,7 @@
                 email: "",
                 name: "",
                 dismissSecs: 7,
+                erro: "",
                 dismissCountDown: 0
             };
         },

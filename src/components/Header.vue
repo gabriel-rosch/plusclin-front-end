@@ -36,8 +36,17 @@
             justify-content: center;
             align-items: center;
 
-            :first-child {
-                margin-right: 10px;
+            :first-child span {
+                background-color: rgba(229, 105, 90, 0.8) !important;
+                border: 1px solid rgba(229, 105, 90, 0.9) !important;
+            }
+
+            .salutation{
+                font-size: 1.1rem;
+                padding: 2rem;
+            }
+            :first-child button {
+                margin-right: 1.5rem;
             }
         }
 
@@ -49,6 +58,7 @@
             display: none;
         }
     }
+
     @media (max-width: 770px) {
         main {
             grid-template-rows: 60px;
@@ -133,21 +143,18 @@
             </div>
             <div class="login">
                 <template v-if="name">
-                    <div>
-                        <div class="rounded-pill" style="min-width: 2.5vw; min-height: 2.5vw;">
-                            <div v-if="this.img.length <= 9">
-                                <b-icon-person-fill
-                                        style="color: #e5695a; width: 2.5vw; height: 2.5vw;"></b-icon-person-fill>
-                            </div>
-                            <div v-else class="rounded-pill p-0 m-0" style="min-width: 2.5vw; min-height: 2.5vw;">
-                                <img class="rounded-pill" style="width: 2.5vw; height: 2.5vw;"
-                                     :src="this.img">
-                            </div>
+                    <div class="rounded-pill" style="min-width: 2.5vw; min-height: 2.5vw;">
+                        <div v-if="this.img.length <= 9">
+                            <b-icon-person-fill
+                                    style="color: #e5695a; width: 2.5vw; height: 2.5vw;"></b-icon-person-fill>
                         </div>
-                        <span class="primary-class">Oi, {{this.userName}}!</span>
+                        <div v-else class="rounded-pill p-0 m-0">
+                            <b-avatar variant="info" :src="this.img" size="5rem"></b-avatar>
+                        </div>
                     </div>
+                    <span class="secondary salutation">Olá, {{nameWithInitcap()}}!</span>
                     <b-button
-                            class="rounded-pill bold tertiary-class"
+                            class="shadow rounded-pill no-wrap  button-primary"
                             @click="clearSession()"
                     >Sair
                     </b-button>
@@ -155,7 +162,7 @@
                 <template v-else>
                     <div class="login">
                         <button class="shadow rounded-pill no-wrap button-primary" v-b-modal.modal-register>
-                            Cadastrar-se {{userName}}
+                            Cadastrar-se
                         </button>
                         <button class="shadow rounded-pill no-wrap button-primary" v-b-modal.modal-login>
                             Login
@@ -234,6 +241,13 @@
             },
             paginaInicial() {
                 window.location.href = "/#";
+            }, nameWithInitcap() {
+                String.prototype.initCap = function () {
+                    return this.toLowerCase().replace(/(?:^|\s)[a-z]/g, function (m) {
+                        return m.toUpperCase();
+                    });
+                };
+                return this.name.initCap();
             }
         },
         mounted() {
