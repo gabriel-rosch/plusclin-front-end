@@ -15,6 +15,10 @@
             align-items: center;
         }
 
+        .logo:hover {
+            cursor: pointer;
+        }
+
         .localization {
             display: flex;
             justify-content: center;
@@ -41,10 +45,11 @@
                 border: 1px solid rgba(229, 105, 90, 0.9) !important;
             }
 
-            .salutation{
+            .salutation {
                 font-size: 1.1rem;
                 padding: 2rem;
             }
+
             :first-child button {
                 margin-right: 1.5rem;
             }
@@ -134,7 +139,7 @@
         <Register/>
         <main>
             <div class="logo">
-                <img src="../images/logo1.svg" alt/>
+                <img @click="paginaInicial" src="../images/logo1.svg" alt/>
             </div>
             <div class="localization">
                 <img src="../images/localization.svg" alt/>

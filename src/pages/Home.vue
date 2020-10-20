@@ -164,10 +164,37 @@
             }
         }
 
+    }
+
+    @media (min-width: 1220px) {
+        [data-box] {
+            opacity: 0;
+        }
+
+        [data-box="main"] {
+            transform: translate3d(0, 100px, 0);
+            transition: 1.3s;
+        }
+
+        [data-box="left"] {
+            transform: translate3d(-500px, 0, 0);
+            transition: 2s;
+        }
+
+        [data-box="right"] {
+            transform: translate3d(500px, 0, 0);
+            transition: 2s;
+        }
+
+        [data-box].animate {
+            opacity: 1;
+            transform: translate3d(0px, 0px, 0px);
+        }
 
     }
 
     @media (max-width: 720px) {
+
 
         article {
             .message {
@@ -207,6 +234,7 @@
     }
 
     @media (max-width: 500px) {
+
         section {
             > div {
                 .box1, .box2 {
@@ -221,6 +249,7 @@
             }
         }
     }
+
 
 </style>
 
@@ -240,6 +269,7 @@
                     <b-form-datalist :options="dataListOptions" list="input-list" id="input-list"/>
                     <button
                             type="submit"
+                            id="teste"
                             @click="onScheduleNow"
                             class="button-primary shadow rounded-pill no-wrap"
                     >Agendar
@@ -247,9 +277,9 @@
                 </b-row>
             </div>
         </main>
-        <section>
+        <section data-box="main">
             <div>
-                <div class="box1 shadow">
+                <div data-box="left" class="box1 shadow">
                     <b-row class="row1 m-0">
                         <strong class="secondary">{{titulo1}}</strong>
                     </b-row>
@@ -258,7 +288,7 @@
                         <span>{{message1}}</span>
                     </b-row>
                 </div>
-                <div class="box2 shadow">
+                <div data-box="right" class="box2 shadow">
                     <b-row class="row1 m-0">
                         <strong class="secondary">{{titulo2}}</strong>
                     </b-row>
@@ -270,7 +300,7 @@
             </div>
         </section>
 
-        <article>
+        <article data-box="main">
 
             <div class="message">
                 <img src="../images/botao-esquerdo.svg" alt/>
@@ -306,6 +336,25 @@
 <script>
     // eslint-disable-next-line no-undef
     import {listSpecialties} from "../api/specialties";
+
+    function animeScroll() {
+        const windowTop = window.pageYOffset;
+        document.querySelectorAll('[data-box]').forEach(function (element) {
+            if (element.getAttribute('data-box') === "main") {
+                if (windowTop + 800 > element.offsetTop) {
+                    element.classList.add('animate');
+                }
+            } else {
+                if (windowTop > element.offsetTop) {
+                    element.classList.add('animate');
+                }
+            }
+        })
+    }
+
+    window.addEventListener('scroll', function () {
+        animeScroll();
+    })
 
     export default {
         data() {

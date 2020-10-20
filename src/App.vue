@@ -14,13 +14,12 @@
         components: {
             Footer,
             Header
-        },
-        created() {
         }
     };
 </script>
-<style>
-    @import "styles/global.css";
+<style lang="scss">
+    @import "src/styles/global.scss";
+    @import "src/styles/variable.scss";
 
     * {
         font-family: 'Asap', sans-serif;

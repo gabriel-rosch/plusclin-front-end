@@ -1,69 +1,318 @@
 <style lang="scss">
-    .data-picker {
-        width: 100%;
-        background-color: #E5695A;
+    $vue-arrow: #42b883;
 
-        button {
-            color: white;
+    .box-date {
+        .form-control {
+            color: #069999 !important;
         }
 
-        footer {
-            visibility: hidden;
+        .btn-outline-secondary {
+            color: #069999 !important;
+            border: none !important;
+            background-color: transparent;
         }
 
-
-        span {
+        .btn-outline-secondary:active {
+            border-color: #069999 !important;
             background-color: #E5695A !important;
-            color: white !important;
         }
 
         .btn-outline-secondary:hover {
-            background-color: #069999 !important;
+            border-color: #069999 !important;
+            background-color: #E5695A !important;
         }
 
-        .btn-secondary:not(:disabled):not(.disabled):active, .btn-secondary:not(:disabled):not(.disabled).active, .show > .btn-secondary.dropdown-toggle {
-            background-color: #069999 !important;
+        .btn-outline-secondary:focus {
+            border-color: #069999 !important;
+        }
+
+        .b-calendar-grid {
+            width: 100%;
+
+            button {
+                color: white;
+            }
+
+            .btn-primary:not(:disabled):not(.disabled):active, .btn-primary:not(:disabled):not(.disabled).active, .show > .btn-primary.dropdown-toggle {
+                background-color: #069999 !important;
+            }
+
+
+            footer {
+                visibility: hidden;
+            }
+
+
+            span {
+                background-color: #E5695A !important;
+                color: white !important;
+            }
+
+            .btn-outline-secondary:hover {
+                background-color: #069999 !important;
+            }
+
+            .btn-secondary:not(:disabled):not(.disabled):active, .btn-secondary:not(:disabled):not(.disabled).active, .show > .btn-secondary.dropdown-toggle {
+                background-color: #069999 !important;
+            }
+        }
+
+        .b-calendar-nav .disabled {
+            opacity: 0;
+        }
+
+        .b-calendar-nav button:last-child {
+            opacity: 0;
         }
     }
 
+    @media (max-width: 767px) {
 
-    .date-piker {
+        .header {
+            margin-left: 5rem;
+            margin-right: 5rem;
+            margin-bottom: 4rem;
+        }
+        .date-piker {
+            justify-content: center;
+            width: 100%;
+        }
+
+
+        .title-primary {
+            color: rgb(229, 105, 90);
+            font-size: 2vw;
+            text-decoration: underline;
+        }
+
+        .title-secundary {
+            font-size: 4vw;
+            color: #069999;
+        }
+    }
+
+    @media (min-width: 767px) {
+
+        .header {
+            margin-top: 4rem;
+            margin-bottom: 4rem;
+            margin-left: 15rem;
+            margin-right: 15rem;
+        }
+
+        .height-main-col {
+            height: 27vw;
+        }
+
+        .date-piker {
+            width: 100%
+        }
+
+        .title-primary {
+            color: rgb(229, 105, 90);
+            font-size: 1.8vw;
+            text-decoration: underline;
+        }
+
+        .title-secundary {
+            font-size: 2.3vw;
+            color: #069999;
+            font-family: Asap;
+            font-style: normal;
+            font-weight: normal;
+            text-decoration-line: underline;
+
+        }
+
+        .header.animate {
+            height: 6rem;
+
+            .box-date {
+                transition: 0.5s;
+                opacity: 0;
+            }
+        }
 
     }
+
+
+    .content {
+        display: grid;
+        justify-content: center;
+
+        span {
+            font-size: 3rem;
+        }
+    }
+
+    .containerClinic {
+        display: flex;
+    }
+
+    .containerClinicNull {
+        height: 35rem;
+    }
+
+    .header {
+        transition: 1.5s;
+        border-radius: 5rem;
+        height: 35rem;
+
+        .specialties {
+            padding: 1rem;
+            display: flex;
+            justify-content: center;
+
+            span {
+                font-size: 3rem;
+                font-weight: bold;
+            }
+        }
+
+        .box-date {
+            display: grid;
+            justify-content: center;
+            opacity: 1;
+            transition-delay: 1s;
+            transition: 5s;
+        }
+    }
+
+    .card-carousel-wrapper {
+        display: grid;
+        width: 100%;
+        grid-template-areas: "i ii iii";
+        grid-template-columns: 1fr 1fr 1fr;
+        align-items: center;
+        justify-content: center;
+        margin-bottom: 60px;
+
+        .arrow-carousel-left,
+        .arrow-carousel-right {
+            width: 3rem;
+            height: 3rem;
+            box-sizing: border-box;
+            border-top: 0.8rem solid $vue-arrow;
+            border-right: 0.8rem solid $vue-arrow;
+            cursor: pointer;
+
+            &[disabled] {
+                opacity: 0.2;
+                border-color: black;
+            }
+        }
+
+        .arrow-carousel-left {
+            grid-area: i;
+            transform: rotate(-135deg);
+            margin-left: 85%;
+
+            &:active {
+                transform: rotate(-135deg) scale(0.9);
+            }
+        }
+
+        .arrow-carousel-right {
+            grid-area: iii;
+            margin-right: 80%;
+            transform: rotate(45deg);
+
+            &:active {
+                transform: rotate(45deg) scale(0.9);
+            }
+        }
+
+        .card-carousel {
+            grid-area: ii;
+            display: flex;
+            justify-content: center;
+
+            &--overflow-container {
+                overflow: hidden;
+            }
+
+
+            .to-vanish {
+                opacity: 0.1;
+            }
+
+            .to-appear {
+                opacity: 1;
+                transition-delay: 0.1s;
+                transition: 0.2s;
+                opacity: 1;
+            }
+
+            .card-clinics:first-child {
+                margin-left: 1.5rem;
+                margin-right: 1.5rem;
+            }
+
+            .card-clinics:last-child {
+                margin-left: 1.5rem;
+                margin-right: 1.5rem;
+            }
+
+        }
+    }
+
 </style>
-
 <template>
     <div>
-        <b-container>
-            <b-row class="height-main-col" align-v="center">
-                <b-col>
-                    <span v-if="this.searchSpeciltie.name" class="title-primary d-flex span-primary">{{this.searchSpeciltie.name}}</span>
-                    <span v-else class="title-primary d-flex span-primary">ESPECIALIDADE NÃO ENCONTRADA</span>
-                    <span v-if="this.searchSpeciltie.name"
-                          class="d-flex title-secundary">Escolha a data da consulta</span>
-                    <b-datepicker v-model="dateSelect" @hidden="onFilter" value-as-date selected-variant="secondary"
-                                  hide-header
-                                  menu-class="data-picker"
-                                  calendar-width="100%"
-                                  class="date-piker" :max="max"
-                                  :min="min" size="lg"/>
-                </b-col>
-            </b-row>
-        </b-container>
-        <b-container fluid>
-            <b-row v-if="clinics.length" :class="[clinics.length ? 'containerClinic': 'containerClinicNull']">
-                <b-col class="align-content-center justify-content-center px-5" :key="clinic.id"
-                       v-for="clinic in clinics" cols="4">
-                    <b-card-group>
-                        <card-clinic
-                                style="box-shadow: 10px 10px 10px rgba(0, 20,100,0.15);"
-                                class="border"
-                                :clinic="clinic"
-                        />
-                    </b-card-group>
-                </b-col>
-            </b-row>
-        </b-container>
+        <div class="header">
+            <div class="specialties">
+                <span v-if="this.searchSpeciltie.name" class="title-secundary d-flex span-primary">{{this.searchSpeciltie.name}}</span>
+                <span v-else class="title-secundary d-flex">Especialidade não encontrada</span>
+            </div>
+            <b-col>
+                <div class="box-date">
+                <span v-if="this.searchSpeciltie.name"
+                      class="d-flex title-primary">Escolha a data da consulta</span>
+                    <b-calendar
+                            width="80rem"
+                            hide-header
+                            locale="pt-BR"
+                            @context="onFilter"
+                            value-as-date
+                            v-model="dateSelect"
+                            :min="min"
+                            :max="max">
+                    </b-calendar>
+                    <!--                    <b-datepicker v-model="dateSelect" @hidden="onFilter" value-as-date selected-variant="secondary"-->
+                    <!--                                  hide-header-->
+                    <!--                                  menu-class="data-picker"-->
+                    <!--                                  calendar-width="100%"-->
+                    <!--                                  class="date-piker" :max="max"-->
+                    <!--                                  :min="min" size="lg"/>-->
+                </div>
+            </b-col>
+        </div>
+        <div :class="[clinics.length ? 'containerClinic': 'containerClinicNull']">
+            <div class="card-carousel-wrapper" v-if="clinics.length > 0">
+                <div class="arrow-carousel-left" @click="moveCarousel(-1)" :disabled="firstOfList"></div>
+                <div class="card-carousel">
+                    <card-clinic
+                            style="box-shadow: 10px 10px 10px rgba(0, 20,100,0.15);"
+                            class="border card-clinics"
+                            v-if="clinics.length >0"
+                            :clinic="getCardClinic(0)"
+                    />
+                    <card-clinic
+                            style="box-shadow: 10px 10px 10px rgba(0, 20,100,0.15);"
+                            class="border card-clinics"
+                            v-if="clinics.length >1"
+                            :clinic="getCardClinic(1)"
+                    />
+                    <card-clinic
+                            style="box-shadow: 10px 10px 10px rgba(0, 20,100,0.15);"
+                            class="border card-clinics"
+                            v-if="clinics.length >2"
+                            :clinic="getCardClinic(2)"
+                    />
+                </div>
+                <div class="arrow-carousel-right" @click="moveCarousel(1)" :disabled="lastOfList"></div>
+            </div>
+        </div>
     </div>
 </template>
 
@@ -71,6 +320,22 @@
     import {listSpecialtiesName} from '../api/specialties'
     import {listClinics} from '../api/clinic'
     import CardClinic from "../components/CardClinic";
+
+    function animeScroll() {
+        const windowTop = window.pageYOffset;
+        document.querySelectorAll('.header').forEach(function (element) {
+            if (windowTop > 30) {
+                element.classList.add('animate');
+            } else {
+                element.classList.remove('animate');
+            }
+        })
+    }
+
+    window.addEventListener('scroll', function () {
+        animeScroll();
+    })
+
 
     export default {
         components: {
@@ -86,6 +351,8 @@
             return {
                 mode: 'single',
                 selectedDate: null,
+                quantityCard: 3,
+                pagination: 0,
                 date: Object,
                 clinics: [],
                 dateSelect: tomorrow,
@@ -94,13 +361,65 @@
                 searchSpeciltie: {}
             };
         },
-
         mounted() {
             this.load();
-            this.onFilter()
         },
-
+        computed: {
+            firstOfList() {
+                if (this.pagination === 0) {
+                    return true;
+                } else {
+                    return false;
+                }
+            },
+            lastOfList() {
+                if (this.pagination === this.clinics.length - this.quantityCard || this.pagination >= this.clinics.length) {
+                    return true;
+                } else {
+                    return false;
+                }
+            },
+        },
         methods: {
+            moveCarousel(direction) {
+                if (((this.pagination != this.clinics.length - this.quantityCard || this.pagination >= this.clinics.length) && direction === 1) || (this.pagination != 0 && direction === -1)) {
+                    if (this.pagination + this.quantityCard - 1 > this.clinics.length) {
+                        this.pagination = 0;
+                    } else {
+                        this.pagination += direction;
+                    }
+                    var elements = document.getElementsByClassName('card-clinics');
+                    var i;
+                    for (i = 0; i < elements.length; i++) {
+                        elements[i].classList.add("to-vanish");
+                    }
+                    setTimeout(
+                        function () {
+                            for (i = 0; i < elements.length; i++) {
+                                elements[i].classList.add("to-appear");
+                            }
+                        }, 300);
+
+                    setTimeout(
+                        function () {
+                            for (i = 0; i < elements.length; i++) {
+                                elements[i].classList.remove("to-vanish");
+                                elements[i].classList.remove("to-appear");
+                            }
+                        }, 900);
+                }
+            },
+            getCardClinic(indice) {
+                if (this.pagination + this.quantityCard > this.clinics.length) {
+                    if (indice + this.pagination >= this.clinics.length) {
+                        return this.clinics[indice + this.pagination - this.clinics.length];
+                    } else {
+                        return this.clinics[this.pagination + indice];
+                    }
+                } else {
+                    return this.clinics[indice + this.pagination];
+                }
+            },
             async load() {
                 const response = await listSpecialtiesName(this.$route.params.nameSpecialties);
                 if (response.ok) {
@@ -125,68 +444,4 @@
         },
     }
 </script>
-
-<style scoped>
-    /*sm*/
-    @media (max-width: 767px) {
-        .date-piker {
-            width: 83%;
-        }
-
-        .height-main-col {
-            height: 47vw;
-        }
-
-        .title-primary {
-            color: rgb(229, 105, 90);
-            font-size: 5vw;
-            text-decoration: underline;
-        }
-
-        .title-secundary {
-            font-size: 4vw;
-            color: #069999;
-        }
-    }
-
-    @media (min-width: 767px) {
-        .date-piker {
-            width: 90%;
-        }
-
-        .height-main-col {
-            height: 27vw;
-        }
-
-        .date-piker {
-            width: 55%
-        }
-
-        .title-primary {
-            color: rgb(229, 105, 90);
-            font-size: 2.8vw;
-            text-decoration: underline;
-        }
-
-        .title-secundary {
-            font-size: 2.3vw;
-            color: #069999;
-        }
-    }
-
-    .btn.filter {
-        height: 4vw;
-        min-width: 10vw;
-        max-width: 10vw;
-        font-size: 1.3vw;
-    }
-
-    .btn.filter:hover {
-        background-color: white;
-    }
-
-    .containerClinic {
-        margin-bottom: 13vw;
-    }
-</style>
 

@@ -1,10 +1,11 @@
 <style scoped lang="scss">
 
-    main {
+    footer {
         background-color: #e5695a;
         height: 42rem;
         padding-left: 5rem;
         padding-top: 2.2em;
+        flex: 1;
 
         .logo {
             height: 6.5rem;
@@ -20,7 +21,6 @@
         .box-links {
             display: grid;
             grid-template-areas: "i ii";
-            grid-template-columns: 1fr 3fr;
 
             font-size: 1.9rem;
             text-decoration-line: underline;
@@ -64,17 +64,26 @@
     }
 
     @media (max-width: 720px) {
-        main {
+        footer {
             .box-links {
                 grid-template-columns: 1fr 2fr;
             }
+        }
+    }
+
+    @media (min-width: 720px) {
+        footer {
+            .box-links {
+                grid-template-columns: 1fr 3fr;
+            }
+
         }
 
     }
 </style>
 
 <template>
-    <main>
+    <footer class="footer navbar-fixed-bottom">
         <img class="logo d-flex justift-start" src="../images/pluscin.svg" alt/>
         <b-button class="become-clinic button-primary  rounded-pill">Torne-se uma clínica PlusClin</b-button>
         <div class="box-links">
@@ -91,11 +100,11 @@
             </div>
         </div>
         <div class="redes-sociais">
-            <span style class="discounts">Descontos e Novidades na nossa Rede Social</span>
+            <span  class="discounts">Descontos e Novidades na nossa Rede Social</span>
             <img src="../images/instagram.svg" alt/>
             <img src="../images/facebook.svg" alt/>
         </div>
-    </main>
+    </footer>
 </template>
 
 <script>
