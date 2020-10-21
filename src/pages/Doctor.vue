@@ -5,12 +5,12 @@
     @media (max-width: 767px) {
         .title-specialties {
             color: #069999 !important;
-            font-size: $default-font-size;
+            font-size: $default-font-size * 1.35;
         }
 
         .title-date {
             color: #e5695a;
-            font-size: $default-font-size;
+            font-size: $default-font-size * 1.35;
             font-weight: normal;
         }
 
@@ -22,12 +22,12 @@
     @media (min-width: 767px) {
         .title-specialties {
             color: #069999 !important;
-            font-size: $default-font-size;
+            font-size: $default-font-size * 1.35;
         }
 
         .title-date {
             color: #e5695a;
-            font-size: $default-font-size;
+            font-size: $default-font-size * 1.35;
             font-weight: normal;
         }
 
