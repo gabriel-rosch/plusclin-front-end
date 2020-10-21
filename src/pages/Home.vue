@@ -271,7 +271,6 @@
                     <b-form-datalist :options="dataListOptions" list="input-list" id="input-list"/>
                     <button
                             type="submit"
-                            id="teste"
                             @click="onScheduleNow"
                             class="button-primary shadow rounded-pill no-wrap"
                     >Agendar
@@ -380,7 +379,7 @@
         methods: {
             onScheduleNow() {
                 const city = JSON.parse(localStorage.getItem("city"));
-                if (city) {
+                if (city && this.specialtiesSelect.trim() !== "") {
                     this.$router.push(`/especialidade/${this.removeAcento((this.specialtiesSelect.trim()))}`);
                 } else if (!this.specialtiesSelect) {
                     this.$bvToast.toast(`Digite a especialidade que você procura`, {
