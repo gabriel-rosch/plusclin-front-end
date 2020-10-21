@@ -145,8 +145,7 @@
             </div>
             <div class="localization">
                 <img src="../images/localization.svg" alt/>
-                <a class="secondary no-wrap" v-if="this.path === '/'" @click="openModalLocalization">{{this.citySelected.name}}
-                    - SC</a>
+                <a class="secondary no-wrap" @click="openModalLocalization">{{this.citySelected.name}} - SC</a>
             </div>
             <div class="login">
                 <template v-if="name">
