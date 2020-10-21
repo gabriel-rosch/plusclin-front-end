@@ -30,6 +30,10 @@
         box-sizing: border-box;
     }
 
+
+    button:focus, button:active {
+        outline: none;
+    }
     body {
         text-rendering: optimizeLegibility !important;
         -webkit-font-smoothing: antialiased !important;
