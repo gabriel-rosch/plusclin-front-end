@@ -120,7 +120,6 @@
             font-family: Asap;
             font-style: normal;
             font-weight: normal;
-            text-decoration-line: underline;
 
         }
 
