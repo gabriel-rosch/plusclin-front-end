@@ -1,4 +1,6 @@
 <style lang="scss" scoped>
+    @import "src/styles/variable.scss";
+
     main {
         display: grid;
         grid-template-columns: 1fr 1fr 1fr;
@@ -41,8 +43,8 @@
             align-items: center;
 
             :first-child span {
-                background-color: rgba(229, 105, 90, 0.8) !important;
-                border: 1px solid rgba(229, 105, 90, 0.9) !important;
+                background-color: $default-color-secondary !important;
+                border: $default-border solid $default-color-secondary !important;
             }
 
             .salutation {
@@ -84,7 +86,7 @@
             }
 
             .icon {
-                color: #E5695A;
+                color: $default-color-secondary;
                 font-size: 30px;
                 justify-self: center;
                 align-self: center;
@@ -106,7 +108,7 @@
                 position: absolute;
                 top: 60px;
                 left: 0;
-                background-color: #069999;
+                background-color:  $default-color-primary;
                 opacity: 98%;
 
                 width: 100vw;
@@ -116,7 +118,7 @@
                     text-align: center;
                     display: block;
                     color: #fff;
-                    font-size: 2rem;
+                    font-size: $default-font-size;
                     margin: 30px;
                 }
 
@@ -151,7 +153,7 @@
                     <div class="rounded-pill" style="min-width: 2.5vw; min-height: 2.5vw;">
                         <div v-if="this.img.length <= 9">
                             <b-icon-person-fill
-                                    style="color: #e5695a; width: 2.5vw; height: 2.5vw;"></b-icon-person-fill>
+                                    style="color:  $default-color-secondary; width: 2.5vw; height: 2.5vw;"></b-icon-person-fill>
                         </div>
                         <div v-else class="rounded-pill p-0 m-0">
                             <b-avatar variant="info" :src="this.img" size="5rem"></b-avatar>

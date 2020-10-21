@@ -1,3 +1,14 @@
+<style lang="scss">
+    @import "src/styles/variable.scss";
+
+    .city:hover {
+        color: $default-color-secondary !important;
+    }
+
+    .title-class {
+        color: $default-color-primary;
+    }
+</style>
 <template>
     <b-container class="d-flex" fluid>
         <b-modal id="modal-localization" centered hide-footer title-class="title-class" title="Escolha sua Localização">
@@ -19,16 +30,15 @@
         </b-modal>
     </b-container>
 </template>
-
 <script>
     export default {
         data() {
             return {
                 cities: [
-                      {name: "Florianópolis", id: "1"}
-                    , {name: "Palhoça",       id: "2"}
-                    , {name: "São José",      id: "3"}
-                    , {name: "Biguaçu",       id: "4"}
+                    {name: "Florianópolis", id: "1"}
+                    , {name: "Palhoça", id: "2"}
+                    , {name: "São José", id: "3"}
+                    , {name: "Biguaçu", id: "4"}
                 ]
             };
         },
@@ -49,12 +59,3 @@
         }
     };
 </script>
-
-<style>
-    .city:hover {
-        color: #e5695a !important;
-    }
-    .title-class{
-        color: #069999;
-    }
-</style>

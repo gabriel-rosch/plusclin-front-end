@@ -1,4 +1,6 @@
 <style scoped lang="scss">
+    @import "src/styles/variable.scss";
+
     main {
         display: grid;
         grid-template-areas: "i ii iii";
@@ -11,7 +13,7 @@
             flex-direction: column;
             justify-content: center;
             grid-area: ii;
-            font-size: 2.85rem;
+            font-size: $default-font-size * 1.60;
 
             .search-row {
                 display: flex;
@@ -22,19 +24,19 @@
                     display: flex;
                     align-items: center;
                     margin-left: 1rem;
-                    font-size: 1.5rem;
+                    font-size: $default-font-size * 0.90;
                 }
 
                 input {
                     flex: 1;
                     height: 4rem;
                     padding: 20px 20px;
-                    font-size: 1.5rem;
-                    color: #069999;
+                    font-size: $default-font-size * 0.90;
+                    color: $default-color-primary;
                 }
 
                 input:focus {
-                    border: solid 1px #069999;
+                    border: solid 1px $default-color-primary;
                 }
             }
         }
@@ -45,7 +47,7 @@
         position: relative;
 
         > div {
-            background-color: #069999;
+            background-color: $default-color-primary;
             height: 80rem;
             padding-left: 8rem;
         }
@@ -56,7 +58,7 @@
 
             strong {
                 padding: 0 2rem;
-                font-size: 2.85rem;
+                font-size: $default-font-size * 1.80;
                 font-weight: normal;
             }
 
@@ -81,7 +83,7 @@
                 }
 
                 span {
-                    font-size: 1.6rem;
+                    font-size: $default-font-size;;
                     margin-right: 4rem;
                     line-height: 3.2rem;
                     color: #746F73;
@@ -111,7 +113,7 @@
         .message {
             display: grid;
             grid-template-areas: "i ii iii iiii";
-            font-size: 1.8rem;
+            font-size: $default-font-size;
             grid-template-columns: 2fr 1fr 10fr 2fr;
 
             img:first-child {
@@ -152,7 +154,7 @@
         }
 
         .share-experience {
-            font-size: 2rem;
+            font-size: $default-font-size;
             margin: 2rem auto;
 
             span {
@@ -200,7 +202,7 @@
             .message {
                 grid-template-columns: 2fr 1fr 10fr 2fr;
 
-                font-size: 1.4rem;
+                font-size: $default-font-size * 0.80;
             }
         }
         section {

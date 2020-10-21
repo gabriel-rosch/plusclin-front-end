@@ -1,4 +1,6 @@
 <style scoped lang="scss">
+    @import "src/styles/variable.scss";
+
     main {
         padding: 2rem;
 
@@ -10,10 +12,10 @@
                 margin: 1rem 0;
                 height: 4rem;
                 border: none;
-                border-radius: 2rem;
+                border-radius: $default-border-radius;
                 width: 100%;
-                font-size: 1.2rem;
-                background-color: #069999;
+                font-size: $default-font-size * 0.62;
+                background-color: $default-color-primary;
                 align-items: center;
                 text-align: center;
 
@@ -29,53 +31,54 @@
                 }
             }
         }
+    }
 
-        .register-form {
+    .register-form {
 
-            .register-group {
-                font-size: 1.3rem;
-                margin: 1rem 0;
-            }
-
-            .register-input {
-                height: 4rem;
-                padding: 0 1.5rem;
-                border: 1.2px solid #069999;
-                border-radius: 2rem;
-            }
+        .register-group {
+            font-size: 1.3rem;
+            margin: 1rem 0;
         }
 
-        .register-action {
-            display: grid;
-            grid-template-areas: "i ii";
-            grid-template-columns: 3fr 1fr;
-
-            .haveAccount {
-                font-size: 1.1rem;
-                color: #069999;
-                font-weight: bolder;
-                margin: auto 2rem auto auto;
-            }
-
-            .haveAccount:hover {
-                cursor: pointer;
-            }
-
-            .action {
-                font-size: 1.3rem;
-                background-color: #E5695A;
-                height: 3.5rem;
-                border: none;
-                border-radius: 2rem;
-            }
-
+        .register-input {
+            height: 4rem;
+            padding: 0 1.5rem;
+            border: $default-border solid $default-color-primary;
+            border-radius: $default-border-radius;
         }
+    }
+
+    .register-action {
+        display: grid;
+        grid-template-areas: "i ii";
+        grid-template-columns: 3fr 1fr;
+
+        .haveAccount {
+            font-size: $default-font-size * 0.65;
+            color: $default-color-primary;
+            font-weight: bolder;
+            margin: auto 2rem auto auto;
+        }
+
+        .haveAccount:hover {
+            cursor: pointer;
+        }
+
+        .action {
+            font-size: $default-font-size * 0.70;
+            background-color: $default-color-secondary;
+            height: 3.5rem;
+            padding: $default-button-padding;
+            border: none;
+            border-radius: $default-border-radius;
+        }
+
     }
 
     @media (max-width: 720px) {
         .social {
             .network {
-                font-size: 2rem  !important;
+                font-size: $default-font-size !important;
             }
         }
     }
@@ -83,7 +86,7 @@
     @media (max-width: 640px) {
         .social {
             .network {
-                font-size: 2rem  !important;
+                font-size:$default-font-size  !important;
             }
         }
     }
@@ -91,7 +94,7 @@
     @media (max-width: 500px) {
         .social {
             .network {
-                font-size: 2.4rem !important;
+                font-size:$default-font-size  * 1.25 !important;
             }
         }
     }
@@ -99,7 +102,7 @@
     @media (max-width: 320px) {
         .social {
             .network {
-                font-size: 2rem  !important;
+                font-size: $default-font-size  !important;
             }
         }
     }
@@ -299,6 +302,3 @@
         }
     };
 </script>
-
-<style>
-</style>

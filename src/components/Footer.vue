@@ -1,7 +1,7 @@
 <style scoped lang="scss">
-
+    @import "src/styles/variable.scss";
     footer {
-        background-color: #e5695a;
+        background-color: $default-color-secondary;
         height: 42rem;
         padding-left: 5rem;
         padding-top: 2.2em;
@@ -12,8 +12,8 @@
         }
 
         .become-clinic {
-            border: 0.2rem solid white;
-            font-size: 1.5rem;
+            border: $default-border solid white;
+            font-size: $default-font-size;
             width: 24rem;
             margin: 3rem 0;
         }
@@ -22,7 +22,7 @@
             display: grid;
             grid-template-areas: "i ii";
 
-            font-size: 1.9rem;
+            font-size: $default-font-size;
             text-decoration-line: underline;
             color: #ffffff;
 
@@ -51,7 +51,7 @@
             .discounts {
                 font-style: normal;
                 font-weight: normal;
-                font-size: 2rem;
+                font-size: $default-font-size;
                 color: #fed1cb;;
             }
 

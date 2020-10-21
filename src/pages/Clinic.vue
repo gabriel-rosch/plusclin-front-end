@@ -1,29 +1,29 @@
 <style lang="scss">
-    $vue-arrow: #42b883;
+    @import "src/styles/variable.scss";
 
     .box-date {
         .form-control {
-            color: #069999 !important;
+            color: $default-color-primary !important;
         }
 
         .btn-outline-secondary {
-            color: #069999 !important;
+            color: $default-color-primary !important;
             border: none !important;
             background-color: transparent;
         }
 
         .btn-outline-secondary:active {
-            border-color: #069999 !important;
-            background-color: #E5695A !important;
+            border-color: $default-color-primary !important;
+            background-color: $default-color-secondary !important;
         }
 
         .btn-outline-secondary:hover {
-            border-color: #069999 !important;
-            background-color: #E5695A !important;
+            border-color: $default-color-primary !important;
+            background-color: $default-color-secondary !important;
         }
 
         .btn-outline-secondary:focus {
-            border-color: #069999 !important;
+            border-color: $default-color-primary !important;
         }
 
         .b-calendar-grid {
@@ -34,7 +34,7 @@
             }
 
             .btn-primary:not(:disabled):not(.disabled):active, .btn-primary:not(:disabled):not(.disabled).active, .show > .btn-primary.dropdown-toggle {
-                background-color: #069999 !important;
+                background-color: $default-color-primary !important;
             }
 
 
@@ -44,16 +44,16 @@
 
 
             span {
-                background-color: #E5695A !important;
+                background-color: $default-color-secondary !important;
                 color: white !important;
             }
 
             .btn-outline-secondary:hover {
-                background-color: #069999 !important;
+                background-color: $default-color-primary !important;
             }
 
             .btn-secondary:not(:disabled):not(.disabled):active, .btn-secondary:not(:disabled):not(.disabled).active, .show > .btn-secondary.dropdown-toggle {
-                background-color: #069999 !important;
+                background-color: $default-color-primary !important;
             }
         }
 
@@ -77,17 +77,14 @@
             justify-content: center;
             width: 100%;
         }
-
-
         .title-primary {
-            color: rgb(229, 105, 90);
-            font-size: 2vw;
+            color: $default-color-secondary;
+            font-size: $default-font-size;
             text-decoration: underline;
         }
-
         .title-secundary {
-            font-size: 4vw;
-            color: #069999;
+            font-size: $default-font-size;
+            color: $default-color-primary;
         }
     }
 
@@ -109,14 +106,14 @@
         }
 
         .title-primary {
-            color: rgb(229, 105, 90);
-            font-size: 1.8vw;
+            color:  $default-color-secondary ;
+            font-size: $default-font-size * 1.15;
             text-decoration: underline;
         }
 
         .title-secundary {
-            font-size: 2.3vw;
-            color: #069999;
+            font-size: $default-font-size;
+            color: $default-color-primary;
             font-family: Asap;
             font-style: normal;
             font-weight: normal;
@@ -133,7 +130,6 @@
         }
 
     }
-
 
     .content {
         display: grid;
@@ -191,8 +187,8 @@
             width: 3rem;
             height: 3rem;
             box-sizing: border-box;
-            border-top: 0.8rem solid $vue-arrow;
-            border-right: 0.8rem solid $vue-arrow;
+            border-top: 0.8rem solid $default-color-primary;
+            border-right: 0.8rem solid $default-color-primary;
             cursor: pointer;
 
             &[disabled] {
@@ -277,12 +273,6 @@
                             :min="min"
                             :max="max">
                     </b-calendar>
-                    <!--                    <b-datepicker v-model="dateSelect" @hidden="onFilter" value-as-date selected-variant="secondary"-->
-                    <!--                                  hide-header-->
-                    <!--                                  menu-class="data-picker"-->
-                    <!--                                  calendar-width="100%"-->
-                    <!--                                  class="date-piker" :max="max"-->
-                    <!--                                  :min="min" size="lg"/>-->
                 </div>
             </b-col>
         </div>

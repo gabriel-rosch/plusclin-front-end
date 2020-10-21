@@ -1,3 +1,18 @@
+<style lang="scss" scoped>
+    @import "src/styles/variable.scss";
+    .b-calendar-inner {
+        background-color: pink;
+    }
+
+    .b-calendar-nav {
+        background-color: white !important;
+    }
+
+    button {
+        background-color: pink;
+        color: pink;
+    }
+</style>
 <template>
     <div class="d-flex flex-column">
         <b-col cols="12" class="d-flex" style="margin-bottom: 2vw;margin-top: 5vw;">
@@ -44,17 +59,3 @@
     };
 </script>
 
-<style scoped>
-    .b-calendar-inner {
-        background-color: pink;
-    }
-
-    .b-calendar-nav {
-        background-color: white !important;
-    }
-
-    button {
-        background-color: pink;
-        color: pink;
-    }
-</style>

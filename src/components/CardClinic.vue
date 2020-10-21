@@ -1,4 +1,5 @@
 <style lang="scss" scoped>
+    @import "src/styles/variable.scss";
     /*sm*/
     @media (max-width: 767px) {
         .card {
@@ -42,14 +43,14 @@
         }
 
         .title {
-            color: rgb(229, 105, 90);
-            font-size: 1.8rem !important;
+            color: $default-color-secondary;
+            font-size: $default-font-size !important;
             font-weight: bolder;
         }
 
         .description span {
             font-size: 1.6rem;
-            color: #069999;
+            color: $default-color-primary;
         }
     }
 </style>

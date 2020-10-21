@@ -1,3 +1,15 @@
+<style>
+    .popover {
+        font-size: 24px;
+    }
+    .btn-save-medical-record {
+        margin-left: auto;
+    }
+    .modal-mediacl-records {
+        width: 900px;
+    }
+</style>
+
 <template>
     <div>
         <div class="d-flex flex-column"
@@ -133,15 +145,4 @@
         }
     };
 </script>
-<style>
-    .popover {
-        font-size: 24px;
-    }
-    .btn-save-medical-record {
-        margin-left: auto;
-    }
-    .modal-mediacl-records {
-        width: 900px;
-    }
-</style>
 

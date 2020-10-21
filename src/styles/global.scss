@@ -1,22 +1,24 @@
+@import "src/styles/variable.scss";
+
 .primary {
-    color: #E5695A;
+    color: $default-color-secondary !important;
 }
 
 .secondary {
-    color: #069999 !important;
+    color: $default-color-primary !important;
 }
 
 .button-primary {
-    background-color: #E5695A;
+    background-color: $default-color-secondary;
     color: #fff;
-    border: 1px solid #E5695A;
-    padding: .8rem 2rem;
+    border: $default-border solid $default-color-secondary;
+    padding: $default-button-padding;
 }
 
 .button-primary:hover {
     background-color: #fff;
-    border: 1px solid #E5695A;
-    color: #E5695A;
+    border: $default-border solid $default-color-secondary;
+    color: $default-color-secondary;
 }
 
 .button-primary:focus {

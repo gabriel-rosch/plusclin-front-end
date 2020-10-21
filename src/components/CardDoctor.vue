@@ -1,4 +1,6 @@
-<style lang="scss"  scoped>
+<style lang="scss" scoped>
+    @import "src/styles/variable.scss";
+
     .card-doctor {
         height: 15vw;
     }
@@ -9,8 +11,8 @@
     }
 
     .medic-name {
-        font-size: 1.6vw;
-        color: #069999;
+        font-size: $default-font-size;
+        color: $default-color-primary;
         font-weight: bold;
         text-decoration: underline;
         width: 100%;
@@ -18,6 +20,7 @@
     }
 
     .medic-crm {
+        font-size: $default-font-size * 0.60;
         margin-left: 1vw;
         color: slategray;
         border-color: slategray;
@@ -32,9 +35,10 @@
         justify-content: center;
     }
 
-    .avatar{
-        border: .1vw solid #069999;
+    .avatar {
+        border: $default-border solid $default-color-primary;
     }
+
     .grid-date {
         width: 85%;
     }
@@ -56,12 +60,12 @@
 
     .btn-disabled {
         color: slategray;
-        border-color: slategray
+        border: slategray solid $default-border;
     }
 
     .btn-enabled {
-        color: #e5695a;
-        border: #e5695a solid .15rem;
+        color: $default-color-secondary;
+        border: $default-color-secondary solid $default-border;
     }
 
     .btn-hour {
