@@ -1,18 +1,45 @@
-<style>
+<style lang="scss">
+    @import "src/styles/variable.scss";
+
     .popover {
         font-size: 24px;
     }
+
     .btn-save-medical-record {
         margin-left: auto;
     }
+
     .modal-mediacl-records {
         width: 900px;
+    }
+
+    .data-completed {
+        height: 2.5vw;
+        font-size: 1.3vw;
+        background-color: $default-color-secondary;
+        color: #fff;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+    .data-completed:active, .data-completed:hover, .data-completed:focus {
+        height: 2.5vw;
+        font-size: 1.3vw;
+        background-color: $default-color-secondary;
+        color: #fff;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+    .schedule span{
+        color: $default-color-primary;
+        font-size: $default-font-size;
     }
 </style>
 
 <template>
     <div>
-        <div class="d-flex flex-column"
+        <div class="d-flex flex-column schedule"
              style="border: solid rgb(229, 105, 90) 0.1vw;border-radius: 0.5vw;background-color: white; padding: 1vw; width: 16vw;">
             <div class="d-flex" style="padding-bottom: 1vw;">
                 <span class="secondary-class d-flex justify-content-start bold">{{formatDate(this.dados.date)}}</span>
@@ -22,8 +49,7 @@
                 <span class="secondary-class d-flex justify-content-start">Pediatria</span>
             </div>
             <div class="d-flex justify-content-end">
-                <b-button v-bind:id="dados.date" class="d-flex primary-class p-0 m-0"
-                          style="height: 2.5vw;font-size: 1.3vw;"
+                <b-button v-bind:id="dados.date" class="d-flex primary-class p-0 m-0 data-completed"
                           ref="button">Dados Completo
                 </b-button>
             </div>
@@ -50,7 +76,9 @@
                 <div class="d-flex">
                     <div class="h-100 d-flex">
                         <b-button @click="cancelar" variant="danger" class="font-weight-bolder mr-1">Cancelar</b-button>
-                        <b-button @click="openMedicalRecord" variant="success" class="font-weight-bolder mx-1">Prontuário</b-button>
+                        <b-button @click="openMedicalRecord" variant="success" class="font-weight-bolder mx-1">
+                            Prontuário
+                        </b-button>
                     </div>
                     <b-button @click="onClose" variant="primary" class="ml-3 font-weight-bolder">Ok</b-button>
 
@@ -100,7 +128,7 @@
             async openMedicalRecord() {
                 this.$root.$emit('bv::hide::popover');
                 const response = await getMedicalRecord(this.dados.id);
-                if(response.ok) {
+                if (response.ok) {
                     const {text} = await response.json();
                     this.modelText = text;
                 }
