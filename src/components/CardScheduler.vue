@@ -1,6 +1,18 @@
 <style lang="scss">
     @import "src/styles/variable.scss";
 
+    @media (max-width: 767px) {
+        .schedule span {
+            color: $default-color-primary;
+            font-size: $default-font-size;
+        }
+    }
+    @media (min-width: 767px) {
+        .schedule span {
+            color: $default-color-primary;
+            font-size: $default-font-size * 0.80 ;
+        }
+    }
     .popover {
         font-size: 24px;
     }
@@ -22,6 +34,7 @@
         align-items: center;
         justify-content: center;
     }
+
     .data-completed:active, .data-completed:hover, .data-completed:focus {
         height: 2.5vw;
         font-size: 1.3vw;
@@ -31,9 +44,20 @@
         align-items: center;
         justify-content: center;
     }
-    .schedule span{
-        color: $default-color-primary;
-        font-size: $default-font-size;
+
+
+    .btn-save-medical-record{
+        color: #fff;
+        border: none;
+        padding: $default-button-padding;
+        margin-top: .2vw;
+        background-color: $default-color-secondary;
+        font-size: $default-font-size * 0.65;
+    }
+
+    .btn-save-medical-record:active, .btn-save-medical-record:hover, .btn-save-medical-record:focus {
+        color: #fff;
+        background-color: $default-color-secondary;
     }
 </style>
 
@@ -46,10 +70,10 @@
                 <span class="secondary-class d-flex justify-content-end bold">{{formatHour(this.dados.date)}}</span>
             </div>
             <div style="height: 3vw;">
-                <span class="secondary-class d-flex justify-content-start">Pediatria</span>
+                <span class="secondary-class d-flex justify-content-start">Urologia</span>
             </div>
             <div class="d-flex justify-content-end">
-                <b-button v-bind:id="dados.date" class="d-flex primary-class p-0 m-0 data-completed"
+                <b-button v-bind:id="dados.date" class="shadow rounded-pill no-wrap btn-save-medical-record"
                           ref="button">Dados Completo
                 </b-button>
             </div>
@@ -93,7 +117,7 @@
                         rows="10"
                         max-rows="200"
                 ></b-form-textarea>
-                <b-button @click="saveMedicalRecord" class="d-flex primary-class mt-3 w-25 btn-save-medical-record">
+                <b-button @click="saveMedicalRecord" class="shadow rounded-pill no-wrap d-flex btn-save-medical-record">
                     Salvar
                 </b-button>
             </b-modal>

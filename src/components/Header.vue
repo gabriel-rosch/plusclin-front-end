@@ -152,7 +152,7 @@
                     <div class="rounded-pill" style="min-width: 2.5vw; min-height: 2.5vw;">
                         <div v-if="this.img.length <= 9">
                             <b-icon-person-fill
-                                    style="color:  $default-color-secondary; width: 2.5vw; height: 2.5vw;"></b-icon-person-fill>
+                                    style="color: $default-color-secondary; width: 2.5vw; height: 2.5vw;"></b-icon-person-fill>
                         </div>
                         <div v-else class="rounded-pill p-0 m-0">
                             <b-avatar variant="info" :src="this.img" size="5rem"></b-avatar>
