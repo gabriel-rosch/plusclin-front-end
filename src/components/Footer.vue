@@ -14,7 +14,7 @@
         .become-clinic {
             border: $default-border solid white;
             font-size: $default-font-size;
-            width: 24rem;
+            width: 28rem;
             margin: 3rem 0;
         }
 
