@@ -65,17 +65,17 @@
         height: 15vw;
     }
 </style>
-
-
 <template>
-
     <div>
+        <Confirmation/>
         <div class="title">
             <span class="title-specialties"> Especialistas em {{initCap(this.specialtieName)}} disponíveis em&nbsp; </span>
-            <strong class="title-date">{{getFormattedDate(this.$store.dateSelect)}}</strong>
+            <strong class="title-date">{{this.$route.params.dataSelected.replaceAll("-","/")}}</strong>
         </div>
         <div class="container-doctors">
-            <card-doctor :key="user.id" @selectedtime="selectTime" v-for="user in this.$store.users" :user="user"
+
+            <card-doctor :key="user.id" @selectedtime="selectTime" v-for="user in this.users " :user="user"
+                         :specialtieName="specialtieName"
                          class="mb-5 card-doctor"/>
             <b-modal id="modalPagamento" hide-footer>
                 <b-button class="mt-3" block @click="cloneModal">Fechar</b-button>
@@ -86,6 +86,7 @@
 </template>
 
 <script>
+    import {listClinics} from '../api/clinic';
     import CardDoctor from "../components/CardDoctor";
     import {postAppointments} from "../api/appointments";
 
@@ -98,11 +99,23 @@
             return {
                 doctors: [],
                 hourAppointment: {},
-                specialtieName: ''
+                users: []
+            }
+        }
+        , computed: {
+            specialtieName() {
+                return JSON.parse(localStorage.getItem('searchSpecialtie')).name;
             }
         },
         mounted() {
-            this.specialtieName = JSON.parse(localStorage.getItem('searchSpecialtie')).name;
+            if (this.$store.users != null && this.$store.users != '') {
+                this.users = this.$store.users;
+            } else {
+                var arrayDS = this.$route.params.dataSelected.split('-');
+                var stringDataFormated = arrayDS[1] + '-' + arrayDS[0] + '-' + arrayDS[2];
+                var dataSelected = new Date(stringDataFormated);
+                this.users = listClinics(115, dataSelected.getTime());
+            }
         },
         methods: {
             async saveAppointment() {

@@ -106,7 +106,7 @@
         }
 
         .title-primary {
-            color:  $default-color-secondary ;
+            color: $default-color-secondary;
             font-size: $default-font-size * 1.15;
             text-decoration: underline;
         }
@@ -255,6 +255,7 @@
 <template>
     <div>
         <div class="header">
+
             <div class="specialties">
                 <span v-if="this.searchSpeciltie.name" class="title-secundary d-flex span-primary">{{this.searchSpeciltie.name}}</span>
                 <span v-else class="title-secundary d-flex">Especialidade não encontrada</span>
@@ -284,18 +285,21 @@
                             style="box-shadow: 10px 10px 10px rgba(0, 20,100,0.15);"
                             class="border card-clinics"
                             v-if="clinics.length >0"
+                            :dataSelected=" this.dateSelect"
                             :clinic="getCardClinic(0)"
                     />
                     <card-clinic
                             style="box-shadow: 10px 10px 10px rgba(0, 20,100,0.15);"
                             class="border card-clinics"
                             v-if="clinics.length >1"
+                            :dataSelected=" this.dateSelect"
                             :clinic="getCardClinic(1)"
                     />
                     <card-clinic
                             style="box-shadow: 10px 10px 10px rgba(0, 20,100,0.15);"
                             class="border card-clinics"
                             v-if="clinics.length >2"
+                            :dataSelected=" this.dateSelect"
                             :clinic="getCardClinic(2)"
                     />
                 </div>
@@ -332,7 +336,6 @@
         },
         data() {
             const now = new Date()
-            const tomorrow = new Date(now.getFullYear(), now.getMonth(), now.getDate() + 1)
             const today = new Date(now.getFullYear(), now.getMonth(), now.getDate())
             const minDate = new Date(today)
             const maxDate = new Date(today)
@@ -344,7 +347,7 @@
                 pagination: 0,
                 date: Object,
                 clinics: [],
-                dateSelect: tomorrow,
+                dateSelect: now,
                 min: minDate,
                 max: maxDate,
                 searchSpeciltie: {}
@@ -352,6 +355,7 @@
         },
         mounted() {
             this.load();
+            this.onFilter();
         },
         computed: {
             firstOfList() {
@@ -429,7 +433,7 @@
             onFilter() {
                 this.$store.dateSelect = this.dateSelect;
                 this.loadClinics();
-            }
+            },
         },
     }
 </script>

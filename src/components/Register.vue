@@ -1,6 +1,15 @@
 <style scoped lang="scss">
     @import "src/styles/variable.scss";
 
+    .modal-title {
+        color: $default-color-primary;
+    }
+
+
+    .register-group{
+        color: $default-color-primary;
+    }
+
     main {
         padding: 2rem;
 
@@ -120,7 +129,7 @@
             >
                 {{erro}}!
             </b-alert>
-            <template v-slot:modal-title>Cadastrar-se</template>
+            <template v-slot:modal-title><span class="modal-title">Cadastrar-se</span></template>
             <main>
                 <div class="social">
                     <b-button class="network" @click="signInWithFacebook">

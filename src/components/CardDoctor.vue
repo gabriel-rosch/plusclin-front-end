@@ -10,6 +10,7 @@
         box-shadow: rgba(0, 20, 100, 0.15) 10px 10px 10px;
     }
 
+
     .medic-name {
         font-size: $default-font-size;
         color: $default-color-primary;
@@ -76,6 +77,7 @@
 </style>
 <template>
     <div class="d-flex card-doctor bg-white avatar-shadow">
+        <Confirmation :user="userSelected" :item="timeSelected" :specialtieName="this.specialtieName"/>
         <div class="grid-avatar ">
             <b-avatar variant="info" class="avatar" :src="this.img" size="6.6vw"></b-avatar>
         </div>
@@ -86,8 +88,9 @@
             </div>
             <div class="hours">
                 <div class="hour" :key="item.index" v-for="item in this.availables">
-                    <b-button @click="openModal(item)"
-                              :class="['btn-hour', item.available ? 'btn-enabled': 'btn-disabled',item.available ? 'shadow' : '']">
+                    <b-button
+                            @click="openConfirmation(user, item)"
+                            :class="['btn-hour', item.available ? 'btn-enabled': 'btn-disabled',item.available ? 'shadow' : '']">
                         {{item.time}}
                     </b-button>
                 </div>
@@ -100,15 +103,22 @@
     import {getAvailable} from "../api/available";
     import {listSpecialtiesByProvider} from "../api/specialties";
     import {getFile} from "../api/file";
+    import Confirmation from "../components/Confirmation";
 
     export default {
+        components: {
+            Confirmation
+        },
         name: "card-doctor",
         props: {
             user: Object
+            , specialtieName: String
         },
         data() {
             return {
                 availables: [],
+                userSelected: null,
+                timeSelected: null,
                 stringSpecialties: '',
                 avatarUrl: '',
                 img: 'https://network.grupoabril.com.br/wp-content/uploads/sites/4/2016/10/medico-duvidas2.jpg?quality=70&strip=all'
@@ -125,6 +135,11 @@
                     value: payload.value,
                     doctorId: this.user.id
                 })
+            },
+            openConfirmation(user, item) {
+                this.userSelected = user;
+                this.timeSelected = item;
+                window.location.href = "#confirmation";
             },
             async loadUserSpecialties() {
                 const {stringSpecialties} = await (await listSpecialtiesByProvider(this.user.id)).json();

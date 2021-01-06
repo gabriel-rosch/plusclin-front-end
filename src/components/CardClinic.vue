@@ -10,7 +10,7 @@
                 height: 12rem;
             }
 
-            .text-muted{
+            .text-muted {
                 font-size: 1rem;
             }
 
@@ -27,7 +27,7 @@
                 height: 20rem;
             }
 
-            .text-muted{
+            .text-muted {
                 font-size: 1.15rem;
             }
         }
@@ -92,13 +92,18 @@
         name: "card-clinic",
         props: {
             id: Number,
-            clinic: Object
+            clinic: Object,
+            dataSelected: Date
         },
         methods: {
             onSelect() {
                 this.$store.users = this.clinic.Users;
                 const specialtieName = localStorage.getItem('searchSpecialtie');
-                this.$router.push({path: `/especialidade/${JSON.parse(specialtieName).key}/${this.clinic.id}`})
+                var dd = String(this.dataSelected.getDate()).padStart(2, '0');
+                var mm = String(this.dataSelected.getMonth() + 1).padStart(2, '0');
+                var yyyy = this.dataSelected.getFullYear();
+                var dataPersonalized =  dd + '-' + mm + '-' + yyyy;
+                this.$router.push({path: `/especialidade/${JSON.parse(specialtieName).key}/${this.clinic.id}/${dataPersonalized}`})
             }
         }
     }

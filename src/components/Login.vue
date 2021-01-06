@@ -1,6 +1,14 @@
 <style scoped lang="scss">
     @import "src/styles/variable.scss";
 
+    .modal-title {
+        color: $default-color-primary;
+    }
+
+    .register-group {
+        color: $default-color-primary;
+    }
+
     main {
         padding: 2rem;
 
@@ -86,7 +94,7 @@
     @media (max-width: 640px) {
         .social {
             .network {
-                font-size:$default-font-size  !important;
+                font-size: $default-font-size !important;
             }
         }
     }
@@ -94,7 +102,7 @@
     @media (max-width: 500px) {
         .social {
             .network {
-                font-size:$default-font-size  * 1.25 !important;
+                font-size: $default-font-size  * 1.25 !important;
             }
         }
     }
@@ -102,7 +110,7 @@
     @media (max-width: 320px) {
         .social {
             .network {
-                font-size: $default-font-size  !important;
+                font-size: $default-font-size !important;
             }
         }
     }
@@ -120,7 +128,7 @@
             >
                 {{erro}}!
             </b-alert>
-            <template v-slot:modal-title>Login</template>
+            <template v-slot:modal-title><span class="modal-title">Login</span></template>
             <main>
                 <div class="social">
                     <b-button class="network" @click="signInWithFacebook">

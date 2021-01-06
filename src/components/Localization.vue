@@ -43,6 +43,7 @@
 
     .city-name {
         font-size: 1.5rem;
+        color: $default-color-primary;
     }
 
 
